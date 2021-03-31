@@ -1062,14 +1062,6 @@ os.execute('https://raw.githubusercontent.com/Tubaktele/TuBacK/main/TuBacK.lua')
 send(msg.chat_id_, msg.id_,' ⌔︙تم تحديث السورس \n ⌔︙لديك اخر اصدار لسورس توباك\n ⌔︙الاصدار » { v.1}')
 dofile('TuBacK.lua')  
 end
-if text == "تحديث ♻" then
-dofile("TuBack.lua")  
-send(msg.chat_id_, msg.id_, "☑| تم التحديث")
-end
-end
-end --- Chat_Type = 'UserBot' 
-end
-end
 if text == 'الاصدار ≁' and DevSoFi(msg) then 
 database:del(bot_id..'Srt:Bot') 
 send(msg.chat_id_, msg.id_,' ⌔︙اصدار سورس توباك \n ⌔︙الاصدار »{ v.1}')
@@ -2592,10 +2584,7 @@ end
 end,nil)  
 end
 
-if text == "تحديث" and DevSoFi(msg) then 
-dofile("TuBack.lua")  
-send(msg.chat_id_, msg.id_, "☑| تم التحديث")
-end
+
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
