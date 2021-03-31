@@ -1062,6 +1062,14 @@ os.execute('https://raw.githubusercontent.com/Tubaktele/TuBacK/main/TuBacK.lua')
 send(msg.chat_id_, msg.id_,' ⌔︙تم تحديث السورس \n ⌔︙لديك اخر اصدار لسورس توباك\n ⌔︙الاصدار » { v.1}')
 dofile('TuBacK.lua')  
 end
+if text == "تحديث ♻" then
+dofile("TuBack.lua")  
+send(msg.chat_id_, msg.id_, "☑| تم التحديث")
+end
+end
+end --- Chat_Type = 'UserBot' 
+end
+end
 if text == 'الاصدار ≁' and DevSoFi(msg) then 
 database:del(bot_id..'Srt:Bot') 
 send(msg.chat_id_, msg.id_,' ⌔︙اصدار سورس توباك \n ⌔︙الاصدار »{ v.1}')
@@ -2582,6 +2590,11 @@ end
 end
 end
 end,nil)  
+end
+
+if text == "تحديث" and DevSoFi(msg) then 
+dofile("TuBack.lua")  
+send(msg.chat_id_, msg.id_, "☑| تم التحديث")
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
@@ -11141,7 +11154,7 @@ end
 if text and text ~="كشف الحيوان" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
 numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
 sendnuj = numj[math.random(#numj)]
-xl = [[ 
+Text = [[ 
 ⌔︙اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽
 ]]
 keyboard = {} 
@@ -11151,12 +11164,11 @@ keyboard.inline_keyboard = {
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-end
+else
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
 end
-
+end
 
 
 if text and text:match("^كول (.*)$") then
