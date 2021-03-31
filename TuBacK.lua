@@ -26,35 +26,35 @@ local token = io.read()
 if token ~= '' then
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
 if res ~= 200 then
-print('\27[0;31m⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n التوكن غير صحيح تاكد منه ثم ارسله')
+print('\27[0;31m\nThe token is not valid.')
 else
-io.write('\27[0;31m تم حفظ التوكن بنجاح \na⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n27[0;39;49m')
+io.write('\27[0;31m\nDone Token saved Successfully\n27[0;39;49m')
 database:set(id_server..":token",token)
 end 
 else
-print('\27[0;35m⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n لم يتم حفظ التوكن ارسل لي التوكن الان')
+print('\27[0;35m\nThe token is not saved. send me the token now.')
 end 
 os.execute('lua TuBacK.lua')
 end
 if not database:get(id_server..":SUDO:ID") then
-io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\na⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n\27[0;33;49m')
+io.write('\27[0;35m\n 𝗦𝗲𝗻𝗱 𝗶𝗱 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿 ↓ : ➪\n\27[0;33;49m')
 local SUDOID = io.read()
 if SUDOID ~= '' then
-io.write('\27[1;35m تم حفظ ايدي المطور الاساسي \na⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n27[0;39;49m')
+io.write('\27[1;35m \nDone saved iD Developer\n27[0;39;49m')
 database:set(id_server..":SUDO:ID",SUDOID)
 else
-print('\27[0;31m⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
+print('\27[0;31m \n are not saved id Developer')
 end 
 os.execute('lua TuBacK.lua')
 end
 if not database:get(id_server..":SUDO:USERNAME") then
-io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND ID FOR SIDO : \27[0;39;49m')
+io.write('\27[1;31m Send : User Name↓ : ⍟ \27[0;39;49m')
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
-io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
+io.write('\n\27[1;34m Done saved User Name Developer :\n\27[0;39;49m')
 database:set(id_server..":SUDO:USERNAME",'@'..SUDOUSERNAME)
 else
-print('\n\27[1;34m لم يتم حفظ معرف المطور :')
+print('\n\27[1;34m are not saved UserName Developer :')
 end 
 os.execute('lua TuBacK.lua')
 end
@@ -10450,7 +10450,7 @@ local List = {
 ゠𝚄𝚂𝙴𝚁 𖨈 #username 𖥲 .
 ゠𝙼𝚂𝙶 𖨈 #msgs 𖥲 .
 ゠𝚂𝚃𝙰 𖨈 #stast 𖥲 .
-゠𝙸𝙳 𖨈 #id 𖥲 .
+゠??𝙳 𖨈 #id 𖥲 .
 ]],
 [[⌔︙ᴜѕᴇʀɴᴀᴍᴇ ➥• #username .
 ≁⎠ᴍѕɢѕ ➥• #msgs .
