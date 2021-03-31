@@ -9763,13 +9763,15 @@ else
 if result.username_ then
 username = '@'..result.username_ 
 else
+if deata.join_date_ ~= 0 then
+tarek = os.date('%Y-%m-%d', deata.join_date_)
 username = 'لا يوجد '
 end
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, sofi.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n ⌔︙ايديك ~⪼ '..msg.sender_user_id_..'\n ⌔︙معرفك ~⪼ '..username..'\n ⌔︙رتبتك ~⪼ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n ⌔︙موقعك ~⪼ '..rtpa..'\n ⌔︙تفاعلك ~⪼ '..Total_Msg(Msguser)..'\n ⌔︙رسائلك ~⪼ '..Msguser..'\n ⌔︙نسبه تفاعلك ~⪼ '..string.sub(nspatfa, 1,5)..' %\n ⌔︙السحكات ~⪼ '..edit..'\n ⌔︙نقاطك ~⪼ '..NUMPGAME..'\n')
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, sofi.photos_[0].sizes_[1].photo_.persistent_id_,''..rdphoto..'\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..' %\n🗯️꒐ سحكاتك : '..edit..'\n🗓️| تاريخ : الانضمام '..tarek..'\n')
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-send(msg.chat_id_, msg.id_,'[\n ⌔︙ايديك ~⪼ '..msg.sender_user_id_..'\n ⌔︙معرفك ~⪼ '..username..'\n ⌔︙رتبتك ~⪼ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n ⌔︙موقعك ~⪼ '..rtpa..'\n ⌔︙تفاعلك ~⪼ '..Total_Msg(Msguser)..'\n ⌔︙رسائلك ~⪼ '..Msguser..'\n ⌔︙نسبه  تفاعلك ~⪼ '..string.sub(nspatfa, 1,5)..' %\n ⌔︙السحكات ~⪼ '..edit..'\n ⌔︙نقاطك ~⪼ '..NUMPGAME..']\n')
+send(msg.chat_id_, msg.id_,'[\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..' %\n🗯️꒐ سحكاتك : '..edit..'\n🗓️| تاريخ : الانضمام '..tarek..' ]\n')
 else
 send(msg.chat_id_, msg.id_, '\n ⌔︙الصوره ~⪼ ليس لديك صور في حسابك'..'[\n ⌔︙ايديك ~⪼ '..msg.sender_user_id_..'\n ⌔︙معرفك ~⪼ '..username..'\n ⌔︙رتبتك ~⪼ '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n ⌔︙موقعك ~⪼ '..rtpa..'\n ⌔︙تفاعلك ~⪼ '..Total_Msg(Msguser)..'\n ⌔︙رسائلك ~⪼ '..Msguser..'\n ⌔︙نسبه تفاعلك ~⪼ '..string.sub(nspatfa, 1,5)..' %\n ⌔︙السحكات ~⪼ '..edit..'\n ⌔︙نقاطك ~⪼ '..NUMPGAME..']\n')
 end 
@@ -10494,12 +10496,6 @@ if not Mod(data) then
 local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🍇'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
-end
-local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.TuBak ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• ~ [@TuBakX]⚜️')   
-return false 
 end
 local Text =[[
 اهلا بك في سورس [TuBak Team](t.me/Tubakx)
