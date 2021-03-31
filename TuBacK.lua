@@ -2587,7 +2587,7 @@ if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
-send(msg.chat_id_,msg.id_,'⌔︙لا تستطيع استخدام البوت \n  ⌔︙يرجى الاشتراك بالقناه اولا \n [⌔︙اضغط هنا للشتراك 🔽](t.me/tubakx)')   
+send(msg.chat_id_,msg.id_,'*⌔︙عليك الاشتراك *[اضغط هنا 🍇.](t.me/tubakx)')   
 return false 
 end
 Text = [[
