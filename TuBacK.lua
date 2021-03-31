@@ -1058,13 +1058,13 @@ end
 
 if text == 'تحديث السورس ≁' and DevSoFi(msg) then 
 os.execute('rm -rf TuBacK.lua')
-os.execute('wget https://raw.githubusercontent.com/SRCTuBacK/TuBacK/main/TuBacK.lua')
-send(msg.chat_id_, msg.id_,' ⌔︙تم تحديث السورس \n ⌔︙لديك اخر اصدار لسورس توباك\n ⌔︙الاصدار » { v 1.5}')
+os.execute('https://raw.githubusercontent.com/Tubaktele/TuBacK/main/TuBacK.lua')
+send(msg.chat_id_, msg.id_,' ⌔︙تم تحديث السورس \n ⌔︙لديك اخر اصدار لسورس توباك\n ⌔︙الاصدار » { v.1}')
 dofile('TuBacK.lua')  
 end
 if text == 'الاصدار ≁' and DevSoFi(msg) then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,' ⌔︙اصدار سورس توباك \n ⌔︙الاصدار »{ v 1.5}')
+send(msg.chat_id_, msg.id_,' ⌔︙اصدار سورس توباك \n ⌔︙الاصدار »{ v.1}')
 end
 if text == "ضع اسم للبوت ≁" and DevSoFi(msg) then  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
@@ -2295,18 +2295,15 @@ database:set(bot_id..'Num:Add:Bot',Num)
 send(msg.chat_id_, msg.id_,' ⌔︙تم تعيين عدد الاعضاء سيتم تفعيل الكروبات التي اعضائها اكثر من  >> {'..Num..'} عضو')
 end
 if text == 'تحديث السورس' and DevSoFi(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ⌔︙لا تستطيع استخدام البوت \n  ⌔︙يرجى الاشتراك بالقناه اولا \n  ⌔︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
+local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.TuBak ~= true then
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• ~ [@TuBakX]⚜️')   
+return false 
 end
 os.execute('rm -rf TuBacK.lua')
-os.execute('wget https://raw.githubusercontent.com/SRCTuBacK/TuBacK/main/TuBacK.lua')
-send(msg.chat_id_, msg.id_,' ⌔︙تم تحديث السورس \n ⌔︙لديك اخر اصدار لسورس توباك\n ⌔︙الاصدار » { v 1.5}')
+os.execute('https://raw.githubusercontent.com/Tubaktele/TuBacK/main/TuBacK.lua')
+send(msg.chat_id_, msg.id_,' ⌔︙تم تحديث السورس \n ⌔︙لديك اخر اصدار لسورس توباك\n ⌔︙الاصدار » { v.1}')
 dofile('TuBacK.lua')  
 end
 
