@@ -9765,6 +9765,7 @@ username = '@'..result.username_
 else
 if deata.join_date_ ~= 0 then
 tarek = os.date('%Y-%m-%d', deata.join_date_)
+else
 username = 'لا يوجد '
 end
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
