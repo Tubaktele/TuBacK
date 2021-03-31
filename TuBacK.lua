@@ -2934,7 +2934,6 @@ tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,dat
 send(msg.chat_id_, msg.id_,' ⌔︙بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'X04XX')..') \n ⌔︙تـم فتح المعرفات ')
 end,nil)   
 end
-
 if text == 'تفعيل نسبه الحب' and Manager(msg) then   
 if database:get(bot_id..'Cick:lov'..msg.chat_id_) then
 Text = ' ⌔︙تم تفعيل نسبه الحب'
@@ -9692,7 +9691,7 @@ local List = {
 .𖣂 𝙪𝙨𝙚𝙧𝙣𝙖𝙢𝙚 , #username  
 .𖣂 𝙨𝙩𝙖𝙨𝙩 , #stast  
 .𖣂 𝙡𝘿 , #id  
-.𖣂 𝙂𝙖𝙢?? , #game 
+.𖣂 𝙂𝙖𝙢𝙨 , #game 
 .𖣂 𝙢𝙨𝙂𝙨 , #msgs
 ]]}
 local Text_Rand = List[math.random(#List)]
@@ -11130,9 +11129,8 @@ xl = 'نسبه الانوثه '..text..' هي : \n '..sendnuj..'%'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
 end
-
 if text == "كشف الحيوان" or text == "كشف الحيوانات" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
+if not database:get(bot_id..'Cick:ahmd'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":ahmd_Bots"..msg.chat_id_,"sendrjoe")
 Text = 'ارسل تسم الشخص الذي تريد كشفه \n مثال احمد'
 send(msg.chat_id_, msg.id_,Text) 
@@ -11140,8 +11138,6 @@ end
 end
 if text and text ~="نسبه الحيوان" and database:get(bot_id..":"..msg.sender_user_id_..":ahmd_Bots"..msg.chat_id_) == "sendrjoe" then
 numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendhumk = {"جلب 🦮","مطي 🐴","بقرة 🐄","ثور 🐂","فأر 🐀","قنفذ 🐿","كلب الماي 🦭"جلب 🦮",};
-sendhumk = humk[math.random(#humk)]
 sendnuj = numj[math.random(#numj)]
 xl = '⌔︙اسم الحيوان - '..text..' \n⌔︙نسبة الحيوان - '..sendnuj..'%' \n⌔︙نوع الحيوان - '..sendhumk..'
 send(msg.chat_id_, msg.id_,xl) 
