@@ -9714,6 +9714,7 @@ username = 'لا يوجد '
 end
 if deata.join_date_ ~= 0 then
 tarek = os.date('%Y-%m-%d', deata.join_date_)
+end
 local iduser = msg.sender_user_id_
 local edit = tonumber(database:get(bot_id..'edits'..msg.chat_id_..msg.sender_user_id_) or 0)
 local photps = (sofi.total_count_ or 0)
