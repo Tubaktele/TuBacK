@@ -11115,6 +11115,51 @@ send(msg.chat_id_, msg.id_,xl)
 database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
 end
 
+if text == 'تفعيل كشف الحيوان' and Manager(msg) then   
+if database:get(bot_id..'Cick:ono'..msg.chat_id_) then
+Text = ' ⌔︙تم تفعيل كشف الحيوان'
+database:del(bot_id..'Cick:ono'..msg.chat_id_)  
+else
+Text = ' ⌔︙بالتاكيد تم تفعيل الكشف'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل كشف الحيوان' and Manager(msg) then  
+if not database:get(bot_id..'Cick:ono'..msg.chat_id_) then
+database:set(bot_id..'Cick:ono'..msg.chat_id_,true)  
+Text = '\n ⌔︙تم تعطيل كشف الحيوان'
+else
+Text = '\n ⌔︙بالتاكيد تم تعطيل كشف الحيوان'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == "كشف الحيوان" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:ono'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_,"sendonoe")
+Text = 'ارسل اسم الشخص الذي تريد قياس نسبه انوثتها \n مثال احمد'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="كشف الحيوان" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+sendnuj = numj[math.random(#numj)]
+else
+Text = [[ 
+⌔︙اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'نسبة الحيوان  '..sendnuj..'%', url="t.me/tubakx"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+else
+send(msg.chat_id_, msg.id_,xl) 
+database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
+return false  
+end
+end
 
 if text and text:match("^كول (.*)$") then
 local Textxt = text:match("^كول (.*)$")
