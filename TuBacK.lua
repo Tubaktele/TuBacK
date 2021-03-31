@@ -1059,12 +1059,12 @@ end
 if text == 'تحديث السورس ≁' and DevSoFi(msg) then 
 os.execute('rm -rf TuBacK.lua')
 os.execute('wget https://raw.githubusercontent.com/SRCTuBacK/TuBacK/main/TuBacK.lua')
-send(msg.chat_id_, msg.id_,' ⌔︙تم تحديث السورس \n ⌔︙لديك اخر اصدار لسورس ماتركس\n ⌔︙الاصدار » { v 1.5}')
+send(msg.chat_id_, msg.id_,' ⌔︙تم تحديث السورس \n ⌔︙لديك اخر اصدار لسورس توباك\n ⌔︙الاصدار » { v 1.5}')
 dofile('TuBacK.lua')  
 end
 if text == 'الاصدار ≁' and DevSoFi(msg) then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,' ⌔︙اصدار سورس ماتركس \n ⌔︙الاصدار »{ v 1.5}')
+send(msg.chat_id_, msg.id_,' ⌔︙اصدار سورس توباك \n ⌔︙الاصدار »{ v 1.5}')
 end
 if text == "ضع اسم للبوت ≁" and DevSoFi(msg) then  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
@@ -2306,7 +2306,7 @@ return false
 end
 os.execute('rm -rf TuBacK.lua')
 os.execute('wget https://raw.githubusercontent.com/SRCTuBacK/TuBacK/main/TuBacK.lua')
-send(msg.chat_id_, msg.id_,' ⌔︙تم تحديث السورس \n ⌔︙لديك اخر اصدار لسورس ماتركس\n ⌔︙الاصدار » { v 1.5}')
+send(msg.chat_id_, msg.id_,' ⌔︙تم تحديث السورس \n ⌔︙لديك اخر اصدار لسورس توباك\n ⌔︙الاصدار » { v 1.5}')
 dofile('TuBacK.lua')  
 end
 
@@ -2605,9 +2605,8 @@ keyboard.inline_keyboard = {
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
-end
-
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
 if text == 'رفع نسخه الاحتياطيه' and DevSoFi(msg) then   
@@ -7894,7 +7893,7 @@ local text =
 ' }\n'..' ⌔︙ الايدي » { '..idgp..
 ' }\n'..' ⌔︙ الايدي بالصوره » { '..idph..
 ' }\n'..' ⌔︙ الرفع » { '..setadd..
-' }\n'..' ⌔︙ الحظر » { '..banm..' }\n\n☾• ━━━━━━━━━━━━━━ •☾\n ⌔︙قناة سورس ماتركس ↓\n [🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙼𝙰𝚃𝚁𝙸𝚇.](t.me/X04XX) \n'
+' }\n'..' ⌔︙ الحظر » { '..banm..' }\n\n☾• ━━━━━━━━━━━━━━ •☾\n ⌔︙قناة سورس توباك ↓\n [🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙼𝙰𝚃𝚁𝙸𝚇.](t.me/X04XX) \n'
 send(msg.chat_id_, msg.id_,text)     
 end
 if text ==('تثبيت') and msg.reply_to_message_id_ ~= 0 and Mod(msg) then  
@@ -8946,8 +8945,8 @@ end
 return false
 end
 
-if text == ""..(database:get(bot_id..'Name:Bot') or 'ماتركس').."" then  
-Namebot = (database:get(bot_id..'Name:Bot') or 'ماتركس')
+if text == ""..(database:get(bot_id..'Name:Bot') or 'توباك').."" then  
+Namebot = (database:get(bot_id..'Name:Bot') or 'توباك')
 local TuBacK_Msg = {
 'عمغي 🥺💕.',
 'ياروحي كول اني  '..Namebot..'',
@@ -9810,7 +9809,7 @@ if b.username_ then
 User_id = "@"..b.username_
 else
 User_id = msg.sender_user_id_
-end --الكود حصري سورس ماتركس يعني لو بكتهن راح اعرفك انت الاخذتهن
+end --الكود حصري سورس توباك يعني لو بكتهن راح اعرفك انت الاخذتهن
 local t = "\n≁⎠المستخدم ~ ["..User_id .."] يصيح المشرفين \n☾• ━━━━━━━━━━━━━━ •☾\n"
 k = 0
 for i,v in pairs(data.members_) do
@@ -9985,7 +9984,7 @@ end
 end
 
 -------------------------------
-if text == ""..(database:get(bot_id..'Name:Bot') or 'ماتركس').." غادر" or text == 'بوت غادر' then  
+if text == ""..(database:get(bot_id..'Name:Bot') or 'توباك').." غادر" or text == 'بوت غادر' then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
 send(msg.chat_id_, msg.id_,' ⌔︙تم مغادرة الكروب') 
@@ -9994,7 +9993,7 @@ end
 return false  
 end
 if text == 'بوت' then
-Namebot = (database:get(bot_id..'Name:Bot') or 'ماتركس')
+Namebot = (database:get(bot_id..'Name:Bot') or 'توباك')
 send(msg.chat_id_, msg.id_,'اسمي الكيوت ['..Namebot..'] ')
 end
 if text == 'الاحصائيات' then
@@ -11137,14 +11136,11 @@ if not Mod(msg) then
 send(msg.chat_id_, msg.id_,' ⌔︙هاذا الامر خاص بالادمنيه\n ⌔︙ارسل {م10} لعرض اوامر الاعضاء')
 return false
 end
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ⌔︙لا تستطيع استخدام البوت \n  ⌔︙يرجى الاشتراك بالقناه اولا \n  ⌔︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
+local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.TuBak ~= true then
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• ~ [@TuBakX]⚜️')   
+return false 
 end
 local Text =[[
 اهلا بك في سورس [TuBak Team](t.me/Tubakx)
@@ -12347,7 +12343,7 @@ if (text and text == "تفعيل اوامر التحشيش") then
 send(msg.chat_id_, msg.id_, '  ⌔︙تم تفعيل اوامر التحشيش')
 database:del(bot_id.."Fun_Bots:"..msg.chat_id_)
 end
-local Name_Bot = (database:get(bot_id..'Name:Bot') or 'ماتركس')
+local Name_Bot = (database:get(bot_id..'Name:Bot') or 'توباك')
 if not database:get(bot_id.."Fun_Bots:"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
