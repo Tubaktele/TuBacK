@@ -868,11 +868,11 @@ send(msg.chat_id_,msg.id_,'*• عليك الاشتراك اولا *[اضغط ه
 return false 
 end
 if DevSoFi(msg) then
-local bl = '👋🏻꒐ أهلاً بك ، (https://t.me/..UserName..)[المطور الاساسي]\n🔽꒐ يمكنك استخدام الاوامر التي ظهرت ل'
+local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي ](t.me/Tubakx)\n🔽꒐ يمكنك استخدام الاوامر التي ظهرت لك'
 local keyboard = {
-{'الاحصائيات ≁'},
+{'الاحصائيات 📊'},
 {'تعطيل التواصل ≁','تفعيل التواصل ≁'},
-{'ضع اسم للبوت ≁','المطورين ≁','قائمه العام ≁'},
+{'تغير اسم البوت 🔁','المطورين ≁','قائمه العام ≁'},
 {'المشتركين ≁','الكروبات ≁'},
 {'ضع كليشه ستارت ≁','حذف كليشه ستارت ≁'},
 {'اذاعه ≁','اذاعه خاص ≁'},
@@ -1066,15 +1066,15 @@ if text == 'الاصدار ≁' and DevSoFi(msg) then
 database:del(bot_id..'Srt:Bot') 
 send(msg.chat_id_, msg.id_,' ⌔︙اصدار سورس توباك \n ⌔︙الاصدار »{ v.1}')
 end
-if text == "ضع اسم للبوت ≁" and DevSoFi(msg) then  
+if text == "تغير اسم البوت 🔁" and DevSoFi(msg) then  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
 send(msg.chat_id_, msg.id_," ⌔︙ارسل اليه الاسم الان ")
 return false
 end
-if text == 'الاحصائيات ≁' and DevSoFi(msg) then 
+if text == 'الاحصائيات 📊' and DevSoFi(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
-Text = ' الاحصائيات ≁ \n'..' ⌔︙عدد الكروبات » {'..Groups..'}'..'\n ⌔︙ عدد المشتركين » {'..Users..'}'
+Text = '*📊꒐ احصائيات البوت : *\n'..' 🚻꒐ عدد المجموعات :'..Groups..'\n🚹꒐ عدد المحادثات : '..Users..''
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
@@ -9153,7 +9153,7 @@ if text == 'الاحصائيات' then
 if Sudo(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
-Text = ' الاحصائيات ≁ \n'..' ⌔︙عدد الكروبات » {'..Groups..'}'..'\n ⌔︙ عدد المشتركين » {'..Users..'}'
+Text = '*📊꒐ احصائيات البوت : * \n\n'..' 🚻꒐ عدد المجموعات : {'..Groups..'}'..'\n 🚹꒐ عدد المحادثات : {'..Users..'}'
 send(msg.chat_id_, msg.id_,Text) 
 end
 return false
@@ -9162,7 +9162,7 @@ if text == 'الكروبات' then
 if Sudo(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
-Text = ' ⌔︙عدد الكروبات » {`'..Groups..'`}'
+Text = ' *🚻꒐ عدد المجموعات :* {`'..Groups..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 end
 return false
@@ -9171,7 +9171,7 @@ if text == 'المشتركين' then
 if Sudo(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
-Text = ' ⌔︙عدد المشتركين » {`'..Users..'|}'
+Text = ' *🚹꒐ عدد المشتركين : *{`'..Users..'|}'
 send(msg.chat_id_, msg.id_,Text) 
 end
 return false
