@@ -11141,7 +11141,9 @@ end
 if text and text ~="كشف الحيوان" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
 numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
 sendnuj = numj[math.random(#numj)]
-xl = '⌔︙* اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽*\n'
+xl = [[ 
+⌔︙اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽
+]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
