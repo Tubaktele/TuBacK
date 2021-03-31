@@ -2587,7 +2587,6 @@ end
 end,nil)  
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
-if Addictive(msg) then
 Text = [[
 *🌐|  Welcome to Source*
 *أهلاً بك في سورس* [TuBaK Team 🔽](t.me/Tubakx)
