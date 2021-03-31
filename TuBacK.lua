@@ -9701,9 +9701,6 @@ rtpa = 'مشرف'
 elseif da.status_.ID == "ChatMemberStatusMember" then 
 rtpa = 'عضو'
 end
-if deata.join_date_ ~= 0 then
-tarek = os.date('%Y-%m-%d', deata.join_date_)
-end
 local Msguser = tonumber(database:get(bot_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_) or 1) 
 local nummsggp = tonumber(msg.id_/2097152/0.5)
 local nspatfa = tonumber(Msguser / nummsggp * 100)
@@ -9715,6 +9712,8 @@ username = '@'..result.username_
 else
 username = 'لا يوجد '
 end
+if deata.join_date_ ~= 0 then
+tarek = os.date('%Y-%m-%d', deata.join_date_)
 local iduser = msg.sender_user_id_
 local edit = tonumber(database:get(bot_id..'edits'..msg.chat_id_..msg.sender_user_id_) or 0)
 local photps = (sofi.total_count_ or 0)
