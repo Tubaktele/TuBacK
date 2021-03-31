@@ -11151,25 +11151,6 @@ Text = 'ارسل اسم الشخص الذي تريد قياس نسبه انوث�
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
-if text and text ~="كشف الحيوان" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnuj = numj[math.random(#numj)]
-else
-Text = [[ 
-⌔︙اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'نسبة الحيوان  '..sendnuj..'%', url="t.me/tubakx"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-else
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
-end
-end
 
 
 if text and text:match("^كول (.*)$") then
