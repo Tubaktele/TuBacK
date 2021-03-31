@@ -8014,7 +8014,7 @@ end
 if text == "تعطيل رابط" or text == 'تعطيل الرابط' then
 if Mod(msg) then  
 database:del(bot_id.."Link_Group:status"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_," 🔴︙ تم تعطيل الرابط") 
+send(msg.chat_id_, msg.id_," ⌔︙ تم تعطيل الرابط") 
 return false end
 end
 
@@ -8047,19 +8047,19 @@ end
 if text == "الرابط" then 
 local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
 if not status_Link then
-send(msg.chat_id_, msg.id_,"⚠️┇ الرابط معطل") 
+send(msg.chat_id_, msg.id_,"⌔︙الرابط معطل") 
 return false  
 end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,'🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n ['..ta.title_..']('..link..')')                          
+send(msg.chat_id_,msg.id_,'⌔︙𝖫𝗂𝖭𝗄 𝖦𝗋𝗈𝗎𝗉.\n⎯ ⎯ ⎯ ⎯ ⎯ ⎯ \n ['..ta.title_..']('..link..')')                          
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n ['..ta.title_..']('..linkgpp.result..')'
+linkgp = '⌔︙𝖫𝗂𝖭𝗄 𝖦𝗋𝗈𝗎𝗉.\n⎯ ⎯ ⎯ ⎯ ⎯ ⎯ \n ['..ta.title_..']('..linkgpp.result..')'
 else
-linkgp = '♻️┇ لا يوجد رابط ارسل ضع رابط'
+linkgp = '⌔︙ لا يوجد رابط ارسل ضع رابط'
 end  
 send(msg.chat_id_, msg.id_,linkgp)              
 end      
