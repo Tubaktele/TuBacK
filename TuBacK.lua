@@ -10492,28 +10492,13 @@ local msg_idd = Msg_id/2097152/0.5
 local Text = data.payload_.data_
 if Text == '/help' then
 if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🚹'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
 local Teext =[[
-*🖥┇𝚂𝙾𝚄𝚁𝙲𝙴 𝙼𝙰𝚃𝚁𝙸𝚇 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂 ⁦.*
-*☾• ━━━━━━━━━━━ •☾┉ ┉ *
-*⚙️ | اهلا انت في اوامر البوت الرئيسية 🔏*
-*⚙️ | اختر في الاسفل الرقم التابع للأمر 🔍*
-*☾• ━━━━━━━━━━━━━━ •☾*
-🗞◂ اوامر الحمايه †
-🗞◂ اوامر تعطيل ~ تفعيل †
-🗞◂ اوامر ضع ~ اضف  †
-🗞◂ اوامر مسح ~ حذف †
-🗞◂ اوامر تنزيل+رفع+التغير †
-🗞◂ اوامر الكروب †
-🗞◂ اوامر التحشيش †
-🗞◂ اوامر مطور البوت †
-🗞◂ اوامر مطور الاساسي †
-🗞◂ اوامر الاعضاء †
-*☾• ━━━━━━━━━━━━━━ •☾*
-➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙼𝙰𝚃𝚁𝙸𝚇. ](t.me/X04XX)➤
+اهلا بك في سورس [TuBak Team](t.me/Tubakx)
+*يمكنك استخدام الاوامر الموجودة 🔽*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10530,10 +10515,7 @@ keyboard.inline_keyboard = {
 {text = 'ﻢ9', callback_data="/help9"},{text = 'ﻢ10', callback_data="/help10"},
 },
 {
-{text = '🔙 الاوامر الرئيسيه 🔙', callback_data="/help"},
-},
-{
-{text = '𝐌𝐀𝐓𝐑𝐈𝐗 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/X04XX"},
+{text = 'رجوع', callback_data="/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
