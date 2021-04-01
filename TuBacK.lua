@@ -11601,30 +11601,6 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 end
 
-elseif Text and Text:match('(.*)/unlockgames') and Owner(data) then
-if tonumber(Text:match('(.*)/unlockgames')) == tonumber(data.sender_user_id_) then
-local Textedit = '• تم تفعيل الالعاب '
-database:del(bot_id..'lock:add'..msg.chat_id_)
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'القائمة الرئيسيه', callback_data=data.sender_user_id_.."/homeaddrem"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
-end
-elseif Text and Text:match('(.*)/lockgames') and Owner(data) then
-if tonumber(Text:match('(.*)/lockgames')) == tonumber(data.sender_user_id_) then
-local Textedit = '• تم تعطيل الالعاب '
-database:set(bot_id..'lock:add'..msg.chat_id_, true)
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'القائمة الرئيسيه', callback_data=data.sender_user_id_.."/homeaddrem"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
-end
 if text == "السلام عليكم" or text == "سلام عليكم" or text == "سلامن عليكم" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"علـيكملسـلام","وعــليكم اغـاتي" }
