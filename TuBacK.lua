@@ -98,7 +98,7 @@ echo -e "\e[36m"
 done
 ]])  
 file:close()  
-file = io.open("TuBk", "w")  
+file = io.open("DRG", "w")  
 file:write([[
 #!/usr/bin/env bash
 cd $HOME/TuBacK
@@ -2440,13 +2440,13 @@ end
 end
 if text == "تفعيل تنبيه الاسماء" and Manager(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
 send(msg.chat_id_, msg.id_, '⌔︙تم تفعيل تنبيه الاسماء')
-database:set(bot_id.."Ttn:TuBk:stats"..msg.chat_id_,"open")
+database:set(bot_id.."Ttn:DRG:stats"..msg.chat_id_,"open")
 end
 if text == "تعطيل تنبيه الاسماء" and Manager(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
 send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل تنبيه الاسماء')
-database:set(bot_id.."Ttn:TuBk:stats"..msg.chat_id_,"close")
+database:set(bot_id.."Ttn:DRG:stats"..msg.chat_id_,"close")
 end
-if text and database:get(bot_id.."Ttn:TuBk:stats"..msg.chat_id_) == "open" then 
+if text and database:get(bot_id.."Ttn:DRG:stats"..msg.chat_id_) == "open" then 
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
@@ -6599,6 +6599,9 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
+---------------------- بداء كشف المجموعة
+
+----------------------------------------- انتهاء كشف المجموعة
 if text == 'اعدادات الكروب' and Mod(msg) then    
 if database:get(bot_id..'lockpin'..msg.chat_id_) then    
 lock_pin = '🔓'
@@ -8152,6 +8155,7 @@ end
 send(msg.chat_id_,msg.id_,t)
 end,nil)
 end
+---------- ما مبيك خير تسوي مثله جاي تبوكة مطور زربة انته 
 if text and text:match("^تنزيل الكل @(.*)$") and Manager(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -11584,30 +11588,8 @@ Text_Games = [[
  ٴ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━
 ⌔︙[Source TuBaK TeAM . ](t.me/Tubakx)
 ]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'ﻢ1', callback_data="/help1"},{text = 'ﻢ2 ⁦', callback_data="/help2"},{text = 'ﻢ3', callback_data="/help3"},
-},
-{
-{text = 'ﻢ4', callback_data="/help4"},{text = 'ﻢ5', callback_data="/help5"},
-},
-{
-{text = 'ﻢ6', callback_data="/help6"},{text = 'ﻢ7', callback_data="/help7"},{text = 'ﻢ8', callback_data="/help8"},
-},
-{
-{text = 'ﻢ9', callback_data="/help9"},{text = 'ﻢ10', callback_data="/help10"},
-},
-{
-{text = '🔙 الاوامر الرئيسيه 🔙', callback_data="/help"},
-},
-{
-{text = '𝐌𝐀𝐓𝐑𝐈𝐗 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/X04XX"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+send(msg.chat_id_, msg.id_,Text_Games) 
 end
-
 if text == 'تفعيل الردود' and Manager(msg) then  
 send(msg.chat_id_, msg.id_, '⌔︙تم تفعيل الردود')
 database:del(bot_id..'lock:add'..msg.chat_id_)
