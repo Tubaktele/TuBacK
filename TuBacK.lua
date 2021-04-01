@@ -98,7 +98,7 @@ echo -e "\e[36m"
 done
 ]])  
 file:close()  
-file = io.open("DRG", "w")  
+file = io.open("Tubk", "w")  
 file:write([[
 #!/usr/bin/env bash
 cd $HOME/TuBacK
@@ -2440,13 +2440,13 @@ end
 end
 if text == "تفعيل تنبيه الاسماء" and Manager(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
 send(msg.chat_id_, msg.id_, '⌔︙تم تفعيل تنبيه الاسماء')
-database:set(bot_id.."Ttn:DRG:stats"..msg.chat_id_,"open")
+database:set(bot_id.."Ttn:Tubk:stats"..msg.chat_id_,"open")
 end
 if text == "تعطيل تنبيه الاسماء" and Manager(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
 send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل تنبيه الاسماء')
-database:set(bot_id.."Ttn:DRG:stats"..msg.chat_id_,"close")
+database:set(bot_id.."Ttn:Tubk:stats"..msg.chat_id_,"close")
 end
-if text and database:get(bot_id.."Ttn:DRG:stats"..msg.chat_id_) == "open" then 
+if text and database:get(bot_id.."Ttn:Tubk:stats"..msg.chat_id_) == "open" then 
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
@@ -8155,7 +8155,6 @@ end
 send(msg.chat_id_,msg.id_,t)
 end,nil)
 end
----------- ما مبيك خير تسوي مثله جاي تبوكة مطور زربة انته 
 if text and text:match("^تنزيل الكل @(.*)$") and Manager(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -11589,10 +11588,6 @@ Text_Games = [[
 ⌔︙[Source TuBaK TeAM . ](t.me/Tubakx)
 ]]
 send(msg.chat_id_, msg.id_,Text_Games) 
-end
-
-if text == "العاب" then
-local Texti = 'تستطيع تعطيل وتفعيل عبر الازرار'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
