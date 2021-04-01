@@ -11590,15 +11590,46 @@ Text_Games = [[
 ]]
 send(msg.chat_id_, msg.id_,Text_Games) 
 end
-if text == 'تفعيل الردود' and Manager(msg) then  
-send(msg.chat_id_, msg.id_, '⌔︙تم تفعيل الردود')
-database:del(bot_id..'lock:add'..msg.chat_id_)
+
+if text == "العاب" then
+local Texti = 'تستطيع تعطيل وتفعيل عبر الازرار'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'تعطيل الردود', callback_data=data.sender_user_id_.."/lockrepgr"},{text = 'تفعيل الردود', callback_data=data.sender_user_id_.."/unlockrepgr"},
+},
+{
+{text = 'العوده', callback_data=data.sender_user_id_.."/help"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Texti)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if text == 'تعطيل الردود' and Manager(msg) then  
-send(msg.chat_id_, msg.id_, '⌔︙تم تعطيل الردود')
-database:set(bot_id..'lock:add'..msg.chat_id_, true)
 end
 
+elseif Text and Text:match('(.*)/unlockgames') and Owner(data) then
+if tonumber(Text:match('(.*)/unlockgames')) == tonumber(data.sender_user_id_) then
+local Textedit = '• تم تفعيل الالعاب '
+database:del(bot_id..'lock:add'..msg.chat_id_)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data=data.sender_user_id_.."/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+elseif Text and Text:match('(.*)/lockgames') and Owner(data) then
+if tonumber(Text:match('(.*)/lockgames')) == tonumber(data.sender_user_id_) then
+local Textedit = '• تم تعطيل الالعاب '
+database:set(bot_id..'lock:add'..msg.chat_id_, true)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data=data.sender_user_id_.."/homeaddrem"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Textedit)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
 if text == "السلام عليكم" or text == "سلام عليكم" or text == "سلامن عليكم" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"علـيكملسـلام","وعــليكم اغـاتي" }
