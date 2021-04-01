@@ -10351,7 +10351,7 @@ end
 
 if text == 'تغير امر م7' and DevSoFi(msg) then
 send(msg.chat_id_, msg.id_, ' ⌔︙الان يمكنك ارسال الكليشه م7')
-database:set(bot_id..'help6'..msg.sender_user_id_,'true')
+database:set(bot_id..'help7'..msg.sender_user_id_,'true')
 return false 
 end
 
@@ -10367,8 +10367,8 @@ send(msg.chat_id_,msg.id_,'*• عليك الاشتراك اولا *[اضغط ه
 return false 
 end
 local Text =[[
-اهلا بك في سورس [TuBak Team](t.me/Tubakx)
-يمكنك استخدام الاوامر الموجودة 🔽
+*اهلا بك في سورس* [. TuBak Team](t.me/Tubakx)
+*يمكنك استخدام الاوامر الموجودة 🔽*
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10497,7 +10497,7 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-اهلا بك في سورس [TuBak Team](t.me/Tubakx)
+*اهلا بك في سورس* [. TuBak Team](t.me/Tubakx)
 *يمكنك استخدام الاوامر الموجودة 🔽*
 ]]
 keyboard = {} 
