@@ -11553,11 +11553,6 @@ end
 database:set(bot_id..'Set:Amth:Bot'..msg.chat_id_,true)
 end
 if text == 'الالعاب' and database:get(bot_id..'Lock:Games'..msg.chat_id_) then
-not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
