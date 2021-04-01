@@ -10503,16 +10503,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'ﻢ1', callback_data="/help1"},{text = 'ﻢ2 ⁦', callback_data="/help2"},{text = 'ﻢ3', callback_data="/help3"},
+{text = 'آوآمر آلحماية', callback_data="/help1"},{text = 'آوآمر آلادمنية ⁦', callback_data="/help2"},
 },
 {
-{text = 'ﻢ4', callback_data="/help4"},{text = 'ﻢ5', callback_data="/help5"},
+{text = 'آوآمر آلمدرآء', callback_data="/help3"},{text = 'آوآمر آلمنشئين', callback_data="/help4"},
 },
 {
-{text = 'ﻢ6', callback_data="/help6"},{text = 'ﻢ7', callback_data="/help7"},{text = 'ﻢ8', callback_data="/help8"},
+{text = 'آوآمر آلمطورين', callback_data="/help5"},
 },
 {
-{text = 'ﻢ9', callback_data="/help9"},{text = 'ﻢ10', callback_data="/help10"},
+{text = 'آوآمر آلخدمية', callback_data="/help6"},{text = 'آوآمر آلاعضاء', callback_data="/help7"},
 },
 {
 {text = 'رجوع', callback_data="/help"},
