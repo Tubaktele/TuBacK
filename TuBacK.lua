@@ -10490,59 +10490,9 @@ local Chat_id = data.chat_id_
 local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local Text = data.payload_.data_
-
 if Text == '/help' then
 if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
-local Teext =[[
-*🖥┇𝚂𝙾𝚄𝚁𝙲𝙴 𝙼𝙰𝚃𝚁𝙸𝚇 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂 ⁦.*
-*☾• ━━━━━━━━━━━ •☾┉ ┉ *
-*⚙️ | اهلا انت في اوامر البوت الرئيسية 🔏*
-*⚙️ | اختر في الاسفل الرقم التابع للأمر 🔍*
-*☾• ━━━━━━━━━━━━━━ •☾*
-🗞◂ اوامر الحمايه †
-🗞◂ اوامر تعطيل ~ تفعيل †
-🗞◂ اوامر ضع ~ اضف  †
-🗞◂ اوامر مسح ~ حذف †
-🗞◂ اوامر تنزيل+رفع+التغير †
-🗞◂ اوامر الكروب †
-🗞◂ اوامر التحشيش †
-🗞◂ اوامر مطور البوت †
-🗞◂ اوامر مطور الاساسي †
-🗞◂ اوامر الاعضاء †
-*☾• ━━━━━━━━━━━━━━ •☾*
-➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙼𝙰𝚃𝚁𝙸𝚇. ](t.me/X04XX)➤
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'ﻢ1', callback_data="/help1"},{text = 'ﻢ2 ⁦', callback_data="/help2"},{text = 'ﻢ3', callback_data="/help3"},
-},
-{
-{text = 'ﻢ4', callback_data="/help4"},{text = 'ﻢ5', callback_data="/help5"},
-},
-{
-{text = 'ﻢ6', callback_data="/help6"},{text = 'ﻢ7', callback_data="/help7"},{text = 'ﻢ8', callback_data="/help8"},
-},
-{
-{text = 'ﻢ9', callback_data="/help9"},{text = 'ﻢ10', callback_data="/help10"},
-},
-{
-{text = '🔙 الاوامر الرئيسيه 🔙', callback_data="/help"},
-},
-{
-{text = '𝐌𝐀𝐓𝐑𝐈𝐗 𝐂𝐇𝐀𝐍𝐍𝐄𝐋', url="t.me/X04XX"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if Text == '/hel' then
-local help_text = database:get(bot_id..'help_text')
-if not Mod(data) then
-local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🍇'
+local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🚹'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10567,10 +10517,9 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-
 if Text == '/help1' then
 if not Mod(data) then
-local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🍇'
+local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🚹'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10631,7 +10580,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help2' then
 if not Mod(data) then
-local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🍇'
+local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🚹'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10695,7 +10644,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help3' then
 if not Mod(data) then
-local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🍇'
+local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🚹'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10740,7 +10689,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help4' then
 if not Mod(data) then
-local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🍇'
+local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🚹'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10843,7 +10792,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help5' then
 if not Sudo(data) then
-local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🍇'
+local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🚹'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10943,7 +10892,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help6' then
 if not Mod(data) then
-local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🍇'
+local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🚹'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -11081,7 +11030,7 @@ return false
 end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 database:del(bot_id..'Set:Sma'..msg.chat_id_)
-Random = {'🍏','🍎','🍐','🍊','??','🍉','🍇','🍓','🍈','🍒','🍑','🍍','??','🥝','🍅','🍆','🥑','🥦','🥒','🌶','🌽','🥕','🥔','🥖','🥐','🍞','🥨','🍟','🧀','🥚','🍳','🥓','🥩','🍗','🍖','🌭','🍔','🍠','🍕','🥪','🥙','☕️','🍵','🥤','🍶','🍺','🍻','🏀','⚽️','🏈','⚾️','🎾','🏐','🏉','🎱','🏓','🏸','🥅','🎰','🎮','🎳','🎯','🎲','🎻','🎸','🎺','🥁','🎹','🎼','🎧','🎤','🎬','🎨','🎭','🎪','🎟','🎫','🎗','🏵','🎖','🏆','🥌','🛷','🚗','🚌','🏎','🚓','🚑','🚚','🚛','🚜','🇮🇶','⚔','🛡','🔮','🌡','💣','📌','📍','📓','📗','📂','📅','📪','📫','📬','📭','⏰','📺','🎚','☎️','📡'}
+Random = {'🍏','🍎','🍐','🍊','??','🍉','🍇','🍓','??','🍒','🍑','🍍','??','🥝','🍅','🍆','🥑','🥦','🥒','🌶','🌽','🥕','🥔','🥖','🥐','🍞','🥨','🍟','🧀','🥚','🍳','🥓','🥩','🍗','🍖','🌭','🍔','🍠','🍕','🥪','🥙','☕️','🍵','🥤','🍶','🍺','🍻','🏀','⚽️','🏈','⚾️','🎾','🏐','🏉','🎱','🏓','🏸','🥅','🎰','🎮','🎳','🎯','🎲','🎻','🎸','🎺','🥁','🎹','🎼','🎧','🎤','🎬','🎨','🎭','🎪','🎟','🎫','🎗','🏵','🎖','🏆','🥌','🛷','🚗','🚌','🏎','🚓','🚑','🚚','🚛','🚜','🇮🇶','⚔','🛡','🔮','🌡','💣','📌','📍','📓','📗','📂','📅','📪','📫','📬','📭','⏰','📺','🎚','☎️','📡'}
 SM = Random[math.random(#Random)]
 database:set(bot_id..'Random:Sm'..msg.chat_id_,SM)
 send(msg.chat_id_, msg.id_,' ⌔︙ اسرع واحد يدز هاذا السمايل ? » {`'..SM..'`}')
