@@ -9688,6 +9688,24 @@ Text = '\n ⌔︙بالتاكيد تم تعطيل كشف الحيوان'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
+if text == 'تفعيل الارتباط' and Manager(msg) then   
+if database:get(bot_id..'Cick:goo'..msg.chat_id_) then
+Text = ' ⌔︙تم تفعيل كشف الارتباط \n ⌔︙ارسل كلمه : كشف الارتباط'
+database:del(bot_id..'Cick:goo'..msg.chat_id_)  
+else
+Text = ' ⌔︙بالتاكيد تم تفعيل الكشف'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل الارتباط' and Manager(msg) then  
+if not database:get(bot_id..'Cick:goo'..msg.chat_id_) then
+database:set(bot_id..'Cick:goo'..msg.chat_id_,true)  
+Text = '\n ⌔︙تم تعطيل كشف الارتباط'
+else
+Text = '\n ⌔︙بالتاكيد تم تعطيل كشف الحيوان'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
 ------------------------------------------------------------------------
 if text == 'تنزيل جميع الرتب' and BasicConstructor(msg) then  
 database:del(bot_id..'Constructor'..msg.chat_id_)
@@ -9718,6 +9736,36 @@ local List = {
 ゠𝚂𝚃𝙰 𖨈 #stast 𖥲 .
 ゠??𝙳 𖨈 #id 𖥲 .
 ]],
+[[
+⌁ Use ⇨{#username} 
+⌁ Msg⇨ {#msgs} 
+⌁ Sta ⇨ {#stast} 
+⌁ iD ⇨{#id} 
+▿▿▿
+]],
+[[
+- الأيـدي || {#id}.
+• المُعرف || {#username}.
+• الرُتبـه || {#stast}.
+• الرسائل || {#msgs}.
+• التـعديل || {#edit}
+]],
+[[
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+🇺🇸 - 𝚄𝚂𝙴𝚁 ⟿ {#username} 💘.
+🇺🇸 - 𝙼𝚂𝙶𝚂 ⟿  {#msgs} 💘.
+🇺🇸 - 𝙶𝙼𝙰𝚂 ⟿ {#game} 💘.
+🇺🇸 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ {#id} 💘.  
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+𝗖𝗛 - @TuBaKx 💘.
+]],
+[[
+𖤂 ~ 𝑢𝑠𝑒 {#username} 𖤐
+𖤂 ~ 𝑚𝑠𝑔 {#msgs} 𖤐
+𖤂 ~ 𝑠𝑡𝑎 {#stast} 𖤐
+𖤂 ~ 𝑖𝑑 {#id} 𖤐
+𖤂 ~ 𝑒𝑑𝑖𝑡 {#edit} 𖤐
+]],
 [[⌔︙ᴜѕᴇʀɴᴀᴍᴇ ➥• #username .
 ⌔︙ᴍѕɢѕ ➥• #msgs .
 ⌔︙ѕᴛᴀᴛѕ ➥• #stast .
@@ -9739,6 +9787,27 @@ local List = {
 • 🖤 | 𝑴𝑺𝑮 : #msgs 𓆊
 ]],
 [[
+🖤: 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀 ➱ {#username}
+🖤: 𝙄𝘿 ➱ {#id}
+🖤: 𝙍𝘼𝙉𝙆 ➱ {#stast}
+🖤: 𝙈𝘼𝙎𝙂 ➱ {#msgs}
+🖤: 𝙄𝙉𝙏𝙀𝙍𝘼𝘾𝙏 ➯ {#auto}
+]],
+[[
+-›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . {#username} 🇾🇪 ꙰ 
+-›   𝚂𝚃𝙰𝚂𝚃 . {#stast} 🇾🇪 ꙰
+-›   𝙸𝙳 . {#id} 🇾🇪 ꙰ 
+-›   𝙶𝙼𝙰𝚂 . {#game} 🇾🇪 ꙰ 
+-›   𝙼𝚂𝙶𝚂 . {#msgs} 🇾🇪 ꙰
+]],
+[[
+ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . {#username} 🇺🇸 ꙰
+ᯓ 𝗦𝗧𝗮𝗦𝗧. {#stast} 🇺🇸 ꙰
+ᯓ 𝗜𝗗 .  {#id} 🇺🇸 ꙰
+ᯓ 𝗚𝗮𝗺𝗘𝗦 .  {#game} 🇺🇸 ꙰
+ᯓ 𝗺𝗦𝗚𝗦 .  {#msgs} 🇺🇸 ꙰
+]],
+[[
 ┌ 𝐔𝐒𝐄𝐑 𖤱 #username 𖦴 .
 ├ 𝐌𝐒𝐆 𖤱 #msgs 𖦴 .
 ├ 𝐒𝐓𝐀 𖤱 #stast 𖦴 .
@@ -9752,15 +9821,13 @@ local List = {
 𓄼🇮🇶 𝑴𝒔𝒈𝒔 :#msgs
 ]],
 [[
-❤️|-وف اتفاعل يحلو😍🙈
-👨‍👧|- ☆يوزرك #username 🎫
-💌|- ☆رسائلك #msgs 💌
-🎫|- ☆ايديك #id   🥇
-🎟|- ☆موقعك #stast 🌐 
-🤸‍♂|- ☆جفصاتك #edit  🌬
-🥉|- ☆تفاعلك #auto 🚀
-🏆|- ☆مجوهراتك #game 🕹
-🌏|- ☆اشترك يحلو🌐《 قناة الكروب》
+🗞¦ ʏᴏᴜʀ ɪᴅ ➺ {#id} 
+🔦¦ ᴜѕᴇʀɴᴀᴍᴇ ➺ {#username} 
+🕹¦ ѕᴛᴀᴛѕ ➺ {#stast} 
+🔭¦ ᴅᴇᴛᴀɪʟs ➺ {#auto} 
+📨¦  ᴍѕɢѕ ➺ {#msgs} 
+🎰¦ ɢᴀᴍᴇ ➺ {#game}
+—————
 ]],
 [[
 ➞: 𝒔𝒕𝒂𓂅 #stast 𓍯➸💞.
@@ -9781,11 +9848,11 @@ local List = {
 - 𓏬 𝐈𝐃 : #id 𓂅 .
 ]],
 [[
-.𖣂 𝙪𝙨𝙚𝙧𝙣𝙖𝙢𝙚 , #username  
-.𖣂 𝙨𝙩𝙖𝙨𝙩 , #stast  
-.𖣂 𝙡𝘿 , #id  
-.𖣂 𝙂𝙖𝙢𝙨 , #game 
-.𖣂 𝙢𝙨𝙂𝙨 , #msgs
+𖡋 𝐔𝐒𝐄 ⌯  {#username} 
+𖡋 𝐌𝐒𝐆 ⌯  {#msgs} 
+𖡋 𝐒𝐓𝐀 ⌯  {#stast} 
+𖡋 𝐈𝐃 ⌯  {#id} 
+𖡋 𝐄𝐃𝐈𝐓 ⌯  {#edit}
 ]]}
 local Text_Rand = List[math.random(#List)]
 database:set(bot_id.."KLISH:ID"..msg.chat_id_,Text_Rand)
@@ -11855,7 +11922,7 @@ end
 if text and text ~="نسبه الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
 num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","8","100","6","0",};
 sendnum = num[math.random(#num)]
-sl = 'نسبه كره '..text..' هي : '..sendnum..'%'
+sl = '⌔︙*اليك النتائج الخاصة بـ '..text..'  : *\n\n⌔︙*نسبة الكره -* '..sendnum..'%'
 send(msg.chat_id_, msg.id_,sl) 
 database:del(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_)
 end
@@ -11869,7 +11936,7 @@ end
 if text and text ~="نسبه الرجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
 numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
 sendnuj = numj[math.random(#numj)]
-xl = 'نسبه رجوله '..text..' هي : \n '..sendnuj..'%'
+xl = '⌔︙*اليك النتائج الخاصة بـ '..text..'  : *\n\n⌔︙*نسبة الرجولة -* '..sendnuj..'%'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
 end
@@ -11883,7 +11950,7 @@ end
 if text and text ~="نسبه الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
 numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
 sendnuj = numj[math.random(#numj)]
-xl = 'نسبه الانوثه '..text..' هي : \n '..sendnuj..'%'
+xl = '⌔︙*اليك النتائج الخاصة بـ '..text..'  : *\n\n⌔︙*نسبة الانوثه -* '..sendnuj..'%'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
 end
@@ -11901,13 +11968,27 @@ xl = '⌔︙*اليك النتائج الخاصة بـ '..text..' : *\n\n⌔︙*
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
 end
+if text == "كشف الارتباط" or text == "نسبه الارتباط" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:goo'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_,"sendonoe")
+Text = 'ارسل اسم الشخص الذي تريد قياس نسبه انوثتها \n مثال احمد'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="كشف الارتباط" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"مرتبط 💔😐","خاين 😊😂","ممرتبط 😗","مرتبط ب 10 🙁😂","زاحف على 4 🥰😂",};
+sendnuuj = numj[math.random(#numj)]
+xl = '⌔︙*اليك النتائج الخاصة بـ '..text..'  : *\n\n⌔︙*نوع الكشف -* '..sendnuuj..' .'
+send(msg.chat_id_, msg.id_,xl) 
+database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
+end
 
 if text and text:match("^كول (.*)$") then
 local Textxt = text:match("^كول (.*)$")
 send(msg.chat_id_, msg.id_, '['..Textxt..']')
 end
 if text == "راسلني" then
-rpl = {"ها هلاو","انطق","كول"};
+rpl = {"ها حب","جيت كلبي 🌝","كول حب؟ 😗💛","تفـضل 💕"};
 sender = rpl[math.random(#rpl)]
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
