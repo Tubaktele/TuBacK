@@ -8671,64 +8671,65 @@ database:srem(bot_id..'List:Manager'..msg.chat_id_..'', text)
 return false
 end
 end
-if text == "اضف رد" and Manager(msg) then
+
+if text == "اضف رد" and Owner(msg) then
 send(msg.chat_id_, msg.id_,"📫| ارسل الكلمه التري تريد اضافتها")
-database:set(bot_id.."TuBak:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+database:set(bot_id.."TuBacK:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
-if text == "حذف رد" and Manager(msg) then
+if text == "حذف رد" and Owner(msg) then
 send(msg.chat_id_, msg.id_,"📫| ارسل الكلمه التري تريد حذفها")
-database:set(bot_id.."TuBak:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
+database:set(bot_id.."TuBacK:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
 return false 
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."TuBak:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+if database:get(bot_id.."TuBacK:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
 send(msg.chat_id_, msg.id_, '📥| الان ارسل الرد الذي تريد اضافته \n📥|  قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n☑|  يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
-database:set(bot_id.."TuBak:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
-database:set(bot_id.."TuBak:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
-database:del(bot_id.."TuBak:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
-database:del(bot_id.."TuBak:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
-database:del(bot_id.."TuBak:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
-database:del(bot_id.."TuBak:Add:Rd:Manager:Text"..text..msg.chat_id_)   
-database:del(bot_id.."TuBak:Add:Rd:Manager:Photo"..text..msg.chat_id_)
-database:del(bot_id.."TuBak:Add:Rd:Manager:Video"..text..msg.chat_id_)
-database:del(bot_id.."TuBak:Add:Rd:Manager:File"..text..msg.chat_id_)
-database:del(bot_id.."TuBak:Add:Rd:Manager:Audio"..text..msg.chat_id_)
-database:sadd(bot_id.."TuBak:List:Manager"..msg.chat_id_.."", text)
+database:set(bot_id.."TuBacK:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
+database:set(bot_id.."TuBacK:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Text"..text..msg.chat_id_)   
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Photo"..text..msg.chat_id_)
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Video"..text..msg.chat_id_)
+database:del(bot_id.."TuBacK:Add:Rd:Manager:File"..text..msg.chat_id_)
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Audio"..text..msg.chat_id_)
+database:sadd(bot_id.."TuBacK:List:Manager"..msg.chat_id_.."", text)
 return false end
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."TuBak:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_.."") == "true2" then
+if database:get(bot_id.."TuBacK:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_.."") == "true2" then
 send(msg.chat_id_, msg.id_,"📌| تم ازالة الرد من قائمه الردود")
-database:del(bot_id.."TuBak:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
-database:del(bot_id.."TuBak:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
-database:del(bot_id.."TuBak:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
-database:del(bot_id.."TuBak:Add:Rd:Manager:Text"..text..msg.chat_id_)   
-database:del(bot_id.."TuBak:Add:Rd:Manager:Photo"..text..msg.chat_id_)
-database:del(bot_id.."TuBak:Add:Rd:Manager:Video"..text..msg.chat_id_)
-database:del(bot_id.."TuBak:Add:Rd:Manager:File"..text..msg.chat_id_)
-database:del(bot_id.."TuBak:Add:Rd:Manager:Audio"..text..msg.chat_id_)
-database:del(bot_id.."TuBak:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_)
-database:srem(bot_id.."TuBak:List:Manager"..msg.chat_id_.."", text)
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Text"..text..msg.chat_id_)   
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Photo"..text..msg.chat_id_)
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Video"..text..msg.chat_id_)
+database:del(bot_id.."TuBacK:Add:Rd:Manager:File"..text..msg.chat_id_)
+database:del(bot_id.."TuBacK:Add:Rd:Manager:Audio"..text..msg.chat_id_)
+database:del(bot_id.."TuBacK:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_)
+database:srem(bot_id.."TuBacK:List:Manager"..msg.chat_id_.."", text)
 return false
 end
 end
-if text and not database:get(bot_id.."TuBak:Reply:Manager"..msg.chat_id_) then
-if not database:sismember(bot_id..'TuBak:Spam:Group'..msg.sender_user_id_,text) then
-local anemi = database:get(bot_id.."TuBak:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
-local veico = database:get(bot_id.."TuBak:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
-local stekr = database:get(bot_id.."TuBak:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
-local Text = database:get(bot_id.."TuBak:Add:Rd:Manager:Text"..text..msg.chat_id_)   
-local photo = database:get(bot_id.."TuBak:Add:Rd:Manager:Photo"..text..msg.chat_id_)
-local video = database:get(bot_id.."TuBak:Add:Rd:Manager:Video"..text..msg.chat_id_)
-local document = database:get(bot_id.."TuBak:Add:Rd:Manager:File"..text..msg.chat_id_)
-local audio = database:get(bot_id.."TuBak:Add:Rd:Manager:Audio"..text..msg.chat_id_)
+if text and not database:get(bot_id.."TuBacK:Reply:Manager"..msg.chat_id_) then
+if not database:sismember(bot_id..'TuBacK:Spam:Group'..msg.sender_user_id_,text) then
+local anemi = database:get(bot_id.."TuBacK:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
+local veico = database:get(bot_id.."TuBacK:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
+local stekr = database:get(bot_id.."TuBacK:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
+local Text = database:get(bot_id.."TuBacK:Add:Rd:Manager:Text"..text..msg.chat_id_)   
+local photo = database:get(bot_id.."TuBacK:Add:Rd:Manager:Photo"..text..msg.chat_id_)
+local video = database:get(bot_id.."TuBacK:Add:Rd:Manager:Video"..text..msg.chat_id_)
+local document = database:get(bot_id.."TuBacK:Add:Rd:Manager:File"..text..msg.chat_id_)
+local audio = database:get(bot_id.."TuBacK:Add:Rd:Manager:Audio"..text..msg.chat_id_)
 if Text then 
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,data)
-local NumMsg = database:get(bot_id..'TuBak:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
+local NumMsg = database:get(bot_id..'TuBacK:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(msg.sender_user_id_,msg.chat_id_)
-local message_edit = database:get(bot_id..'TuBak:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local message_edit = database:get(bot_id..'TuBacK:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Text = Text:gsub('#username',(data.username_ or 'لا يوجد')) 
 local Text = Text:gsub('#name',data.first_name_)
 local Text = Text:gsub('#id',msg.sender_user_id_)
@@ -8736,36 +8737,36 @@ local Text = Text:gsub('#edit',message_edit)
 local Text = Text:gsub('#msgs',NumMsg)
 local Text = Text:gsub('#stast',Status_Gps)
 send(msg.chat_id_, msg.id_, Text)
-database:sadd(bot_id.."TuBak:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
 end,nil)
 end
 if stekr then 
 sendSticker(msg.chat_id_,msg.id_,stekr)
-database:sadd(bot_id.."TuBak:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
 end
 if veico then 
 sendVoice(msg.chat_id_, msg.id_,veico,"")
-database:sadd(bot_id.."TuBak:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
 end
 if video then 
 sendVideo(msg.chat_id_, msg.id_,video,"")
-database:sadd(bot_id.."TuBak:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
 end
 if anemi then 
 sendAnimation(msg.chat_id_, msg.id_,anemi,"")   
-database:sadd(bot_id.."TuBak:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
 end
 if document then
 sendDocument(msg.chat_id_, msg.id_, document)   
-database:sadd(bot_id.."TuBak:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
 end  
 if audio then
 sendAudio(msg.chat_id_,msg.id_,audio)  
-database:sadd(bot_id.."TuBak:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
 end
 if photo then
 sendPhoto(msg.chat_id_,msg.id_,photo,photo_caption)
-database:sadd(bot_id.."TuBak:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
 end  
 end
 end
