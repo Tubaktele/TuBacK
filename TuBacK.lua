@@ -11630,23 +11630,23 @@ send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
-if text == "هلو" or text == "هاي" or text == "هلاو" then
+if text == "هلو" or text == "هلاو" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"هـلاو يـكيك","لـك هـلا","هــلوات ورده" }
+local texting = {"ﮪـلاواتــہ 🥳💗","ههلو ، 🥳😹💞","ﮪـلـﯠآت ؏ـمريہٰ ☹️💗." }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "صباحوا" or text == "صباح الخير" or text == "صباحو" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"صبـاح النـور حيــاتي","صبــاح الـورد" }
+local texting = {"صبـﺎُحح ﺎُݪعسل 🥳💞.","صبـﺎُحح ﺎُݪـعافية 😗🍇.","صبـﺎُحح ﺎُݪـخَـير 🍒🤍." }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
-if text == "شنو هذا بوت" or text == "هذا بوت" then
+if text == "هاي" or text == "ههاي" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"عـٰٰـٰود لوتُٰي صاير براسي حبيبي اي بوت باقي وتمدد للصبح لا تخاف مخليك تنشر شي🤤😹😳","اي لا مو بوت شرايد خير يا طير😤" }
+local texting = {"هايات ؏ـمريہٰ ☹️💗","ﮪـايات حبيـبيہٰ 😗💗." }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11667,7 +11667,7 @@ end
 
 if text == "جاو" or text == "ججاو" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"حنشتـاقلك/ج☹️💜","جــاوات حيـاتي " }
+local texting = {"هـا ضلـعي وين؟  💔","بسلامة 💕" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11686,9 +11686,9 @@ send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
-if text == "😌" then
+if text == "اريد ارتبط" or text ==  "اريد اكبل"then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {" طكته بوري وجاي يفيك علينه 😔😂","ثول افتح عيونك لطيح" }
+local texting = {"شـﯡٰفلڪ حاتهہ منـہ. المشرفات 😂💔" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11721,9 +11721,9 @@ send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
-if text == "🌝" or text == "🌝🌝" then
+if text == "بوت" or text == "البوت" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"منــورر اليـوم حـياتي","هلا بــكلبي " }
+local texting = {"وياك حامي ݪڪࢪوب 🙁😂💕","• تّٰفِٰـضـﮧلْٰ حٌٰبٌِٰـہيَٰ 🌚💫" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11752,6 +11752,13 @@ end
 if text == "اكلك" or text == "اكلج" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {".كول حياتي 😚🌿","كول ماكول لحد 🙊" }
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
+end
+end
+
+if text == "احمد" or text == "@VlVlVI" then
+if not database:get(bot_id..'lock:add'..msg.chat_id_) then
+local texting = {"مطوري القميل 💕","مطور السورس هاذ حبي 🙁" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11888,9 +11895,9 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="كشف الحيوان" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+numj = {"قنفذ 🦝","صخل 🐐","جلب 🦮","بقرة 🐄","خنزير 🐖","قرد 🦧",فأر 🐁","تمساح 🐊","ذبانه 🪰","حصان 🐴",};
 sendnuj = numj[math.random(#numj)]
-xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽 : *\n\n⌔︙*نسبة الحيوان -* '..sendnuj..'%'
+xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽 : *\n\n⌔︙*نوع الحيوان -* '..sendnuj..' .'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
 end
