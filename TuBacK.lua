@@ -11723,7 +11723,7 @@ end
 
 if text == "بوت" or text == "البوت" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"وياك حامي ݪڪࢪوب 🙁😂💕","• تّٰفِٰـضـﮧلْٰ حٌٰبٌِٰـہيَٰ 🌚💫" }
+local texting = {"ﮪـاحبيـبيہٰ 🌝💗." }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11744,7 +11744,7 @@ end
 
 if text == "ههه" or text == "هههه" or text == "ههههه" or text == "هههههه" or text == "ههههههه" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"ضحكـه لــ̼۬ـو عـافـيهــہ🙊💞","عــساهـا دوم😻💗","دايـمــه عـشـقي" }
+local texting = {"دومـم حبيـبيہٰ 😗💗." }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11756,16 +11756,9 @@ send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
-if text == "احمد" or text == "@VlVlVI" then
+if text == "@VlVlVI" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"مطوري القميل 💕","مطور السورس هاذ حبي 🙁" }
-send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
-end
-end
-
-if text == "شبيك" or text == "شبيج" then
-if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"كـلـشيي مـا بيــه🏃‍♂💘","مــا بـيه شـٰي🤷💘‌‎","بــيه اَنــته🤤💘" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11839,9 +11832,9 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبه الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
-num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","49","100","6","0",};
+num = {"10 💔","20 💔","30 💔","35 💔😔","75 💕😊","34 💔😒","66 💔☹️","82 💛😍","23 💔💔","19 😐💔","55 🥰🍇","8 😔","63 🥺","32 😒","27","89","99","98","3","80","49","100","6","0",};
 sendnum = num[math.random(#num)]
-sl = 'نسبه حب '..text..' هي : '..sendnum..'%'
+sl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🚻 : *\n\n⌔︙*نسبة الحب بينهم -* '..sendnuj..'%'
 send(msg.chat_id_, msg.id_,sl) 
 database:del(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
 end
@@ -11855,7 +11848,7 @@ end
 if text and text ~="نسبه الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
 num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","8","100","6","0",};
 sendnum = num[math.random(#num)]
-sl = 'نسبه كره '..text..' هي : '..sendnum..'%'
+sl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🚹 : *\n\n⌔︙*نسبة الكره -* '..sendnuj..'%'
 send(msg.chat_id_, msg.id_,sl) 
 database:del(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_)
 end
@@ -11866,10 +11859,10 @@ Text = 'ارسل اسم الشخص الذي تريد قياس نسبه رجول�
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
-if text and text ~="نسبه رجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
+if text and text ~="نسبه الرجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
 numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
 sendnuj = numj[math.random(#numj)]
-xl = 'نسبه رجوله '..text..' هي : \n '..sendnuj..'%'
+xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ ⏺️ : *\n\n⌔︙*نسبة الرجوله -* '..sendnuj..'%'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
 end
@@ -11883,7 +11876,7 @@ end
 if text and text ~="نسبه الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
 numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
 sendnuj = numj[math.random(#numj)]
-xl = 'نسبه الانوثه '..text..' هي : \n '..sendnuj..'%'
+xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🚺 : *\n\n⌔︙*نسبة الانوثه -* '..sendnuj..'%'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
 end
@@ -11898,6 +11891,20 @@ if text and text ~="كشف الحيوان" and database:get(bot_id..":"..msg.sen
 numj = {"قنفذ 🦝","صخل 🐐","جلب 🦮","بقرة 🐄","خنزير 🐖","قرد 🦧","فأر 🐁","تمساح 🐊","ذبانه 🪰","حصان 🐴",};
 sendnuj = numj[math.random(#numj)]
 xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽 : *\n\n⌔︙*نوع الحيوان -* '..sendnuj..' .'
+send(msg.chat_id_, msg.id_,xl) 
+database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
+end
+if text == "كشف الارتباط" or text == "نسبه الارتباط" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:ono'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_,"sendonoe")
+Text = 'ارسل اسم الشخص الذي تريد قياس نسبه انوثتها \n مثال احمد'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="كشف الارتباط" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"مرتبط 💔😐","خاين 😊😂","ممرتبط 😗","مرتبط ب 10 🙁😂","زاحف على 4 🥰😂",};
+sendnuj = numj[math.random(#numj)]
+xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽 : *\n\n⌔︙*كشف الارتباط -* '..sendnuj..' .'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
 end
