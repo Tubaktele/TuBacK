@@ -11841,7 +11841,7 @@ end
 if text and text ~="نسبه الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
 num = {"10 💔","20 💔","30 💔","35 💔😔","75 💕😊","34 💔😒","66 💔☹️","82 💛😍","23 💔💔","19 😐💔","55 🥰🍇","8 😔","63 🥺","32 😒","27","89","99","98","3","80","49","100","6","0",};
 sendnum = num[math.random(#num)]
-sl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🚻 : *\n\n⌔︙*نسبة الحب بينهم -* '..sendnum..'%'
+sl = '⌔︙*اليك النتائج الخاصة بـ '..text..' : *\n\n⌔︙*نسبة الحب بينهم -* '..sendnum..'%'
 send(msg.chat_id_, msg.id_,sl) 
 database:del(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
 end
@@ -11902,20 +11902,6 @@ send(msg.chat_id_, msg.id_,xl)
 database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
 end
 
-if text == "كشف الارتباط" or text == "نسبه الارتباط" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-if not database:get(bot_id..'Cick:ono'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_,"sendonoe")
-Text = 'ارسل اسم الشخص الذي تريد قياس نسبه انوثتها \n مثال احمد'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="كشف الارتباط" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"مرتبط 💔😐","خاين 😊😂","ممرتبط 😗","مرتبط ب 10 🙁😂","زاحف على 4 🥰😂",};
-sendnuuj = numj[math.random(#numj)]
-xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽 : *\n\n⌔︙*نوع الحيوان -* '..sendnuuj..' .'
-send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
-end
 if text and text:match("^كول (.*)$") then
 local Textxt = text:match("^كول (.*)$")
 send(msg.chat_id_, msg.id_, '['..Textxt..']')
