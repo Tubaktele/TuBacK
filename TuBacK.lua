@@ -8722,12 +8722,10 @@ local veico = database:get(bot_id.."Add:Rd:Manager:Vico"..text..msg.chat_id_)
 local stekr = database:get(bot_id.."Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
 local text1 = database:get(bot_id.."Add:Rd:Manager:Text"..text..msg.chat_id_)   
 local photo = database:get(bot_id.."Add:Rd:Manager:Photo"..text..msg.chat_id_)
-local name = database:get(bot_id.."Add:Rd:Manager:name"..text..msg.chat_id_)
 local video = database:get(bot_id.."Add:Rd:Manager:Video"..text..msg.chat_id_)
 local document = database:get(bot_id.."Add:Rd:Manager:File"..text..msg.chat_id_)
 local audio = database:get(bot_id.."Add:Rd:Manager:Audio"..text..msg.chat_id_)
 if Text then 
-tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,data)
 local NumMsg = database:get(bot_id..'TuBack:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(msg.sender_user_id_,msg.chat_id_)
@@ -8918,8 +8916,7 @@ if text == "التاريخ" then
 local ramsesj20 =  "\n التاريخ : "..os.date("%Y/%m/%d")
 send(msg.chat_id_, msg.id_,ramsesj20)
 end
---------------
---- هههه ها فرخ دتبوك ؟ ههههههههههه 
+
 if text == ("الردود المتعدده") and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
