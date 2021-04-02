@@ -8473,22 +8473,6 @@ local photo = database:get(bot_id.."Add:Rd:Sudo:Photo"..text)
 local video = database:get(bot_id.."Add:Rd:Sudo:Video"..text)
 local document = database:get(bot_id.."Add:Rd:Sudo:File"..text)
 local audio = database:get(bot_id.."Add:Rd:Sudo:Audio"..text)
-if Text then 
-tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,data)
-local NumMsg = database:get(bot_id..'TuBack:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
-local TotalMsg = Total_message(NumMsg)
-local Status_Gps = Get_Rank(msg.sender_user_id_,msg.chat_id_)
-local message_edit = database:get(bot_id..'TuBack:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Text = Text:gsub('#username',(data.username_ or 'لا يوجد')) 
-local Text = Text:gsub('#name',data.first_name_)
-local Text = Text:gsub('#id',msg.sender_user_id_)
-local Text = Text:gsub('#edit',message_edit)
-local Text = Text:gsub('#msgs',NumMsg)
-local Text = Text:gsub('#stast',Status_Gps)
-send(msg.chat_id_, msg.id_, Text)
-database:sadd(bot_id.."TuBack:Spam:Group"..msg.sender_user_id_,text) 
-end,nil)
-end
 ------------------------------------------------------------------------
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."botss:TuBacK:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
@@ -8725,21 +8709,6 @@ local photo = database:get(bot_id.."Add:Rd:Manager:Photo"..text..msg.chat_id_)
 local video = database:get(bot_id.."Add:Rd:Manager:Video"..text..msg.chat_id_)
 local document = database:get(bot_id.."Add:Rd:Manager:File"..text..msg.chat_id_)
 local audio = database:get(bot_id.."Add:Rd:Manager:Audio"..text..msg.chat_id_)
-if Text then 
-local NumMsg = database:get(bot_id..'TuBack:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
-local TotalMsg = Total_message(NumMsg)
-local Status_Gps = Get_Rank(msg.sender_user_id_,msg.chat_id_)
-local message_edit = database:get(bot_id..'TuBack:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
-local Text = Text:gsub('#username',(data.username_ or 'لا يوجد')) 
-local Text = Text:gsub('#name',data.first_name_)
-local Text = Text:gsub('#id',msg.sender_user_id_)
-local Text = Text:gsub('#edit',message_edit)
-local Text = Text:gsub('#msgs',NumMsg)
-local Text = Text:gsub('#stast',Status_Gps)
-send(msg.chat_id_, msg.id_, Text)
-database:sadd(bot_id.."TuBack:Spam:Group"..msg.sender_user_id_,text) 
-end,nil)
-end
 ------------------------------------------------------------------------
 if text and text:match("^وضع لقب (.*)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 local timsh = text:match("^وضع لقب (.*)$")
