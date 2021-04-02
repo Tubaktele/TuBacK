@@ -11853,9 +11853,9 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبه الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
-nun = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","8","100","6","0",};
-sendnun = num[math.random(#nun)]
-sl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🚹 : *\n\n⌔︙*نسبة الكره -* '..sendnun..'%'
+num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","8","100","6","0",};
+sendnum = num[math.random(#num)]
+sl = 'نسبه كره '..text..' هي : '..sendnum..'%'
 send(msg.chat_id_, msg.id_,sl) 
 database:del(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_)
 end
@@ -11868,8 +11868,8 @@ end
 end
 if text and text ~="نسبه الرجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
 numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnumj = numj[math.random(#numj)]
-xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ ⏺️ : *\n\n⌔︙*نسبة الرجوله -* '..sendnumj..'%'
+sendnuj = numj[math.random(#numj)]
+xl = 'نسبه رجوله '..text..' هي : \n '..sendnuj..'%'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
 end
@@ -11881,9 +11881,9 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبه الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
-nuj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
-sendnuj = numj[math.random(#nuj)]
-xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🚺 : *\n\n⌔︙*نسبة الانوثه -* '..sendnuj..'%'
+numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+sendnuj = numj[math.random(#numj)]
+xl = 'نسبه الانوثه '..text..' هي : \n '..sendnuj..'%'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
 end
@@ -11895,9 +11895,9 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="كشف الحيوان" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
-nmmj = {"قنفذ 🦝","صخل 🐐","جلب 🦮","بقرة 🐄","خنزير 🐖","قرد 🦧","فأر 🐁","تمساح 🐊","ذبانه 🪰","حصان 🐴",};
-sendnmmj = numj[math.random(#nmmj)]
-xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽 : *\n\n⌔︙*نوع الحيوان -* '..sendnmmj..' .'
+numj = {"قنفذ 🦝","صخل 🐐","جلب 🦮","بقرة 🐄","خنزير 🐖","قرد 🦧","فأر 🐁","تمساح 🐊","ذبانه 🪰","حصان 🐴",};
+sendnmj = numj[math.random(#numj)]
+xl = '⌔︙*اليك النتائج الخاصة بـ '..text..' : *\n\n⌔︙*نوع الحيوان -* '..sendnmj..' .'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
 end
@@ -11910,8 +11910,8 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="كشف الارتباط" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
-nuuj = {"مرتبط 💔😐","خاين 😊😂","ممرتبط 😗","مرتبط ب 10 🙁😂","زاحف على 4 🥰😂",};
-sendnuuj = numj[math.random(#nuuj)]
+numj = {"مرتبط 💔😐","خاين 😊😂","ممرتبط 😗","مرتبط ب 10 🙁😂","زاحف على 4 🥰😂",};
+sendnuuj = numj[math.random(#numj)]
 xl = '⌔︙*اليك النتائج الخاصة بـ ❲ '..text..' ❳ 🔽 : *\n\n⌔︙*نوع الحيوان -* '..sendnuuj..' .'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
