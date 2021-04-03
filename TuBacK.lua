@@ -11973,12 +11973,12 @@ Text = '⌔︙ارسل اسم الشخص : \n⌔︙كمثال : *احـمد*'
 send(msg.chat_id_, msg.id_,Text) 
 end
 end
-if text and text ~="كشف الارتباط" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
+if text and text ~="كشف الارتباط" and database:get(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_) == "sendonoe" then
 numj = {"مرتبط 💔😐","خاين 😊😂","ممرتبط 😗","مرتبط ب 10 🙁😂","زاحف على 4 🥰😂",};
 sendnuk = numj[math.random(#numj)]
 xl = '⌔︙*اليك النتائج الخاصة بـ '..text..'  : *\n\n⌔︙*نوع الكشف -* '..sendnuk..' .'
 send(msg.chat_id_, msg.id_,xl) 
-database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
+database:del(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_)
 end
 
 if text and text:match("^كول (.*)$") then
