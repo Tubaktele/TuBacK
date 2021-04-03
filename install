@@ -21,8 +21,8 @@ sudo apt-get install libnotify-dev -y
 sudo chmod +x tg
 lua TuBacK.lua
 sudo chmod +x TuBacK
-sudo chmod +x ./DRG
-./DRG
+sudo chmod +x ./tk
+./tk
 }
 if [ "$1" = "install" ]; then
 install
@@ -34,6 +34,6 @@ fi
 sudo chmod +x tg
 lua TuBacK.lua
 sudo chmod +x TuBacK
-sudo chmod +x ./DRG
-./DRG
+sudo chmod +x ./tk
+./tk
 fi
