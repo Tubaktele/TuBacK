@@ -9207,7 +9207,7 @@ local edit = tonumber(database:get(bot_id..'edits'..msg.chat_id_..result.sender_
 local rtp = Rutba(result.sender_user_id_,msg.chat_id_)
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.sender_user_id_
-send(msg.chat_id_, msg.id_,' • المُعرف || {'..username..'}.\n- الأيـدي || {'..iduser..'}.\n • الرُتبـه || {'..rtp..'}.\n • التـعديل || {'..edit..'}.\n • آلنَقُـاط || {'..NUMPGAME..'}.\n • جـهَاته || {'..Contact..'}.\n • الرسائل || {'..Msguser..'}. ')
+send(msg.chat_id_, msg.id_,'- المُعرف || '..username..'\n• الأيـدي || '..iduser..'\n • الرُتبـه || '..rtp..' .\n • التـعديل || '..edit..'.\n • آلنَقُـاط || '..NUMPGAME..'.\n • جـهَاته || '..Contact..'.\n • الرسائل || '..Msguser..'. ')
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
