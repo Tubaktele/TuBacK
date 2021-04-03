@@ -9706,6 +9706,24 @@ Text = '\n ⌔︙بالتاكيد تم تعطيل كشف الحيوان'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
+if text == 'تفعيل نسبه الغباء' and Manager(msg) then   
+if database:get(bot_id..'Cick:vov'..msg.chat_id_) then
+Text = ' ⌔︙تم تفعيل نسبة الغباء \n ⌔︙ارسل كلمة : نسبه الغباء'
+database:del(bot_id..'Cick:vov'..msg.chat_id_)  
+else
+Text = ' ⌔︙بالتاكيد تم تفعيل النسبة'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل نسبه الغباء' and Manager(msg) then  
+if not database:get(bot_id..'Cick:vov'..msg.chat_id_) then
+database:set(bot_id..'Cick:vov'..msg.chat_id_,true)  
+Text = '\n ⌔︙تم تعطيل نسبة الغباء'
+else
+Text = '\n ⌔︙بالتاكيد تم تعطيل النسبة'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
 ------------------------------------------------------------------------
 if text == 'تنزيل جميع الرتب' and BasicConstructor(msg) then  
 database:del(bot_id..'Constructor'..msg.chat_id_)
@@ -11979,6 +11997,21 @@ sendnuk = numj[math.random(#numj)]
 xl = '⌔︙*اليك النتائج الخاصة بـ '..text..'  : *\n\n⌔︙*نوع الكشف -* '..sendnuk..' .'
 send(msg.chat_id_, msg.id_,xl) 
 database:del(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_)
+end
+
+if text == "نسبه الغباء" or text == "نسبة الغباء" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:vov'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_,"sendonoe")
+Text = '⌔︙ارسل اسم الشخص : \n⌔︙كمثال : *احـمد*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الغباء" and database:get(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"مو غبي 🌝 8","غبي 😂😗 98","فديت غبائك 😊😂 0","الغباء موهبه ☹️😂 100","فديت 😍😂 20","مطي 😒💔 96",};
+sendnnk = numj[math.random(#numj)]
+xl = '⌔︙*اليك النتائج الخاصة بـ '..text..'  : *\n\n⌔︙*نسبة الغباء -* '..sendnnk..'%'
+send(msg.chat_id_, msg.id_,xl) 
+database:del(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_)
 end
 
 if text and text:match("^كول (.*)$") then
