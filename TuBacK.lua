@@ -858,6 +858,8 @@ send(msg.chat_id_, msg.id_," ⌔︙تمت الاذاعه الى *~ "..#list.." ~
 database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
+
+if text == "رابط حذف" or text == "رابط الحذف" or text == "اريد رابط الحذف" or  text == "شمرلي رابط الحذف" or text == "اريد رابط حذف" then local inline = {{{text="اضغط هنا",url="https://t.me/DYFBOT"}}} SendInline(msg.chat_id_,'⌁︙اضغط للحصول على الرابط',nil,inline) return false end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
@@ -865,7 +867,7 @@ local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_u
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
 local inline = {{{text="اضغط هنا",url="https://t.me/tubakx"}}} 
-sendInline(msg.chat_id_,'⌔︙اضغط هنا للاشتراك ⏺️',nil,inline) 
+send_Inline(msg.chat_id_,'⌔︙اضغط هنا للاشتراك ⏺️',nil,inline) 
 return false 
 end
 if DevAhMd(msg) then
