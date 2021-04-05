@@ -859,7 +859,23 @@ database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 return false
 end
 --------------------------------------------------------------------------------------------------------------
-if Chat_Type == 'UserBot' then
+if msg.chat_id_ then
+local id = tostring(msg.chat_id_)
+if id:match("-100(%d+)") then
+DevAhMd:incr(TuBacK..'AhMd:UsersMsgs'..TuBacK..os.date('%d')..':'..msg.chat_id_..':'..msg.sender_user_id_)
+DevAhMd:incr(TuBacK..'AhMd:UsersMsgs'..msg.chat_id_..':'..msg.sender_user_id_)
+DevAhMd:incr(TuBacK..'AhMd:MsgNumberDay'..msg.chat_id_..':'..os.date('%d'))  
+ChatType = 'sp' 
+elseif id:match("^(%d+)") then
+if not DevAhMd:sismember(TuBacK.."AhMd:Users",msg.chat_id_) then
+DevAhMd:sadd(TuBacK.."AhMd:Users",msg.chat_id_)
+end
+ChatType = 'pv' 
+else
+ChatType = 'gp' 
+end
+end 
+if ChatType == 'pv' then 
 if text == '/start' then  
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
@@ -895,7 +911,7 @@ end end
 if text == '/start' and DevAhMd(msg) then
 if not DevAhMd:get(TuBacK..'AhMd:Start:Time'..msg.sender_user_id_) then
 tdcli_function({ID="GetUser",user_id_=DevId},function(arg,dp) 
-local inline = {{{text="⌁ المطور .",url="t.me/"..(dp.username_ or "L9L9L")}}}
+local inline = {{{text="⌁ المطور .",url="t.me/"..(dp.username_ or "TuBakx")}}}
 local start = DevAhMd:get(TuBacK.."AhMd:Start:Bot")
 if start then 
 Start_Source = start
