@@ -869,23 +869,7 @@ database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 return false
 end
 --------------------------------------------------------------------------------------------------------------
-if msg.chat_id_ then
-local id = tostring(msg.chat_id_)
-if id:match("-100(%d+)") then
-DevAhMd:incr(TuBacK..'AhMd:UsersMsgs'..TuBacK..os.date('%d')..':'..msg.chat_id_..':'..msg.sender_user_id_)
-DevAhMd:incr(TuBacK..'AhMd:UsersMsgs'..msg.chat_id_..':'..msg.sender_user_id_)
-DevAhMd:incr(TuBacK..'AhMd:MsgNumberDay'..msg.chat_id_..':'..os.date('%d'))  
-ChatType = 'sp' 
-elseif id:match("^(%d+)") then
-if not DevAhMd:sismember(TuBacK.."AhMd:Users",msg.chat_id_) then
-DevAhMd:sadd(TuBacK.."AhMd:Users",msg.chat_id_)
-end
-ChatType = 'pv' 
-else
-ChatType = 'gp' 
-end
-end 
-if ChatType == 'pv' then 
+if Chat_Type == 'UserBot' then
 if text == '/start' or text == 'رجوع ،🔙‘' then 
 if SecondSudo(msg) then 
 local Sudo_Welcome = '⌁︙مرحبا عزيزي المطور \n⌁︙انت المطور الاساسي هنا \n⌁︙اليك ازرار سورس ديف ديفد \n⌁︙تستطيع التحكم بكل الاوامر فقط اضغط على الامر الذي تريد تنفيذه'
