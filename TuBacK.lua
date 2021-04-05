@@ -191,6 +191,16 @@ else
 return false  
 end  
 end
+-------  SecondSudo  -------
+function SecondSudo(msg) 
+local Status = DevAhMd:sismember(TuBacK..'AhMd:SecondSudo:',msg.sender_user_id_) 
+if Status or Sudo(msg) then  
+return true  
+else  
+return false  
+end  
+end
+----------  Bot  -----------
 function Bot(msg)  
 local idbot = false  
 if tonumber(msg.sender_user_id_) == tonumber(bot_id) then  
@@ -933,7 +943,7 @@ end,nil)
 end
 DevAhMd:setex(TuBacK..'AhMd:Start:Time'..msg.sender_user_id_,300,true)
 return false
-end 
+end
 if not DevAhMd(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
 send(msg.sender_user_id_, msg.id_,' ⌔︙تم ارسال رسالتك\n ⌔︙سيتم رد في اقرب وقت')
 tdcli_function ({ID = "ForwardMessages", chat_id_ = SUDO,    from_chat_id_ = msg.sender_user_id_,    message_ids_ = {[0] = msg.id_},    disable_notification_ = 1,    from_background_ = 1 },function(arg,data) 
