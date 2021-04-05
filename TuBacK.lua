@@ -862,13 +862,13 @@ end
 if msg.chat_id_ then
 local id = tostring(msg.chat_id_)
 if id:match("-100(%d+)") then
-DevAhMd:incr(TuBacK..'AhMd:UsersMsgs'..TuBacK..os.date('%d')..':'..msg.chat_id_..':'..msg.sender_user_id_)
-DevAhMd:incr(TuBacK..'AhMd:UsersMsgs'..msg.chat_id_..':'..msg.sender_user_id_)
-DevAhMd:incr(TuBacK..'AhMd:MsgNumberDay'..msg.chat_id_..':'..os.date('%d'))  
+DevAbs:incr(TuBacK..'Abs:UsersMsgs'..TuBacK..os.date('%d')..':'..msg.chat_id_..':'..msg.sender_user_id_)
+DevAbs:incr(TuBacK..'Abs:UsersMsgs'..msg.chat_id_..':'..msg.sender_user_id_)
+DevAbs:incr(TuBacK..'Abs:MsgNumberDay'..msg.chat_id_..':'..os.date('%d'))  
 ChatType = 'sp' 
 elseif id:match("^(%d+)") then
-if not DevAhMd:sismember(TuBacK.."AhMd:Users",msg.chat_id_) then
-DevAhMd:sadd(TuBacK.."AhMd:Users",msg.chat_id_)
+if not DevAbs:sismember(TuBacK.."Abs:Users",msg.chat_id_) then
+DevAbs:sadd(TuBacK.."Abs:Users",msg.chat_id_)
 end
 ChatType = 'pv' 
 else
@@ -876,43 +876,53 @@ ChatType = 'gp'
 end
 end 
 if ChatType == 'pv' then 
-if text == '/start' then  
-local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.TuBak ~= true then
-send(msg.chat_id_,msg.id_,'*• عليك الاشتراك اولا *[اضغط هنا 🚹 .](t.me/tubakx)')   
-return false 
-end
-if DevAhMd(msg) then
-local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي ](t.me/Tubakx)\n🔽꒐ يمكنك استخدام الاوامر التي ظهرت لك'
-local keyboard = {
-{'الاحصائيات 📊'},
-{'تعطيل التواصل 🔰','تفعيل التواصل ⚡'},
-{'المطورين 🛡️','قائمه العام 🚹'},
-{'تغير اسم البوت 🔁'},
-{'ضع كليشة ستارت ⌨️','حذف الستارت 📧'},
-{'اذاعه بالتثبيت 📥'},
-{'اذاعه عام 🚻','اذاعه خاص 📨'},
-{'اذاعه بالتوجيه 📩','توجيه خاص 🗳️'},
-{'تغير الاشتراك 🏷️'},
-{'تفعيل الاشتراك 🔔','تفعيل الاشتراك 🚫'},
-{'الاشتراك الاجباري 💈','وضع قناة الاشتراك ➗'},
-{'تغير رساله الاشتراك 🗞️','حذف رساله الاشتراك ✂️'},
-{'تفعيل البوت الخدمي 🔖','تعطيل البوت الخدمي 📛'},
-{'تنظيف المجموعات 🖇️','تنظيف المشتركين ℹ️'},
-{'جلب نسخه الاحتياطيه 📂'},
-{'تحديث السورس 🚼','الاصدار 📃'},
-{'معلومات السيرفر 🗄️'},
-{'الغاء ⏏️'},
+if text == '/start' or text == 'رجوع ،🔙‘' then 
+if SecondSudo(msg) then 
+local Sudo_Welcome = '⌁︙مرحبا عزيزي المطور \n⌁︙انت المطور الاساسي هنا \n⌁︙اليك ازرار سورس ديف ديفد \n⌁︙تستطيع التحكم بكل الاوامر فقط اضغط على الامر الذي تريد تنفيذه'
+local key = {
+{'وضع اسم البوت','↫ تحديث ⌁','وضع كليشه المطور'},
+{'↫ المطورين ⌁','↫ الاحصائيات ⌁'},
+{'↫ المجموعات ⌁','روابط الكروبات','↫ المشتركين ⌁'},
+{'↫ تعطيل التواصل ⌁','↫ تفعيل التواصل ⌁'},
+{'تنظيف الكروبات','↫ قائمه العام ⌁','تنظيف المشتركين'},
+{'↫ تغير المطور الاساسي ⌁'},
+{'تعطيل ترحيب البوت','تفعيل ترحيب البوت'},
+{'↫ تغير معلومات الترحيب ⌁'},
+{'↫ تعطيل المغادره ⌁','↫ تفعيل المغادره ⌁'},
+{'↫ تعطيل الاذاعه ⌁','↫ تفعيل الاذاعه ⌁'},
+{'↫ اذاعه بالتثبيت ⌁'},
+{'↫ اذاعه عام ⌁','↫ اذاعه خاص ⌁'},
+{'↫ اذاعه عام بالتوجيه ⌁','↫ اذاعه خاص بالتوجيه ⌁'},
+{'~ تعيين كلايش الاوامر ~'},
+{'تعطيل البوت الخدمي','تفعيل البوت الخدمي'},
+{'جلب نسخه السورس','تحديث السورس','جلب نسخه الكروبات'},
+{'↫ حذف رد عام ⌁','↫ الردود العام ⌁','↫ اضف رد عام ⌁'},
+{'↫ حذف رد الخاص ⌁','↫ تعيين رد الخاص ⌁'},
+{'حذف قناة الاشتراك','قناة الاشتراك','تعيين قناة الاشتراك'},
+{'حذف كليشه الاشتراك','كليشه الاشتراك','تغير كليشه الاشتراك'},
 }
-send_inline_key(msg.chat_id_,bl,keyboard)
+SendInline(msg.chat_id_,Sudo_Welcome,key)
 return false
 end end
-if text == '/start' and DevAhMd(msg) then
-if not DevAhMd:get(TuBacK..'AhMd:Start:Time'..msg.sender_user_id_) then
+if text == '~ تعيين كلايش الاوامر ~' then 
+if SecondSudo(msg) then 
+local Sudo_Welcome = '⌁︙اهلا بك مجددا عزيزي المطور \n⌁︙اليك الازرار الخاصه بتعديل وتغيير كلايش سورس ديف ديفد فقط اضغط على الامر الذي تريد تنفيذه'
+local key = {
+{'حذف كليشة الايدي','تعيين كليشة الايدي'},
+{'تعيين امر الاوامر'},
+{'تعيين امر م3','تعيين امر م2','تعيين امر م1'},
+{'تعيين امر م6','تعيين امر م5','تعيين امر م4'},
+{'استعادة كلايش الاوامر'},
+{'رجوع ،🔙‘'},
+}
+SendInline(msg.chat_id_,Sudo_Welcome,key)
+return false
+end end
+if text == '/start' and ChCheck(msg) then  
+if not DevAbs:get(TuBacK..'Abs:Start:Time'..msg.sender_user_id_) then
 tdcli_function({ID="GetUser",user_id_=DevId},function(arg,dp) 
-local inline = {{{text="⌁ المطور .",url="t.me/"..(dp.username_ or "TuBakx")}}}
-local start = DevAhMd:get(TuBacK.."AhMd:Start:Bot")
+local inline = {{{text="⌁ المطور .",url="t.me/"..(dp.username_ or "L9L9L")}}}
+local start = DevAbs:get(TuBacK.."Abs:Start:Bot")
 if start then 
 Start_Source = start
 else
@@ -921,9 +931,9 @@ end
 SendInline(msg.chat_id_,Start_Source,nil,inline)
 end,nil)
 end
-DevAhMd:setex(TuBacK..'AhMd:Start:Time'..msg.sender_user_id_,300,true)
+DevAbs:setex(TuBacK..'Abs:Start:Time'..msg.sender_user_id_,300,true)
 return false
-end
+end 
 if not DevAhMd(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
 send(msg.sender_user_id_, msg.id_,' ⌔︙تم ارسال رسالتك\n ⌔︙سيتم رد في اقرب وقت')
 tdcli_function ({ID = "ForwardMessages", chat_id_ = SUDO,    from_chat_id_ = msg.sender_user_id_,    message_ids_ = {[0] = msg.id_},    disable_notification_ = 1,    from_background_ = 1 },function(arg,data) 
