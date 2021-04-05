@@ -929,10 +929,10 @@ SendInline(msg.chat_id_,Sudo_Welcome,key)
 return false
 end end
 if text == '/start' and ChCheck(msg) then  
-if not DevAhMd:get(TuBacK..'AhMd:Start:Time'..msg.sender_user_id_) then
+if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 tdcli_function({ID="GetUser",user_id_=DevId},function(arg,dp) 
 local inline = {{{text="⌁ المطور .",url="t.me/"..(dp.username_ or "L9L9L")}}}
-local start = DevAhMd:get(TuBacK.."AhMd:Start:Bot")
+local start = database:get(bot_id.."Start:Bot")  
 if start then 
 Start_Source = start
 else
@@ -941,7 +941,7 @@ end
 SendInline(msg.chat_id_,Start_Source,nil,inline)
 end,nil)
 end
-DevAhMd:setex(TuBacK..'AhMd:Start:Time'..msg.sender_user_id_,300,true)
+database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
 return false
 end
 if not DevAhMd(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
