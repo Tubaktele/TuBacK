@@ -864,7 +864,8 @@ if text == '/start' then
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
-send(msg.chat_id_,msg.id_,'*• عليك الاشتراك اولا *[اضغط هنا 🚹 .](t.me/tubakx)')   
+local inline = {{{text="اضغط هنا",url="https://t.me/tubakx"}}} 
+SendInline(msg.chat_id_,'⌔︙اضغط هنا للاشتراك ⏺️',nil,inline) 
 return false 
 end
 if DevAhMd(msg) then
