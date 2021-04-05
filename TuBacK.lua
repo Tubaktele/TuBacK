@@ -890,18 +890,22 @@ local keyboard = {
 {'الغاء ⏏️'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
-else
-if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local start = database:get(bot_id.."Start:Bot")  
+return false
+end end
+if text == '/start' and ChCheck(msg) then  
+if not DevAbs:get(TuBacK..'Abs:Start:Time'..msg.sender_user_id_) then
+tdcli_function({ID="GetUser",user_id_=DevId},function(arg,dp) 
+local inline = {{{text="⌁ المطور .",url="t.me/"..(dp.username_ or "L9L9L")}}}
+local start = DevAbs:get(TuBacK.."Abs:Start:Bot")
 if start then 
-SourceTuBacKr = start
+Start_Source = start
 else
-SourceTuBacKr = ' ⌔︙اهلا عزيزي\n ⌔︙انا بوت اسمي ' ..Namebot..'\n ⌔︙اختصاصي حمايه الكروبات\n ⌔︙من تكرار والسبام والتوجيه والخ…\n ⌔︙لتفعيلي اتبع الاخطوات…↓\n ⌔︙اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع »{ منشئ او المشرفين } بتفعيل فقط\n[ ⌔︙معرف المطور ['..UserName..']'
+Start_Source = "⌁︙مرحبا انا بوت اسمي "..NameBot.."\n⌁︙اختصاصي حماية المجموعات\n⌁︙من التفليش والسبام والخخ .. . ،\n⌁︙تفعيلي سهل ومجانا فقط قم برفعي ادمن في مجموعتك وارسل امر ↫ تفعيل\n⌁︙سيتم رفع الادمنيه والمنشئ تلقائيا"
 end 
-send(msg.chat_id_, msg.id_, SourceTuBacKr) 
+SendInline(msg.chat_id_,Start_Source,nil,inline)
+end,nil)
 end
-end
-database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
+DevAbs:setex(TuBacK..'Abs:Start:Time'..msg.sender_user_id_,300,true)
 return false
 end
 if not DevAhMd(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
@@ -9207,7 +9211,7 @@ local edit = tonumber(database:get(bot_id..'edits'..msg.chat_id_..result.sender_
 local rtp = Rutba(result.sender_user_id_,msg.chat_id_)
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.sender_user_id_
-send(msg.chat_id_, msg.id_,'- المُعرف || '..username..'\n• الأيـدي || '..iduser..'\n • الرُتبـه || '..rtp..' .\n • التـعديل || '..edit..'.\n • آلنَقُـاط || '..NUMPGAME..'.\n • جـهَاته || '..Contact..'.\n • الرسائل || '..Msguser..'. ')
+send(msg.chat_id_, msg.id_,'- آلمـعَرف || '..username..'\n• الأيـدي || '..iduser..'\n• الرُتبـه || '..rtp..' .\n•الـتعديل || '..edit..'.\n• آلنَقُـاط || '..NUMPGAME..'.\n• جـهَاته || '..Contact..'.\n• الرسائل || '..Msguser..'. ')
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -9944,7 +9948,7 @@ else
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
-send(msg.chat_id_, msg.id_, '\n 🚹| ليس لديك صور في حسابك \n['..get_id_text..']')      
+send(msg.chat_id_, msg.id_, '\n🚹| ليس لديك صور في حسابك \n['..get_id_text..']')      
 end 
 end
 else
@@ -9959,7 +9963,7 @@ else
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
 send(msg.chat_id_, msg.id_,'[\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..' %\n🗯️꒐ سحكاتك : '..edit..'\n💰꒐ نقاطك : '..NUMPGAME..']\n⎯ ⎯ ⎯ ⎯')
 else
-send(msg.chat_id_, msg.id_, '\n🌁| * ليس لديك صور في حسابك*'..'[\n 🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..' %\n🗯️꒐ سحكاتك : '..edit..'\n💰꒐ نقاطك : '..NUMPGAME..']\n⎯ ⎯ ⎯ ⎯')
+send(msg.chat_id_, msg.id_, '\n🌁| * ليس لديك صور في حسابك*'..'[\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..' %\n🗯️꒐ سحكاتك : '..edit..'\n💰꒐ نقاطك : '..NUMPGAME..']\n⎯ ⎯ ⎯ ⎯')
 end 
 end
 end
