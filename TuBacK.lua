@@ -306,7 +306,13 @@ end
 return var
 end 
 function Rutba(user_id,chat_id)
-if tonumber(user_id) == tonumber(332581832) then  var = 'مبرمج السورس'elseif tonumber(user_id) == tonumber(SUDO) thenvar = 'المطور الاساسي'  elseif database:sismember(bot_id.."Dev:AhMd:2", user_id) then var = "المطور الثانوي"  elseif tonumber(user_id) == tonumber(bot_id) then  
+if tonumber(user_id) == tonumber(332581832) then 
+ var = 'مبرمج السورس'
+elseif tonumber(user_id) == tonumber(SUDO) then
+var = 'المطور الاساسي' 
+ elseif database:sismember(bot_id.."Dev:AhMd:2", user_id) then 
+var = "المطور الثانوي" 
+ elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
 var = database:get(bot_id.."Sudo:Rd"..msg.chat_id_) or 'المطور'  
