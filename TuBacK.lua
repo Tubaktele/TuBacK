@@ -2198,13 +2198,11 @@ tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,' ⌔︙بالتأكيد تم تفعيل المجموعة')
 else
-sendText(msg.chat_id_,'\n ⌔︙بواسطه » ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n ⌔︙تم تفعيل المجموعة {'..chat.title_..'}',msg.id_/2097152/0.5,'md')
-
-local Text = ' ⌔︙تم تفعيل المجموعة {'..chat.title_..'}'
+local Text = '🚹| بواًسطة -› ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n*💭| تم تفعيل المجموعة* {'..chat.title_..'}'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '💭| معرفة المزيد ؟ ',url="https://t.me/TuBaKx/16"},
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx/16"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -9863,7 +9861,7 @@ local List = {
 ゠𝚄𝚂𝙴𝚁 𖨈 #username 𖥲 .
 ゠𝙼𝚂𝙶 𖨈 #msgs 𖥲 .
 ゠𝚂𝚃𝙰 𖨈 #stast 𖥲 .
-゠???? 𖨈 #id 𖥲 .
+゠??𝙳 𖨈 #id 𖥲 .
 ]],
 [[
 ⌁ Use ⇨{#username} 
