@@ -914,7 +914,6 @@ send(msg.chat_id_, msg.id_," ⌔︙تمت الاذاعه الى *~ "..#list.." ~
 database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
-
 if text == "رابط حذف" or text == "رابط الحذف" or text == "اريد رابط الحذف" or  text == "شمرلي رابط الحذف" or text == "اريد رابط حذف" then 
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
@@ -9108,10 +9107,15 @@ database:srem(bot_id..'Chek:Groups',msg.chat_id_)
 end
 return false  
 end
+
+
 if text == 'بوت' then
 Namebot = (database:get(bot_id..'Name:Bot') or 'توباك')
-send(msg.chat_id_, msg.id_,'اسمي القميل ['..Namebot..'] ')
+local Name = {"اسمي القميل ['..Namebot..']","كول ماكول لحد 🙊" }
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#Name)]..'')
 end
+end
+
 if text == 'الاحصائيات' then
 if Sudo(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
@@ -10581,19 +10585,6 @@ if text == "مصه" or text == "بوسه" or text == "بوسي" or text == "مص
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"مووووووووواححح💋","مابوس ولي😌😹","خدك/ج نضيف 😂","البوسه بالف حمبي 🌝💋","خلي يزحفلي وابوسه 🙊😻","كل شويه ابوسه كافي 😏","ماابوسه والله هذا زاحف🦎","محح هاي لحاته صاكه💋"}send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
-end
-if text == 'رابط الحذف' or text == 'رابط حذف' then
-t =[[
-رابط الحذف في جميع مواقع التواصل ⌔
-فكر قبل لا تتسرع وتروح
-ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
- ⌔ رابط حذف  [Telegram](https://my.telegram.org/auth?to=delete) ܁
- ⌔ رابط حذف [instagram](https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/) ܁
- ⌔ رابط حذف [Facebook](https://www.facebook.com/help/deleteaccount) ܁
- ⌔ رابط حذف [Snspchat](https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount) ܁
-]]
-send(msg.chat_id_, msg.id_,t) 
-return false
 end
 if text and text:match('^الحساب (%d+)$') then
 local id = text:match('^الحساب (%d+)$')
