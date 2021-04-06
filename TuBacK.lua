@@ -925,7 +925,7 @@ local inline = {{{text="رابط الحذف",url="https://my.telegram.org/auth?t
 SendInline(msg.chat_id_,'رابط حذف حساب التلكرام 🔽',nil,inline) return false end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
-if text == '/start' or text == 'رجوع ،🔙‘' then   
+if text == '/start' or text == 'رجوع 🔼' then   
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
@@ -955,6 +955,19 @@ local keyboard = {
 {'تحديث السورس 🚼','الاصدار 📃'},
 {'معلومات السيرفر 🗄️'},
 {'الغاء ⏏️'},
+}
+send_inline_key(msg.chat_id_,bl,keyboard)
+else
+if text == 'قائمة الاذاعة 📧' then 
+if DevAhMd(msg) then
+local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي ](t.me/Tubakx)\n🔽꒐ يمكنك استخدام الاوامر التي ظهرت لك'
+local keyboard = {
+{'حذف كليشة الايدي','تعيين كليشة الايدي'},
+{'تعيين امر الاوامر'},
+{'تعيين امر م3','تعيين امر م2','تعيين امر م1'},
+{'تعيين امر م6','تعيين امر م5','تعيين امر م4'},
+{'استعادة كلايش الاوامر'},
+{'رجوع 🔼'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
 else
@@ -10672,7 +10685,7 @@ local msg_idd = Msg_id/2097152/0.5
 local Text = data.payload_.data_
 if Text == '/help' then
 if not Mod(data) then
-local notText = '⌔︙عذرا عزيزي الامر ليس لك ؟ 🚹'
+local notText = '⚠️| عذرا عزيزي الامر ليس لك ؟'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10699,7 +10712,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help1' then
 if not Mod(data) then
-local notText = '🚺| عذرا عزيزي الامر ليس لك ؟'
+local notText = '⚠️| عذرا عزيزي الامر ليس لك ؟'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10737,7 +10750,7 @@ local Teext =[[
 • الجهات
 • الاشعارات
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-✅| [Source TuBaK TeAM . ](t.me/Tubakx)
+🔽| [Source @Tubak . ](t.me/Tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10761,7 +10774,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help2' then
 if not Mod(data) then
-local notText = '🚺| عذرا عزيزي الامر ليس لك ؟'
+local notText = '⚠️| عذرا عزيزي الامر ليس لك ؟'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10801,7 +10814,7 @@ local Teext =[[
 • اوامر التحشيش
 • صورتي 
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-✅| [Source TuBaK TeAM . ](t.me/Tubakx)
+🔽| [Source @Tubak . ](t.me/Tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10825,7 +10838,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help3' then
 if not Mod(data) then
-local notText = '🚺| عذرا عزيزي الامر ليس لك ؟'
+local notText = '⚠️| عذرا عزيزي الامر ليس لك ؟'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10846,7 +10859,7 @@ local Teext =[[
 • وصف
 • تكرار + عدد
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-✅| [Source TuBaK TeAM . ](t.me/Tubakx)
+🔽| [Source @Tubak . ](t.me/Tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10870,7 +10883,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help4' then
 if not Mod(data) then
-local notText = '🚺| عذرا عزيزي الامر ليس لك ؟ '
+local notText = '⚠️| عذرا عزيزي الامر ليس لك ؟ '
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -10880,19 +10893,6 @@ local Teext =[[
 • مسح + امر ↓
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 
-• مميز
-• ادمن
-• مدير
-• منشئ
-• منشئ اساسي
-• مالك
-• الادمنيه
-• ادمن بالكروب
-• ادمن بكل الصلاحيات
-• القيود 
-• تنزيل جميع الرتب
-• تنزيل الكل 
-ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 • اوامر التغير …
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 • تغير رد المطور + اسم
@@ -10903,8 +10903,6 @@ local Teext =[[
 • تغير رد الادمن + اسم
 • تغير رد المميز + اسم
 • تغير رد العضو + اسم
-• تغير امر الاوامر
-• تغير امر م1 ~ الئ م10
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 • الايدي 
 • المميزين
@@ -10949,7 +10947,7 @@ local Teext =[[
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 • الاوامر المضافه ( لعرض الاوامر المضافه ) 
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-✅| [Source TuBaK TeAM . ](t.me/Tubakx)
+🔽| [Source @Tubak . ](t.me/Tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -10973,7 +10971,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help5' then
 if not Sudo(data) then
-local notText = '🚺| عذرا عزيزي الامر ليس لك ؟'
+local notText = '⚠️| عذرا عزيزي الامر ليس لك ؟'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -11049,7 +11047,7 @@ local Teext =[[
 • تنظيف المشتركين
 • تنظيف الكروبات
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-✅| [Source TuBaK TeAM . ](t.me/Tubakx)
+🔽| [Source @Tubak . ](t.me/Tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11073,7 +11071,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 if Text == '/help6' then
 if not Mod(data) then
-local notText = '🚺| عذرا عزيزي الامر ليس لك ؟'
+local notText = '⚠️| عذرا عزيزي الامر ليس لك ؟'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -11096,7 +11094,7 @@ local Teext =[[
 • الساعه
 • التاريخ
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-✅| [Source TuBaK TeAM . ](t.me/Tubakx)
+🔽| [Source @Tubak . ](t.me/Tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11147,7 +11145,7 @@ local Teext =[[
 • شنو رئيك بهاي بالرد
 • تحب هذا
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-✅| [Source TuBaK TeAM . ](t.me/Tubakx)
+🔽| [Source @Tubak . ](t.me/Tubakx)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
