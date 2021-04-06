@@ -2293,7 +2293,8 @@ elseif da.status_.ID == "ChatMemberStatusEditor" then
 var = 'مشرف'
 end
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,' ⌔︙تم تفعيل المجموعة')
+local inline = {{{text="معرفة المزيد؟  🚹",url="https://t.me/TuBakx"}}}
+SendInline(msg.chat_id_,' ⌔︙تم تفعيل المجموعة',nil,inline)
 else
 sendText(msg.chat_id_,'\n ⌔︙بواسطه » ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n ⌔︙تم تفعيل المجموعة {'..chat.title_..'}',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)  
@@ -11717,11 +11718,10 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-local inline = {{{text="اضغط هنا للشتراك 🚹",url="['..database:get(bot_id..'add:ch:username')..']"}}}
-SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
-return false 
+send(msg.chat_id_, msg.id_,' ⌔︙ لا تستطيع استخدام البوت \n  ⌔︙ يرجى الاشتراك بالقناه اولا \n  ⌔︙ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
-
+return false
+end
 Text_Games = [[
  ⌔ *قائمة الالعاب الموجوده ↓↑*
  ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
