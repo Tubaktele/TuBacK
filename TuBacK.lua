@@ -2199,7 +2199,7 @@ if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,' ⌔︙بالتأكيد تم تفعيل المجموعة')
 else
 local inline = {{{text="معرفة المزيد؟  🚹",url="https://t.me/TuBakx"}}}
-SendTextInline(msg.chat_id_,' ⌔︙تم تفعيل المجموعة',nil,inline)
+SendInlineText(msg.chat_id_,' ⌔︙تم تفعيل المجموعة',nil,inline)
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
