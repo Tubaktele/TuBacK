@@ -2198,8 +2198,24 @@ tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,' ⌔︙بالتأكيد تم تفعيل المجموعة')
 else
-local inline = {{{text="معرفة المزيد؟  🚹",url="https://t.me/TuBakx"}}}
-sendText_SendInline(msg.chat_id_,' ⌔︙تم تفعيل المجموعة',nil,inline)
+local Text = [[
+*🌐|  Welcome to Source*
+*أهلاً بك في سورس* [TuBaK Team 🔽](t.me/Tubakx)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'قناة السورس 📢',url="https://t.me/TuBaKx/16"},
+},
+{
+{text = 'تواصل السورس 💭',url="t.me/Y_8ibot"},
+},
+{
+{text = 'شروحات السورس 🗓️',url="t.me/TUBAKTEAM"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
