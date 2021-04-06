@@ -157,7 +157,7 @@ print([[
         |  ▓▓   | ▓▓   | ▓▓  | ▓▓    |▓▓          ▓▓  | ▓▓   ▓▓  
         |  ▓▓   | ▓▓ __/ ▓▓  | ▓▓ __/ ▓▓    ▓▓▓▓▓▓▓  | ▓▓▓▓▓▓\  
         |  ▓▓   \ ▓▓    ▓▓   | ▓▓    ▓▓  \▓▓    ▓▓▓   \ ▓▓   \▓▓\ 
-        \  ▓▓    \ ▓▓▓▓▓▓    \ ▓▓▓▓▓▓▓   \ ▓▓▓▓▓▓▓     \ ▓▓    \▓▓\                                        
+        \  ▓▓    \ ▓▓▓▓▓▓    \ ▓▓▓▓▓▓▓  \ ▓▓▓▓▓▓▓     \ ▓▓    \▓▓\                                        
 
 
 ⌔︙Dev › @VlVlVI
@@ -10672,9 +10672,6 @@ keyboard.inline_keyboard = {
 {
 {text = 'آوآمر آلخدمية', callback_data="/help6"},{text = 'آوآمر آلاعضاء', callback_data="/help7"},
 },
-{
-{text = 'رجوع', callback_data="/help"},
-},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -11720,10 +11717,11 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ⌔︙ لا تستطيع استخدام البوت \n  ⌔︙ يرجى الاشتراك بالقناه اولا \n  ⌔︙ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+local inline = {{{text="اضغط هنا للشتراك 🚹",url="..database:get(bot_id..'add:ch:username').."}}}
+SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
+return false 
 end
-return false
-end
+
 Text_Games = [[
  ⌔ *قائمة الالعاب الموجوده ↓↑*
  ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
