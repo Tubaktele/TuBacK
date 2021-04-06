@@ -306,13 +306,7 @@ end
 return var
 end 
 function Rutba(user_id,chat_id)
-if tonumber(user_id) == tonumber(332581832) then  
-var = 'مبرمج السورس'
-elseif tonumber(user_id) == tonumber(SUDO) then
-var = 'المطور الاساسي'  
-elseif database:sismember(bot_id.."Dev:AhMd:2", user_id) then 
-var = "المطور الاساسي²"  
-elseif tonumber(user_id) == tonumber(bot_id) then  
+if tonumber(user_id) == tonumber(332581832) then  var = 'مبرمج السورس'elseif tonumber(user_id) == tonumber(SUDO) thenvar = 'المطور الاساسي'  elseif database:sismember(bot_id.."Dev:AhMd:2", user_id) then var = "المطور الثانوي"  elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
 var = database:get(bot_id.."Sudo:Rd"..msg.chat_id_) or 'المطور'  
@@ -442,7 +436,6 @@ ID = "GetChat",
 chat_id_ = chat_id
 },cb, nil) 
 end  
-
 function GetApi(web) 
 local info, res = https.request(web) 
 local req = json:decode(info) if res ~= 200 then 
@@ -490,7 +483,6 @@ disable_notification_ = disable_notification
 vardump(data)
 end ,nil) 
 end
-
 function getInputFile(file) 
 if file:match('/') then infile = {ID = "InputFileLocal", path_ = file} elseif file:match('^%d+$') then infile = {ID = "InputFileId", id_ = file} else infile = {ID = "InputFilePersistentId", persistent_id_ = file} end return infile 
 end
@@ -574,9 +566,9 @@ TuBacK_Msg = 'اقوى متفاعل'
 elseif msgs < 7000 then 
 TuBacK_Msg = 'ملك التفاعل' 
 elseif msgs < 9500 then 
-TuBacK_Msg = 'امبروطور التفاعل' 
+TuBacK_Msg = 'عالي جدآ' 
 elseif msgs < 10000000000 then 
-TuBacK_Msg = 'رب التفاعل'  
+TuBacK_Msg = 'قوي جدآ'  
 end 
 return TuBacK_Msg 
 end
@@ -585,7 +577,7 @@ local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChat
 local Json_Info = JSON.decode(Chek_Info)
 if Json_Info.ok == true then
 if Json_Info.result.status == "creator" then
-Send(msg.chat_id_,msg.id_,'\n⌔︙مالك الكروب')   
+Send(msg.chat_id_,msg.id_,'\n⌔︙مالك المجموعة')   
 return false  end 
 if Json_Info.result.status == "member" then
 Send(msg.chat_id_,msg.id_,'\n⌔︙مجرد عضو هنا ')   
@@ -917,15 +909,24 @@ database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 return false
 end
 
-if text == "رابط حذف" or text == "رابط الحذف" or text == "اريد رابط الحذف" or  text == "شمرلي رابط الحذف" or text == "اريد رابط حذف" then local inline = {{{text="اضغط هنا",url="https://t.me/DYFBOT"}}} send(msg.chat_id_,'⌁︙اضغط للحصول على الرابط',nil,inline) return false end
+if text == "رابط حذف" or text == "رابط الحذف" or text == "اريد رابط الحذف" or  text == "شمرلي رابط الحذف" or text == "اريد رابط حذف" then 
+local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.TuBak ~= true then
+local inline = {{{text="اضغط هنا للشتراك 🚹",url="https://t.me/TuBakx"}}}
+SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
+return false 
+end
+local inline = {{{text="اضغط هنا",url="https://t.me/DYFBOT"}}} 
+SendInline(msg.chat_id_,'⌁︙اضغط للحصول على الرابط',nil,inline) return false end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
-local inline = {{{text="اضغط هنا",url="https://t.me/tubakx"}}} 
-SendInline(msg.chat_id_,'⌔︙اضغط هنا للاشتراك ⏺️',nil,inline) 
+local inline = {{{text="اضغط هنا للشتراك 🚹",url="https://t.me/TuBakx"}}}
+SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
 return false 
 end
 if DevAhMd(msg) then
@@ -2612,8 +2613,8 @@ if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
-local inline = {{{text="اضغط هنا ⏺️",url="https://t.me/TuBakx"}}}
-SendInline(msg.chat_id_,'⌔︙عليك الاشتراك اولا',nil,inline)
+local inline = {{{text="اضغط هنا للشتراك 🚹",url="https://t.me/TuBakx"}}}
+SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
 return false 
 end
 Text = [[
@@ -2623,7 +2624,7 @@ Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'قناة السورس 📢',url="t.me/tubakx"},
+{text = 'قناة السورس 📢',url="https://t.me/TuBaKx/16"},
 },
 {
 {text = 'تواصل السورس 💭',url="t.me/Y_8ibot"},
