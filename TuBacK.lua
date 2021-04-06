@@ -958,19 +958,6 @@ local keyboard = {
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
 else
-if text == 'قائمة الاذاعة 📧' then 
-if DevAhMd(msg) then
-local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي ](t.me/Tubakx)\n🔽꒐ يمكنك استخدام الاوامر التي ظهرت لك'
-local keyboard = {
-{'حذف كليشة الايدي','تعيين كليشة الايدي'},
-{'تعيين امر الاوامر'},
-{'تعيين امر م3','تعيين امر م2','تعيين امر م1'},
-{'تعيين امر م6','تعيين امر م5','تعيين امر م4'},
-{'استعادة كلايش الاوامر'},
-{'رجوع ،🔙‘'},
-}
-send_inline_key(msg.chat_id_,bl,keyboard)
-else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
@@ -9155,7 +9142,7 @@ end
 
 if text == 'بوت' then
 Namebot = (database:get(bot_id..'Name:Bot') or 'توباك')
-local texting = {"لتكول بوت اسمي "..Namebot.." 😒🔪","اسمي "..Namebot.." حب","عندي اسم تره 😒💔","صيحولي "..Namebot.." كافي بوت 😒🔪","انت البوت لك 😒💔"} 
+local texting = {"لتكول بوت اسمي "..Namebot.." .","اسمي "..Namebot.." حب","عندي اسم تره 😒💔","صيحولي "..Namebot.." كافي بوت 😒🔪","انت البوت لك 😒💔"} 
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 
@@ -10573,7 +10560,7 @@ end
 
 if text == 'الاوامر' then
 if not Mod(msg) then
-send(msg.chat_id_, msg.id_,' ⌔︙هاذا الامر خاص بالادمنيه\n ⌔︙ارسل {م10} لعرض اوامر الاعضاء')
+send(msg.chat_id_, msg.id_,'⚠️| هاذا الامر خاص بالادمنيه\n🔽| ارسل {م10} لعرض اوامر الاعضاء')
 return false
 end
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
