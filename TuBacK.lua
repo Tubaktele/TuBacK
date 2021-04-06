@@ -383,6 +383,20 @@ end
 return var
 end
 
+function SendInline(chat_id,text,keyboard,inline,reply_id) 
+local response = {} 
+response.keyboard = keyboard 
+response.inline_keyboard = inline 
+response.resize_keyboard = true 
+response.one_time_keyboard = false 
+response.selective = false  
+local send_api = "https://api.telegram.org/bot"..TokenBot.."/sendMessage?chat_id="..chat_id.."&text="..URL.escape(text).."&parse_mode=Markdown&disable_web_page_preview=true&reply_markup="..URL.escape(JSON.encode(response)) 
+if reply_id then 
+send_api = send_api.."&reply_to_message_id="..reply_id 
+end 
+return GetApi(send_api) 
+end
+
 function dl_cb(a,d)
 end
 function getChatId(id)
@@ -2559,7 +2573,8 @@ if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
-send(msg.chat_id_,msg.id_,'*• عليك الاشتراك اولا *[اضغط هنا 🚹 .](t.me/tubakx)')   
+local inline = {{{text="اضغط هنا ⏺️",url="https://t.me/TuBakx"}}}
+SendInline(msg.chat_id_,'⌔︙عليك الاشتراك اولا',nil,inline)
 return false 
 end
 Text = [[
@@ -7077,7 +7092,7 @@ end
 if text == "تفعيل رابط" or text == 'تفعيل الرابط' then
 if Mod(msg) then  
 database:set(bot_id.."Link_Group:status"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_," 🟢︙ تم تفعيل الرابط") 
+send(msg.chat_id_, msg.id_," ⌔︙ تم تفعيل الرابط") 
 return false  
 end
 end
