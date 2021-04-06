@@ -390,7 +390,7 @@ response.inline_keyboard = inline
 response.resize_keyboard = true 
 response.one_time_keyboard = false 
 response.selective = false  
-local send_api = "https://api.telegram.org/bot"..TokenBot.."/sendMessage?chat_id="..chat_id.."&text="..URL.escape(text).."&parse_mode=Markdown&disable_web_page_preview=true&reply_markup="..URL.escape(JSON.encode(response)) 
+local send_api = "https://api.telegram.org/bot"..token.."/sendMessage?chat_id="..chat_id.."&text="..URL.escape(text).."&parse_mode=Markdown&disable_web_page_preview=true&reply_markup="..URL.escape(JSON.encode(response)) 
 if reply_id then 
 send_api = send_api.."&reply_to_message_id="..reply_id 
 end 
