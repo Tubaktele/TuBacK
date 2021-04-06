@@ -2199,7 +2199,7 @@ if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,' ⌔︙بالتأكيد تم تفعيل المجموعة')
 else
 local Text = [[ 
-🚹| تم تفعيل المجموعه {..chat.title_..}
+🚹| تم تفعيل المجموعة
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
