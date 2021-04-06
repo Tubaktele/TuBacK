@@ -387,20 +387,6 @@ end
 return var
 end
 
-function SendInline(chat_id,text,keyboard,inline,reply_id) 
-local response = {} 
-response.keyboard = keyboard 
-response.inline_keyboard = inline 
-response.resize_keyboard = true 
-response.one_time_keyboard = false 
-response.selective = false  
-local send_api = "https://api.telegram.org/bot"..token.."/sendMessage?chat_id="..chat_id.."&text="..URL.escape(text).."&parse_mode=Markdown&disable_web_page_preview=true&reply_markup="..URL.escape(JSON.encode(response)) 
-if reply_id then 
-send_api = send_api.."&reply_to_message_id="..reply_id 
-end 
-return GetApi(send_api) 
-end
-
 function dl_cb(a,d)
 end
 function getChatId(id)
@@ -456,6 +442,55 @@ ID = "GetChat",
 chat_id_ = chat_id
 },cb, nil) 
 end  
+
+function GetApi(web) 
+local info, res = https.request(web) 
+local req = json:decode(info) if res ~= 200 then 
+return false 
+end 
+if not req.ok then 
+return false 
+end 
+return req 
+end 
+function SendText(chat_id, text, reply_to_message_id, markdown) 
+send_api = "https://api.telegram.org/bot"..token 
+local url = send_api.."/sendMessage?chat_id=" .. chat_id .. "&text=" .. URL.escape(text) 
+if reply_to_message_id ~= 0 then 
+url = url .. "&reply_to_message_id=" .. reply_to_message_id  
+end 
+if markdown == "md" or markdown == "markdown" then 
+url = url.."&parse_mode=Markdown&disable_web_page_preview=true" 
+elseif markdown == "html" then 
+url = url.."&parse_mode=HTML" 
+end 
+return GetApi(url) 
+end
+function SendInline(chat_id,text,keyboard,inline,reply_id) 
+local response = {} 
+response.keyboard = keyboard 
+response.inline_keyboard = inline 
+response.resize_keyboard = true 
+response.one_time_keyboard = false 
+response.selective = false  
+local send_api = "https://api.telegram.org/bot"..token.."/sendMessage?chat_id="..chat_id.."&text="..URL.escape(text).."&parse_mode=Markdown&disable_web_page_preview=true&reply_markup="..URL.escape(JSON.encode(response)) 
+if reply_id then 
+send_api = send_api.."&reply_to_message_id="..reply_id 
+end 
+return GetApi(send_api) 
+end
+function EditMsg(chat_id, message_id, text, markdown) local send_api = "https://api.telegram.org/bot"..token.."/editMessageText?chat_id="..chat_id.."&message_id="..message_id.."&text="..URL.escape(text).."&parse_mode=Markdown&disable_web_page_preview=true" return GetApi(send_api)  end
+function pin(channel_id, message_id, disable_notification) 
+tdcli_function ({ 
+ID = "PinChannelMessage", 
+channel_id_ = getChatId(channel_id).ID, 
+message_id_ = message_id, 
+disable_notification_ = disable_notification 
+}, function(arg ,data)
+vardump(data)
+end ,nil) 
+end
+
 function getInputFile(file) 
 if file:match('/') then infile = {ID = "InputFileLocal", path_ = file} elseif file:match('^%d+$') then infile = {ID = "InputFileId", id_ = file} else infile = {ID = "InputFilePersistentId", persistent_id_ = file} end return infile 
 end
