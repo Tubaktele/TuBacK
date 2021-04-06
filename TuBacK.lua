@@ -2196,13 +2196,13 @@ end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,' ⌔︙بالتأكيد تم تفعيل المجموعة')
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل المجموعة ')
 else
-local Text = '🚹| بواًسطة -› ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n*💭| تم تفعيل المجموعة* {'..chat.title_..'}'
+local Text = '🚹| تم تفعيل المجموعة {'..chat.title_..'}'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx/16"},
+{text = '💭| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -2245,15 +2245,13 @@ end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if not database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,' ⌔︙بالتأكيد تم تعطيل المجموعة')
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تعطيل المجموعة ')
 else
-local Text = [[ 
-❎| تم تعطيل المجموعة
-]]
+local Text = '🚺| تم تعطيل المجموعة {'..chat.title_..'}'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '💭| معرفة المزيد ؟ ',url="https://t.me/TuBaKx/16"},
+{text = '💭| معرفة المزيد ؟ ',url="https://t.me/TuBaKx"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -2311,15 +2309,13 @@ elseif da.status_.ID == "ChatMemberStatusEditor" then
 var = 'مشرف'
 end
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,' ⌔︙تم تفعيل المجموعة')
+send(msg.chat_id_, msg.id_,'✅| تم تفعيل المجموعة')
 else
-local Text = [[ 
-🚹| تم تفعيل المجموعة
-]]
+local Text = '🚹| تم تفعيل المجموعة {'..chat.title_..'}'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '💭| معرفة المزيد ؟ ',url="https://t.me/TuBaKx/16"},
+{text = '💭| معرفة المزيد ؟ ',url="https://t.me/TuBaKx"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -7221,17 +7217,17 @@ return false
 end
 local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
 if not status_Link then
-send(msg.chat_id_, msg.id_,"⌔︙الرابط معطل") 
+send(msg.chat_id_, msg.id_,"❎| عذراً الرابط معطل") 
 return false  
 end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,'⌔︙𝖫𝗂𝖭𝗄 𝖦𝗋𝗈𝗎𝗉.\n⎯ ⎯ ⎯ ⎯ ⎯ ⎯ \n ['..ta.title_..']('..link..')')                          
+send(msg.chat_id_,msg.id_,'🖇️| رابط المجموعة : \n ['..ta.title_..']('..link..')')                          
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '⌔︙𝖫𝗂𝖭𝗄 𝖦𝗋𝗈𝗎𝗉.\n⎯ ⎯ ⎯ ⎯ ⎯ ⎯ \n ['..ta.title_..']('..linkgpp.result..')'
+linkgp = '🖇️| رابط المجموعة : \n ['..ta.title_..']('..linkgpp.result..')'
 else
 linkgp = '⌔︙ لا يوجد رابط ارسل ضع رابط'
 end  
@@ -11581,7 +11577,7 @@ name = string.gsub(name,'🌥','⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️�
 name = string.gsub(name,'⛄️','☃☃☃☃☃☃⛄️☃☃☃☃')
 name = string.gsub(name,'👨‍🔬','👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍🔬👩‍🔬')
 name = string.gsub(name,'👨‍💻','👩‍💻👩‍💻👩‍‍💻👩‍‍💻👩‍💻👨‍💻👩‍💻👩‍💻👩‍💻')
-name = string.gsub(name,'👨‍??','👩‍🔧👩‍🔧👩‍🔧👩‍🔧👩‍🔧👩‍🔧👨‍🔧👩‍🔧')
+name = string.gsub(name,'👨‍??','👩‍🔧👩‍🔧👩‍🔧👩‍🔧👩‍🔧??‍🔧👨‍🔧👩‍🔧')
 name = string.gsub(name,'👩‍🍳','👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳👨‍🍳')
 name = string.gsub(name,'🧚‍♀','🧚‍♂🧚‍♂🧚‍♂🧚‍♂🧚‍♀🧚‍♂🧚‍♂')
 name = string.gsub(name,'🧜‍♂','🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧜‍♀🧚‍♂🧜‍♀🧜‍♀🧜‍♀')
