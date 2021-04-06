@@ -938,7 +938,7 @@ local keyboard = {
 send_inline_key(msg.chat_id_,bl,keyboard)
 return false  
 end 
-
+end
 if Chat_Type == 'UserBot' then
 if text == '/start' or text == 'رجوع 🔼' then   
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
