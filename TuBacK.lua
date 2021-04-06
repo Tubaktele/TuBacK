@@ -2198,7 +2198,8 @@ tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,' ⌔︙بالتأكيد تم تفعيل المجموعة')
 else
-sendText(msg.chat_id_,'\n ⌔︙بواسطه » ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n ⌔︙تم تفعيل المجموعة {'..chat.title_..'}',msg.id_/2097152/0.5,'md')
+local inline = {{{text="معرفة المزيد؟  🚹",url="https://t.me/TuBakx"}}}
+SendInline(msg.chat_id_,' ⌔︙تم تفعيل المجموعة',nil,inline)
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
