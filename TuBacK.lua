@@ -923,8 +923,8 @@ local inline = {{{text="اضغط هنا للشتراك 🚹",url="https://t.me/T
 SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
 return false 
 end
-local inline = {{{text="اضغط هنا",url="https://t.me/DYFBOT"}}} 
-SendInline(msg.chat_id_,'⌁︙اضغط للحصول على الرابط',nil,inline) return false end
+local inline = {{{text="رابط الحذف",url="https://my.telegram.org/auth?to=delete"}}} 
+SendInline(msg.chat_id_,'رابط حذف حساب التلكرام 🔽',nil,inline) return false end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
