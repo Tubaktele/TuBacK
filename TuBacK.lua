@@ -860,11 +860,10 @@ end
 send(msg.chat_id_, msg.id_,pre_msg)  
 end
 
---------------------------------------------------------------------------------------------------------------
-function SourceTuBacK(msg,data) -- بداية العمل
+function SourceTuBacK(msg,data)
 if msg then
 local text = msg.content_.text_
---------------------------------------------------------------------------------------------------------------
+
 if msg.chat_id_ then
 local id = tostring(msg.chat_id_)
 if id:match("-100(%d+)") then
@@ -9113,8 +9112,8 @@ end
 
 if text == 'بوت' then
 Namebot = (database:get(bot_id..'Name:Bot') or 'توباك')
-local texting = {".كول حياتي 😚🌿","كول ماكول لحد 🙊" }
-send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
+local Name = {"اسمي القميل '..Namebot..' ","كول ماكول لحد 🙊" }
+send(msg.chat_id_, msg.id_, ''..texting[math.random(#Name)]..'')
 end
 
 if text == 'الاحصائيات' then
