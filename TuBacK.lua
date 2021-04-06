@@ -7205,7 +7205,7 @@ end
 if text == "تعطيل الصوره" or text == 'تعطيل صورتي' then
 if Constructor(msg) then  
 database:del(bot_id.."my_photo:status"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"⏺️| تم تعطيل الصوره") 
+send(msg.chat_id_, msg.id_,"⚠️| تم تعطيل الصوره") 
 return false end
 end
 if text == "الرابط" then 
@@ -7282,8 +7282,8 @@ end
 if text == 'ضع ترحيب' or text == 'وضع ترحيب' then  
 if Mod(msg) then
 database:setex(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-t  = ' ☑️| ارسل لي الترحيب الان'
-tt = '\n\n🔖| تستطيع اضافة مايلي !\n🏷️| دالة عرض الاسم »{`name`}\n📌| دالة عرض المعرف »{`user`}'
+t  = ' 🔖| ارسل لي الترحيب الان'
+tt = '\n\n🔖| تستطيع اضافة مايلي !\n\n• دالة عرض الاسم »{`name`}\n• دالة عرض المعرف »{`user`}'
 send(msg.chat_id_, msg.id_,t..tt) 
 end
 return false  
@@ -7329,7 +7329,7 @@ end
 if text == 'مسح الترحيب' or text == 'حذف الترحيب' then 
 if Mod(msg) then
 database:del(bot_id..'Get:Welcome:Group'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,'✅| تم ازالة ترحيب المجموعه') 
+send(msg.chat_id_, msg.id_,'✅| تم حذف ترحيب المجموعه') 
 end
 end
 if text and text == "منع" and msg.reply_to_message_id_ == 0 and Manager(msg)  then       
@@ -7340,7 +7340,7 @@ end
 if text then   
 local tsssst = database:get(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == "rep" then   
-send(msg.chat_id_, msg.id_,"✅| تم حفظ الكلمه الممنوعة \n♨️| ارسل التحذير عند ارسال الكلمه")  
+send(msg.chat_id_, msg.id_,"♨️| تم حفظ الكلمه الممنوعة \n🔽| ارسل التحذير عند ارسال الكلمه")  
 database:set(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
 database:set(bot_id.."TuBacK1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
 database:sadd(bot_id.."TuBacK1:List:Filter"..msg.chat_id_,text)  
@@ -7360,7 +7360,7 @@ return false  end
 end
 
 if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Manager(msg) then    
-send(msg.chat_id_, msg.id_,"⏺️| ارسل الكلمه الان")  
+send(msg.chat_id_, msg.id_,"✅| ارسل الكلمه الان")  
 database:set(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
 if text then 
@@ -7441,7 +7441,7 @@ end
 
 if text == "قائمه المنع" and Manager(msg) then   
 local list = database:smembers(bot_id.."TuBacK1:List:Filter"..msg.chat_id_)  
-t = "\n🚮| قائمة المنع \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
+t = "\n📋| قائمة المنع \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do  
 local TuBacK_Msg = database:get(bot_id.."TuBacK1:Add:Filter:Rp2"..v..msg.chat_id_)   
 t = t..""..k.."- "..v.." » {"..TuBacK_Msg.."}\n"    
@@ -7499,17 +7499,18 @@ return false
 end
 database:setex(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 local Text= [[
-*☑️| ارسل النص الان يمكنك اضافة :*
+*🔖| ارسل النص الان :
+🔖| يمكنك اضافة :*
 
-• `#rdphoto` ~⪼ تعليق الصوره
-• `#username` ~⪼ اسم 
-• `#msgs` ~⪼ عدد رسائل 
-• `#photos` ~⪼ عدد صور 
-• `#id` ~⪼ ايدي 
-• `#auto` ~⪼ تفاعل 
-• `#stast` ~⪼ موقع  
-• `#edit` ~⪼ السحكات
-• `#game` ~⪼ النقاط
+• `#rdphoto` -› تعليق الصوره
+• `#username` -› اسم 
+• `#msgs` -› عدد رسائل 
+• `#photos` -› عدد صور 
+• `#id` -› ايدي 
+• `#auto` -› تفاعل 
+• `#stast` -› موقع  
+• `#edit` -› السحكات
+• `#game` -› النقاط
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -7541,14 +7542,14 @@ end
 
 if database:get(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_) then 
 if text == 'الغاء' then 
-send(msg.chat_id_, msg.id_," ⌔︙تم الغاء تعين الايدي") 
+send(msg.chat_id_, msg.id_,"⏺️| تم الغاء تعين الايدي") 
 database:del(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_) 
 return false  
 end 
 database:del(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_) 
 local CHENGER_ID = text:match("(.*)")  
 database:set(bot_id.."KLISH:ID"..msg.chat_id_,CHENGER_ID)
-send(msg.chat_id_, msg.id_,' ⌔︙تم تعين الايدي')    
+send(msg.chat_id_, msg.id_,'✅| تم تعين الايدي')    
 end
 
 if text == 'طرد البوتات' and Mod(msg) then 
