@@ -2202,7 +2202,7 @@ local Text = '🚹| تم تفعيل المجموعة {'..chat.title_..'}'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '💭| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -2251,7 +2251,7 @@ local Text = '🚺| تم تعطيل المجموعة {'..chat.title_..'}'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '💭| معرفة المزيد ؟ ',url="https://t.me/TuBaKx"},
+{text = '⏺️| معرفة المزيد ؟ ',url="https://t.me/TuBaKx"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -2315,7 +2315,7 @@ local Text = '🚹| تم تفعيل المجموعة {'..chat.title_..'}'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '💭| معرفة المزيد ؟ ',url="https://t.me/TuBaKx"},
+{text = '⏺️| معرفة المزيد ؟ ',url="https://t.me/TuBaKx"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -7171,14 +7171,14 @@ end
 if text == "تفعيل رابط" or text == 'تفعيل الرابط' then
 if Mod(msg) then  
 database:set(bot_id.."Link_Group:status"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_," ⌔︙ تم تفعيل الرابط") 
+send(msg.chat_id_, msg.id_,"✅| تم تفعيل الرابط") 
 return false  
 end
 end
 if text == "تعطيل رابط" or text == 'تعطيل الرابط' then
 if Mod(msg) then  
 database:del(bot_id.."Link_Group:status"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_," ⌔︙ تم تعطيل الرابط") 
+send(msg.chat_id_, msg.id_,"⏺️| تم تعطيل الرابط") 
 return false end
 end
 
@@ -7198,14 +7198,14 @@ end
 if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
 if Constructor(msg) then  
 database:set(bot_id.."my_photo:status"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_," ⌔︙تم تفعيل الصوره") 
+send(msg.chat_id_, msg.id_,"✅| تم تفعيل الصورة") 
 return false  
 end
 end
 if text == "تعطيل الصوره" or text == 'تعطيل صورتي' then
 if Constructor(msg) then  
 database:del(bot_id.."my_photo:status"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_," ⌔︙تم تعطيل الصوره") 
+send(msg.chat_id_, msg.id_,"⏺️| تم تعطيل الصوره") 
 return false end
 end
 if text == "الرابط" then 
@@ -7229,7 +7229,7 @@ local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token.
 if linkgpp.ok == true then 
 linkgp = '🖇️| رابط المجموعة : \n ['..ta.title_..']('..linkgpp.result..')'
 else
-linkgp = '⌔︙ لا يوجد رابط ارسل ضع رابط'
+linkgp = '⚠️| لا يوجد رابط ارسل ضع رابط'
 end  
 send(msg.chat_id_, msg.id_,linkgp)              
 end      
@@ -7246,14 +7246,14 @@ send(msg.chat_id_, msg.id_,' ⌔︙لا تستطيع استخدام البوت \
 end
 return false
 end
-send(msg.chat_id_,msg.id_," ⌔︙تم مسح الرابط")           
+send(msg.chat_id_,msg.id_,"✅| تم مسح الرابط")           
 database:del(bot_id.."Private:Group:Link"..msg.chat_id_) 
 return false      
 end
 end
 if text and text:match("^ضع صوره") and Mod(msg) and msg.reply_to_message_id_ == 0 then  
 database:set(bot_id..'Change:Chat:Photo'..msg.chat_id_..':'..msg.sender_user_id_,true) 
-send(msg.chat_id_, msg.id_,' ⌔︙ارسل لي الصوره') 
+send(msg.chat_id_, msg.id_,'✅| ارسل لي الصوره') 
 return false
 end
 if text == "حذف الصوره" or text == "مسح الصوره" then 
@@ -7268,22 +7268,22 @@ end
 return false
 end
 https.request('https://api.telegram.org/bot'..token..'/deleteChatPhoto?chat_id='..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,' ⌔︙تم ازالة صورة الكروب') 
+send(msg.chat_id_, msg.id_,'✅| تم ازالة صورة الكروب') 
 end
 return false  
 end
 if text == 'ضع وصف' or text == 'وضع وصف' then  
 if Mod(msg) then
 database:setex(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-send(msg.chat_id_, msg.id_,' ⌔︙ارسل الان الوصف')
+send(msg.chat_id_, msg.id_,'✅| ارسل الان الوصف')
 end
 return false  
 end
 if text == 'ضع ترحيب' or text == 'وضع ترحيب' then  
 if Mod(msg) then
 database:setex(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-t  = ' ⌔︙ارسل لي الترحيب الان'
-tt = '\n ⌔︙تستطيع اضافة مايلي !\n ⌔︙دالة عرض الاسم »{`name`}\n ⌔︙دالة عرض المعرف »{`user`}'
+t  = ' 🔽| ارسل لي الترحيب الان'
+tt = '\n💭| تستطيع اضافة مايلي !\n📌| دالة عرض الاسم »{`name`}\n🏷️| دالة عرض المعرف »{`user`}'
 send(msg.chat_id_, msg.id_,t..tt) 
 end
 return false  
@@ -7293,7 +7293,7 @@ local GetWelcomeGroup = database:get(bot_id..'Get:Welcome:Group'..msg.chat_id_)
 if GetWelcomeGroup then 
 GetWelcome = GetWelcomeGroup
 else 
-GetWelcome = ' ⌔︙لم يتم تعيين ترحيب للكروب'
+GetWelcome = '⏺️| لايوجد ترحيب في المجموعة'
 end 
 send(msg.chat_id_, msg.id_,'['..GetWelcome..']') 
 return false  
@@ -7309,7 +7309,7 @@ end
 return false
 end
 database:set(bot_id..'Chek:Welcome'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,' ⌔︙تم تفعيل ترحيب الكروب') 
+send(msg.chat_id_, msg.id_,'✅| تم تفعيل ترحيب في المجموعة') 
 return false  
 end
 if text == 'تعطيل الترحيب' and Mod(msg) then  
@@ -7323,24 +7323,24 @@ end
 return false
 end
 database:del(bot_id..'Chek:Welcome'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,' ⌔︙تم تعطيل ترحيب الكروب') 
+send(msg.chat_id_, msg.id_,'👤| تم تعطيل ترحيب في المجموعة') 
 return false  
 end
 if text == 'مسح الترحيب' or text == 'حذف الترحيب' then 
 if Mod(msg) then
 database:del(bot_id..'Get:Welcome:Group'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,' ⌔︙تم ازالة ترحيب الكروب') 
+send(msg.chat_id_, msg.id_,'✅| تم ازالة ترحيب المجموعه') 
 end
 end
 if text and text == "منع" and msg.reply_to_message_id_ == 0 and Manager(msg)  then       
-send(msg.chat_id_, msg.id_," ⌔︙ارسل الكلمه لمنعها")  
+send(msg.chat_id_, msg.id_,"▶️| حسناً ارسل الكلمة لمنعها")  
 database:set(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
 end    
 if text then   
 local tsssst = database:get(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == "rep" then   
-send(msg.chat_id_, msg.id_," ⌔︙ارسل التحذير عند ارسال الكلمه")  
+send(msg.chat_id_, msg.id_,"🔽| تم حفظ الكلمه الممنوعة \n💭| ارسل التحذير عند ارسال الكلمه")  
 database:set(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
 database:set(bot_id.."TuBacK1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
 database:sadd(bot_id.."TuBacK1:List:Filter"..msg.chat_id_,text)  
@@ -7349,7 +7349,7 @@ end
 if text then  
 local test = database:get(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test == "repp" then  
-send(msg.chat_id_, msg.id_," ⌔︙تم منع الكلمه مع التحذير")  
+send(msg.chat_id_, msg.id_,"✅| تم منع الكلمه مع التحذير")  
 database:del(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 local test = database:get(bot_id.."TuBacK1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
 if text then   
@@ -7360,13 +7360,13 @@ return false  end
 end
 
 if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Manager(msg) then    
-send(msg.chat_id_, msg.id_," ⌔︙ارسل الكلمه الان")  
+send(msg.chat_id_, msg.id_,"⏺️| ارسل الكلمه الان")  
 database:set(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
 if text then 
 local test = database:get(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test and test == "reppp" then   
-send(msg.chat_id_, msg.id_," ⌔︙تم الغاء منعها")  
+send(msg.chat_id_, msg.id_,"✅| تم الغاء منعها من القائمة")  
 database:del(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 database:del(bot_id.."TuBacK1:Add:Filter:Rp2"..text..msg.chat_id_)  
 database:srem(bot_id.."TuBacK1:List:Filter"..msg.chat_id_,text)  
@@ -7376,7 +7376,7 @@ end
 
 if text == 'منع' and tonumber(msg.reply_to_message_id_) > 0 and Manager(msg) then     
 function cb(a,b,c) 
-textt = ' ⌔︙تم منع '
+textt = '✅| تم منع '
 if b.content_.sticker_ then
 local idsticker = b.content_.sticker_.set_id_
 database:sadd(bot_id.."filtersteckr"..msg.chat_id_,idsticker)
@@ -7436,54 +7436,54 @@ database:del(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_
 database:del(bot_id.."TuBacK1:Add:Filter:Rp2"..v..msg.chat_id_)  
 database:srem(bot_id.."TuBacK1:List:Filter"..msg.chat_id_,v)  
 end  
-send(msg.chat_id_, msg.id_," ⌔︙تم مسح قائمه المنع")  
+send(msg.chat_id_, msg.id_,"✅| تم مسح قائمه المنع")  
 end
 
 if text == "قائمه المنع" and Manager(msg) then   
 local list = database:smembers(bot_id.."TuBacK1:List:Filter"..msg.chat_id_)  
-t = "\n ⌔︙قائمة المنع \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
+t = "\n🚮| قائمة المنع \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do  
 local TuBacK_Msg = database:get(bot_id.."TuBacK1:Add:Filter:Rp2"..v..msg.chat_id_)   
 t = t..""..k.."- "..v.." » {"..TuBacK_Msg.."}\n"    
 end  
 if #list == 0 then  
-t = " ⌔︙لا يوجد كلمات ممنوعه"  
+t = "⚠️| لا يوجد كلمات ممنوعه"  
 end  
 send(msg.chat_id_, msg.id_,t)  
 end  
 
 if text == 'مسح قائمه منع المتحركات' and Manager(msg) then     
 database:del(bot_id.."filteranimation"..msg.chat_id_)
-send(msg.chat_id_, msg.id_,' ⌔︙تم مسح قائمه منع المتحركات')  
+send(msg.chat_id_, msg.id_,'✅| تم مسح قائمه منع المتحركات')  
 end
 if text == 'مسح قائمه منع الصور' and Manager(msg) then     
 database:del(bot_id.."filterphoto"..msg.chat_id_)
-send(msg.chat_id_, msg.id_,' ⌔︙تم مسح قائمه منع الصور')  
+send(msg.chat_id_, msg.id_,'✅| تم مسح قائمه منع الصور')  
 end
 if text == 'مسح قائمه منع الملصقات' and Manager(msg) then     
 database:del(bot_id.."filtersteckr"..msg.chat_id_)
-send(msg.chat_id_, msg.id_,' ⌔︙تم مسح قائمه منع الملصقات')  
+send(msg.chat_id_, msg.id_,'✅| تم مسح قائمه منع الملصقات')  
 end
 ------------------
 
 if text == 'مسح كليشه المطور' and DevAhMd(msg) then
 database:del(bot_id..'TEXT_SUDO')
-send(msg.chat_id_, msg.id_,' ⌔︙تم مسح كليشه المطور')
+send(msg.chat_id_, msg.id_,'✅| تم مسح كليشه المطور')
 end
 if text == 'ضع كليشه المطور' and DevAhMd(msg) then
 database:set(bot_id..'Set:TEXT_SUDO'..msg.chat_id_..':'..msg.sender_user_id_,true)
-send(msg.chat_id_,msg.id_,' ⌔︙ارسل الكليشه الان')
+send(msg.chat_id_,msg.id_,'👤| حسناً ارسل الكليشه الان')
 return false
 end
 if text and database:get(bot_id..'Set:TEXT_SUDO'..msg.chat_id_..':'..msg.sender_user_id_) then
 if text == 'الغاء' then 
 database:del(bot_id..'Set:TEXT_SUDO'..msg.chat_id_..':'..msg.sender_user_id_)
-send(msg.chat_id_,msg.id_,' ⌔︙تم الغاء حفظ كليشة المطور')
+send(msg.chat_id_,msg.id_,'▶️| تم الغاء حفظ كليشة المطور')
 return false
 end
 database:set(bot_id..'TEXT_SUDO',text)
 database:del(bot_id..'Set:TEXT_SUDO'..msg.chat_id_..':'..msg.sender_user_id_)
-send(msg.chat_id_,msg.id_,' ⌔︙تم حفظ كليشة المطور')
+send(msg.chat_id_,msg.id_,'✅| تم حفظ كليشة المطور')
 return false
 end
 -----------------
@@ -7499,21 +7499,29 @@ return false
 end
 database:setex(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 local Text= [[
- ⌔︙ارسل الان النص
- ⌔︙يمكنك اضافه :
- ⌔︙`#rdphoto` ~⪼ تعليق الصوره
- ⌔︙`#username` ~⪼ اسم 
- ⌔︙`#msgs` ~⪼ عدد رسائل 
- ⌔︙`#photos` ~⪼ عدد صور 
- ⌔︙`#id` ~⪼ ايدي 
- ⌔︙`#auto` ~⪼ تفاعل 
- ⌔︙`#stast` ~⪼ موقع  
- ⌔︙`#edit` ~⪼ السحكات
- ⌔︙`#game` ~⪼ النقاط
+*🔽| ارسل النص الان يمكنك اضافة :*
+
+• `#rdphoto` ~⪼ تعليق الصوره
+• `#username` ~⪼ اسم 
+• `#msgs` ~⪼ عدد رسائل 
+• `#photos` ~⪼ عدد صور 
+• `#id` ~⪼ ايدي 
+• `#auto` ~⪼ تفاعل 
+• `#stast` ~⪼ موقع  
+• `#edit` ~⪼ السحكات
+• `#game` ~⪼ النقاط
 ]]
-send(msg.chat_id_, msg.id_,Text)
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false  
 end 
+
 if text == 'حذف الايدي' or text == 'مسح الايدي' then
 if Manager(msg) then
 if AddChannel(msg.sender_user_id_) == false then
