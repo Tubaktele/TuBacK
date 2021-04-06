@@ -7163,7 +7163,7 @@ send(msg.chat_id_, msg.id_,' ⌔︙لا تستطيع استخدام البوت \
 end
 return false
 end
-send(msg.chat_id_,msg.id_," ⌔︙حسنآ ارسل اليه الرابط الان")
+send(msg.chat_id_,msg.id_,"✅| حسنآ ارسل اليه الرابط الان")
 database:setex(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_,120,true) 
 return false
 end
@@ -7178,7 +7178,7 @@ end
 if text == "تعطيل رابط" or text == 'تعطيل الرابط' then
 if Mod(msg) then  
 database:del(bot_id.."Link_Group:status"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"⏺️| تم تعطيل الرابط") 
+send(msg.chat_id_, msg.id_,"❎| تم تعطيل الرابط") 
 return false end
 end
 
@@ -7268,7 +7268,7 @@ end
 return false
 end
 https.request('https://api.telegram.org/bot'..token..'/deleteChatPhoto?chat_id='..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,'✅| تم ازالة صورة الكروب') 
+send(msg.chat_id_, msg.id_,'✅| تم حذف صورة المجموعة') 
 end
 return false  
 end
@@ -7282,8 +7282,8 @@ end
 if text == 'ضع ترحيب' or text == 'وضع ترحيب' then  
 if Mod(msg) then
 database:setex(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-t  = ' 🔽| ارسل لي الترحيب الان'
-tt = '\n💭| تستطيع اضافة مايلي !\n📌| دالة عرض الاسم »{`name`}\n🏷️| دالة عرض المعرف »{`user`}'
+t  = ' ☑️| ارسل لي الترحيب الان'
+tt = '\n\n🔖| تستطيع اضافة مايلي !\n🏷️| دالة عرض الاسم »{`name`}\n📌| دالة عرض المعرف »{`user`}'
 send(msg.chat_id_, msg.id_,t..tt) 
 end
 return false  
@@ -7293,7 +7293,7 @@ local GetWelcomeGroup = database:get(bot_id..'Get:Welcome:Group'..msg.chat_id_)
 if GetWelcomeGroup then 
 GetWelcome = GetWelcomeGroup
 else 
-GetWelcome = '⏺️| لايوجد ترحيب في المجموعة'
+GetWelcome = '⚠️| لايوجد ترحيب في المجموعة'
 end 
 send(msg.chat_id_, msg.id_,'['..GetWelcome..']') 
 return false  
@@ -7323,7 +7323,7 @@ end
 return false
 end
 database:del(bot_id..'Chek:Welcome'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,'👤| تم تعطيل ترحيب في المجموعة') 
+send(msg.chat_id_, msg.id_,'❎| تم تعطيل ترحيب في المجموعة') 
 return false  
 end
 if text == 'مسح الترحيب' or text == 'حذف الترحيب' then 
@@ -7333,14 +7333,14 @@ send(msg.chat_id_, msg.id_,'✅| تم ازالة ترحيب المجموعه')
 end
 end
 if text and text == "منع" and msg.reply_to_message_id_ == 0 and Manager(msg)  then       
-send(msg.chat_id_, msg.id_,"▶️| حسناً ارسل الكلمة لمنعها")  
+send(msg.chat_id_, msg.id_,"☑️| حسناً ارسل الكلمة لمنعها")  
 database:set(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
 end    
 if text then   
 local tsssst = database:get(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == "rep" then   
-send(msg.chat_id_, msg.id_,"🔽| تم حفظ الكلمه الممنوعة \n💭| ارسل التحذير عند ارسال الكلمه")  
+send(msg.chat_id_, msg.id_,"✅| تم حفظ الكلمه الممنوعة \n♨️| ارسل التحذير عند ارسال الكلمه")  
 database:set(bot_id.."TuBacK1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
 database:set(bot_id.."TuBacK1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
 database:sadd(bot_id.."TuBacK1:List:Filter"..msg.chat_id_,text)  
@@ -7472,7 +7472,7 @@ send(msg.chat_id_, msg.id_,'✅| تم مسح كليشه المطور')
 end
 if text == 'ضع كليشه المطور' and DevAhMd(msg) then
 database:set(bot_id..'Set:TEXT_SUDO'..msg.chat_id_..':'..msg.sender_user_id_,true)
-send(msg.chat_id_,msg.id_,'👤| حسناً ارسل الكليشه الان')
+send(msg.chat_id_,msg.id_,'☑️| حسناً ارسل الكليشه الان')
 return false
 end
 if text and database:get(bot_id..'Set:TEXT_SUDO'..msg.chat_id_..':'..msg.sender_user_id_) then
@@ -7499,7 +7499,7 @@ return false
 end
 database:setex(bot_id.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 local Text= [[
-*🔽| ارسل النص الان يمكنك اضافة :*
+*☑️| ارسل النص الان يمكنك اضافة :*
 
 • `#rdphoto` ~⪼ تعليق الصوره
 • `#username` ~⪼ اسم 
