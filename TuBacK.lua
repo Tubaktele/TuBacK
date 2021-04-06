@@ -11717,7 +11717,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-local inline = {{{text="اضغط هنا للشتراك 🚹",url="..database:get(bot_id..'add:ch:username').."}}}
+local inline = {{{text="اضغط هنا للشتراك 🚹",url="['..database:get(bot_id..'add:ch:username')..']"}}}
 SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
 return false 
 end
