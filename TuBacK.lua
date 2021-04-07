@@ -977,11 +977,11 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Text = start
 else
-Text = '👋🏻꒐ اهلا بك في بوت حماية المجموعات\n⏺꒐ يمكنك اضافتي [بالضغط هنا](http://t.me/UserBot?startgroup=botstart)\n⎯ ⎯ ⎯ ⎯'
+Text = '👋🏻꒐ اهلا بك في بوت حماية المجموعات\n⏺꒐ يمكنك اضافتي الى مجموعتك [وتفعيلي .](t.me/tubakx)\n⎯ ⎯ ⎯ ⎯'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⏺️| معرفة المزيد ؟',url="t.me/TubAkx"},
+{text = '💭| معرفة المزيد ؟',url="t.me/TubAkx"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11660,53 +11660,6 @@ Text_Games = [[
 🚹| [Source Tubak . ](t.me/Tubakx)
 ]]
 send(msg.chat_id_, msg.id_,Text_Games) 
-end
-if text == 'م10' then
-local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.TuBak ~= true then
-local inline = {{{text="اضغط هنا للشتراك 🚹",url="https://t.me/TuBakx"}}}
-SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
-return false 
-end
-local Teext = [[
-📋| *اوامر الاعضاء ↓*
-ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-• عرض معلوماتك ↑↓
-ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-• ايديي ← اسمي 
-• رسايلي ← مسح رسايلي 
-• رتبتي ← سحكاتي 
-• مسح سحكاتي ← المنشئ 
-ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-• اوآمر المجموعه ↑↓
-ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-• الرابط ← القوانين – الترحيب
-• ايدي ← اطردني 
-• اسمي ← المطور  
-• كشف ~ بالرد بالمعرف
-• كول + كلمه
-ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-• اسم البوت + الامر ↑↓
-ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-• بوسه بالرد 
-• مصه بالرد
-• رزله بالرد 
-• شنو رئيك بهذا بالرد
-• شنو رئيك بهاي بالرد
-• تحب هذا
-ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-🚹| [Source Tubak . ](t.me/Tubakx)
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false 
 end
 
 if text == "السلام عليكم" or text == "سلام عليكم" or text == "سلامن عليكم" then
