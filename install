@@ -35,5 +35,5 @@ sudo chmod +x tg
 lua TuBacK.lua
 sudo chmod +x TuBacK
 sudo chmod +x ./tk
-./tk
+
 fi
