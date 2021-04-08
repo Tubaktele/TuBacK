@@ -137,29 +137,37 @@ end
 _redis = load_redis()  
 --------------------------------------------------------------------------------------------------------------
 print([[                                   
+⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 
-████████████████████████████████
-█─▄─▄─█▄─██─▄█▄─▄─▀██▀▄─██▄─█─▄█
-███─████─██─███─▄─▀██─▀─███─▄▀██
-▀▀▄▄▄▀▀▀▄▄▄▄▀▀▄▄▄▄▀▀▄▄▀▄▄▀▄▄▀▄▄▀
+                      Source TuBacK                   
+                   Devloper : @VlVlVI      
+                 Channel : @TUBAKTEAM    
+   ________                __                       __         
+  |        \              |  \                     |  \        
+  \▓▓▓▓▓▓▓▓__      __   | ▓▓ ____     ______     | ▓▓     __  
+   |  ▓▓   |      \   |  | ▓▓     \   |       \   | ▓▓     /  \ 
+   |  ▓▓   | ▓▓   | ▓▓  | ▓▓▓▓▓▓▓\   \▓▓▓▓▓▓\  | ▓▓   _/▓▓
+   |  ▓▓   | ▓▓   | ▓▓  | ▓▓    |▓▓          ▓▓  | ▓▓   ▓▓  
+   |  ▓▓   | ▓▓ __/ ▓▓  | ▓▓ __/ ▓▓    ▓▓▓▓▓▓▓  | ▓▓▓▓▓▓\  
+   |  ▓▓   \ ▓▓     ▓▓  | ▓▓    ▓▓  \▓▓    ▓▓▓   \ ▓▓   \▓▓\ 
+   \  ▓▓    \ ▓▓▓▓▓▓    \▓▓▓▓▓▓▓    \▓▓▓▓▓▓▓    \ ▓▓    \▓▓\                                      
 
-- Dev › @VlVlVI
-- Ch -› @TuBakx
-- Ch -› @TUBAKTEAM
+
+⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
+
 ]])
 sudos = dofile("./Info.lua") 
 SUDO = tonumber(sudos.SUDO)
 sudo_users = {SUDO}
 bot_id = sudos.token:match("(%d+)")  
 token = sudos.token 
---- start functions ↓
 --------------------------------------------------------------------------------------------------------------
 io.popen("mkdir File_Bot") 
 io.popen("cd File_Bot && rm -rf commands.lua.1") 
 io.popen("cd File_Bot && rm -rf commands.lua.2") 
 io.popen("cd File_Bot && rm -rf commands.lua.3") 
 io.popen("cd File_Bot && wget https://raw.githubusercontent.com/SRCTuBacK/Files_TuBacK/main/File_Bot/commands.lua") 
-t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
+t = "\27[35m".."\n: جاري تنظيف المجموعات الوهمية يرجى الانتظار - \n⎯ ⎯ ⎯ ⎯  ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
@@ -871,7 +879,7 @@ Chat_Type = 'GroupBot'
 end
 end
 if database:get(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == "الغاء" or text == "الغاء ⏏️" then   
+if text == "الغاء" or text == "الغاء ✖️" then   
 send(msg.chat_id_, msg.id_,"❎| تم الغاء الاذاعه")
 database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
@@ -918,7 +926,7 @@ end
 local inline = {{{text="رابط الحذف",url="https://my.telegram.org/auth?to=delete"}}} 
 SendInline(msg.chat_id_,'رابط حذف حساب التلكرام 🔽',nil,inline) return false end
 --------------------------------------------------------------------------------------------------------------
-if text == 'قسم الاذاعة 📩' then 
+if text == 'قسم الاذاعة ✉️' then 
 if DevAhMd(msg) then
 local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي .](t.me/Tubakx)\n🔽꒐ اليك قسم الكيبورد للاذاعة '
 local keyboard = {
@@ -931,7 +939,7 @@ send_inline_key(msg.chat_id_,bl,keyboard)
 return false  
 end 
 end
-if text == 'قسم الاشتراك 🖇️' then 
+if text == 'قسم الاشتراك 📫' then 
 if DevAhMd(msg) then
 local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي .](t.me/Tubakx)\n🔽꒐ اليك قسم الكيبورد للاشتراك الاجباري '
 local keyboard = {
@@ -959,16 +967,17 @@ local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي ](t.me/T
 local keyboard = {
 {'الاحصائيات 📊'},
 {'تعطيل التواصل 🔰','تفعيل التواصل ⚡'},
-{'المطورين 🛡️','قائمه العام 🚹'},
 {'تغير اسم البوت 🔁'},
-{'قسم الاذاعة 📩','قسم الاشتراك 🖇️'},
+{'قسم الاذاعة ✉️','قسم الاشتراك 📫'},
+{'المطورين 🛡️','قائمه العام 🚯'},
+{'مسح الثانويين 🚮','الثانويين 🚹'},
 {'ضع كليشة ستارت ⌨️','حذف الستارت 📧'},
 {'تفعيل البوت الخدمي 🔖','تعطيل البوت الخدمي 📛'},
 {'تنظيف المجموعات 🖇️','تنظيف المشتركين ℹ️'},
-{'جلب نسخه الاحتياطيه 📂'},
-{'تحديث السورس 🚼','الاصدار 📃'},
-{'معلومات السيرفر 🗄️'},
-{'الغاء ⏏️'},
+{'جلب نسخه الاحتياطيه 🗂️'},
+{'تحديث السورس ✅','الاصدار 📃'},
+{'معلومات السيرفر 🗃️'},
+{'الغاء ✖️'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
 else
@@ -1110,7 +1119,7 @@ end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text and database:get(bot_id..'Start:Bots') then
-if text == 'الغاء' or text == 'الغاء ⏏️' then   
+if text == 'الغاء' or text == 'الغاء ✖️' then   
 send(msg.chat_id_, msg.id_,'❎| الغاء حفظ كليشه ستارت')
 database:del(bot_id..'Start:Bots') 
 return false
@@ -1129,7 +1138,7 @@ if text == 'حذف الستارت 📧' and DevAhMd(msg) then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'🚮| تم حذف كليشه ستارت')
 end
-if text == 'معلومات السيرفر 🗄️' and DevAhMd(msg) then 
+if text == 'معلومات السيرفر 🗃️' and DevAhMd(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
@@ -1145,15 +1154,15 @@ echo '*———————————~*\n{ مـده تـشغيـل الـسـ
 ]]):read('*all'))  
 end
 
-if text == 'تحديث السورس 🚼' and DevAhMd(msg) then 
+if text == 'تحديث السورس ✅' and DevAhMd(msg) then 
 os.execute('rm -rf TuBacK.lua')
 os.execute('https://raw.githubusercontent.com/Tubaktele/TuBacK/main/TuBacK.lua')
-send(msg.chat_id_, msg.id_,'☑️| تم تحديث السورس \n◀️| لديك اخر اصدار لسورس توباك\n🛡️| اصدار السورس -› (* v .1 *)')
+send(msg.chat_id_, msg.id_,'☑️| تم تحديث السورس \n◀️| لديك اخر اصدار لسورس توباك\n🛡️| اصدار السورس -› (* v1.0*)')
 dofile('TuBacK.lua')  
 end
 if text == 'الاصدار 📃' and DevAhMd(msg) then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,'◀️| اصدار سورس توباك لديك (*v .1* ) 🛡️')
+send(msg.chat_id_, msg.id_,'◀️| اصدار سورس توباك لديك (*v1.0*) 🛡️')
 end
 if text == "تغير اسم البوت 🔁" and DevAhMd(msg) then  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
@@ -1163,7 +1172,7 @@ end
 if text == 'الاحصائيات 📊' and DevAhMd(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
-Text = '📊꒐* احصائيات البوت :*\n\n🚻꒐ عدد المجموعات :*'..Groups..'*\n🚹꒐ عدد المحادثات :* '..Users..'*'
+Text = '📊꒐* احصائيات البوت :*\n\n🚻꒐ عدد المجموعات :* '..Groups..'*\n🚹꒐ عدد المحادثات :* '..Users..'*'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
@@ -1183,7 +1192,27 @@ t = "⚠️| لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("قائمه العام 🚹") and DevAhMd(msg) then
+if text == ("الثانويين 🚹") and DevAhMd(msg) then
+local list = database:smembers(bot_id.."Dev:AhMd:2")
+t = "\n📋| قائمة مطورين الثانويين للبوت \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = "⚠️| لا يوجد مطورين ثانويين"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == ("مسح الثانويين 🚮") and DevAhMd(msg) then
+database:del(bot_id.."Dev:AhMd:2")
+send(msg.chat_id_, msg.id_, "\n✅| تم مسح قائمة المطورين الثانويين  ")
+end
+if text == ("قائمه العام 🚯") and DevAhMd(msg) then
 local list = database:smembers(bot_id..'GBan:User')
 t = "\n📋| قائمه المحظورين عام \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do
@@ -1225,7 +1254,7 @@ database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_i
 send(msg.chat_id_, msg.id_,"↪️| ارسل لي التوجيه الان")
 return false
 end 
-if text == 'جلب نسخه الاحتياطيه 📂' and DevAhMd(msg) then 
+if text == 'جلب نسخه الاحتياطيه 🗂️' and DevAhMd(msg) then 
 GetFile_Bot(msg)
 end
 if text == "تنظيف المشتركين ℹ️" and DevAhMd(msg) then 
@@ -1438,7 +1467,7 @@ end,nil)
 end
 end
 if database:get(bot_id..'Set:Name:Bot'..msg.sender_user_id_) then 
-if text == 'الغاء' or text == 'الغاء ⏏️' then   
+if text == 'الغاء' or text == 'الغاء ✖️' then   
 send(msg.chat_id_, msg.id_,"❎| تم الغاء حفظ اسم البوت")
 database:del(bot_id..'Set:Name:Bot'..msg.sender_user_id_) 
 return false  
@@ -1449,7 +1478,7 @@ send(msg.chat_id_, msg.id_, "☑️| تم حفظ اسم البوت")
 return false
 end 
 if database:get(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == 'الغاء' or text == 'الغاء ⏏️' then   
+if text == 'الغاء' or text == 'الغاء ✖️' then   
 send(msg.chat_id_, msg.id_,"❎| تم الغاء الاذاعه للخاص")
 database:del(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
@@ -1482,7 +1511,7 @@ database:del(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 
 if database:get(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == 'الغاء' or text == 'الغاء ⏏️' then   
+if text == 'الغاء' or text == 'الغاء ✖️' then   
 send(msg.chat_id_, msg.id_,"❎| تم الغاء الاذاعه")
 database:del(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
@@ -1515,7 +1544,7 @@ database:del(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_i
 end
 
 if database:get(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == 'الغاء' or text == 'الغاء ⏏️' then   
+if text == 'الغاء' or text == 'الغاء ✖️' then   
 send(msg.chat_id_, msg.id_,"❎| تم الغاء الاذاعه")
 database:del(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
@@ -1535,7 +1564,7 @@ database:del(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_
 end 
 end
 if database:get(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == 'الغاء' or text == 'الغاء ⏏️' then   
+if text == 'الغاء' or text == 'الغاء ✖️' then   
 send(msg.chat_id_, msg.id_,"❎| تم الغاء الاذاعه")
 database:del(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
@@ -2327,7 +2356,7 @@ elseif da.status_.ID == "ChatMemberStatusEditor" then
 var = 'مشرف'
 end
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'✅| تم تفعيل المجموعة')
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل المجموعة')
 else
 local Text = '🚹| تم تفعيل المجموعة {'..chat.title_..'}'
 keyboard = {} 
@@ -9333,7 +9362,7 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 end
-if text==('عدد الكروب') and Mod(msg) then  
+if text==('عدد المجموعه') and Mod(msg) then  
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_,msg.id_,"ℹ️| البوت ليس ادمن \n") 
 return false  
@@ -9344,7 +9373,7 @@ local ahmd = '🚻| عدد الادمنيه : '..data.administrator_count_..
 '\n\n🚯| عدد المطرودين : '..data.kicked_count_..
 '\n\n👥| عدد الاعضاء : '..data.member_count_..
 '\n\n📩| عدد رسائل الكروب : '..(msg.id_/2097152/0.5)..
-'\n\n◀️| اسم الكروب : ['..ta.title_..']'
+'\n\n◀️| اسم المجموعة : ['..ta.title_..']'
 send(msg.chat_id_, msg.id_, ahmd) 
 end,nil)
 end,nil)
@@ -9963,13 +9992,14 @@ username = '@'..result.username_
 else
 username = 'لا يوجد '
 end
+
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, ahmd.photos_[0].sizes_[1].photo_.persistent_id_,'🌁| التعليق : '..rdphoto..'\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..' %\n🗯️꒐ سحكاتك : '..edit..'\n💰꒐ نقاطك : '..NUMPGAME..'\n⎯ ⎯ ⎯ ⎯')
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, ahmd.photos_[0].sizes_[1].photo_.persistent_id_,'  🌁| التعليق : '..rdphoto..'\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..'%\n🔢| عدد صورك : '..photps..' صوره‌‏\n🗯️꒐ سحكاتك : '..edit..'\n🏆꒐ نقاطك : '..NUMPGAME..'\n⎯ ⎯ ⎯ ⎯')
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-send(msg.chat_id_, msg.id_,'[\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..' %\n🗯️꒐ سحكاتك : '..edit..'\n💰꒐ نقاطك : '..NUMPGAME..']\n⎯ ⎯ ⎯ ⎯')
+send(msg.chat_id_, msg.id_,'[\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..'%\n🗯️꒐ سحكاتك : '..edit..'\n🏆꒐ نقاطك : '..NUMPGAME..']\n⎯ ⎯ ⎯ ⎯')
 else
-send(msg.chat_id_, msg.id_, '\n🌁| * ليس لديك صور في حسابك*'..'[\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..' %\n🗯️꒐ سحكاتك : '..edit..'\n💰꒐ نقاطك : '..NUMPGAME..']\n⎯ ⎯ ⎯ ⎯')
+send(msg.chat_id_, msg.id_, '\n🌁| * ليس لديك صور في حسابك*'..'[\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..'%\n🗯️꒐ سحكاتك : '..edit..'\n🏆꒐ نقاطك : '..NUMPGAME..']\n⎯ ⎯ ⎯ ⎯')
 end 
 end
 end
@@ -9987,7 +10017,7 @@ get_id_text = get_id_text:gsub('#game',NUMPGAME)
 get_id_text = get_id_text:gsub('#photos',photps) 
 send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
-send(msg.chat_id_, msg.id_,'[\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..' %\n🗯️꒐ سحكاتك : '..edit..'\n💰꒐ نقاطك : '..NUMPGAME..']\n⎯ ⎯ ⎯ ⎯')
+send(msg.chat_id_, msg.id_,'[\n🏷꒐ ايديك : '..msg.sender_user_id_..'\n🚹꒐ يوزرك : '..username..'\n⏏️꒐ موقعك : '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n💭꒐ رسائلك : '..Msguser..'\n📊꒐ نسبة تفاعلك : '..string.sub(nspatfa, 1,5)..'%\n🌁| عدد صورك : '..photps..' صوره‌‏\n🗯️꒐ سحكاتك : '..edit..'\n🏆꒐ نقاطك : '..NUMPGAME..']\n⎯ ⎯ ⎯ ⎯')
 end
 end
 
@@ -11915,8 +11945,15 @@ end
 if text and text ~="نسبه الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
 num = {"💔 10","💔😐 20","💔☹️ 30","💔🙁 35","💕😊 75","💔 34","💕😔 66","💛😍 82","☹️ 23","💔 19","💕☹️ 55","😂☹️ 8","🥰 63","😒 32","27","89","99","98","3","80","49","100","6","0",};
 sendnum = num[math.random(#num)]
-sl = '🚹| *اليك النتائج الخاصة بـ '..text..' : *\n\n◀️| *نسبة الحب بينهم -* '..sendnum..'%'
-send(msg.chat_id_, msg.id_,sl) 
+local Text = '🚹| اليك النتائج الخـاصة :\n\n◀️| نسبة الحب بيـن : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendnum..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 database:del(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
 end
 if text == "نسبه الكره" or text == "نسبه كره" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
@@ -11929,8 +11966,15 @@ end
 if text and text ~="نسبه الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
 num = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","80","8","100","6","0",};
 sendnum = num[math.random(#num)]
-sl = '🚹| *اليك النتائج الخاصة بـ '..text..'  : *\n\n◀️| *نسبة الكره -* '..sendnum..'%'
-send(msg.chat_id_, msg.id_,sl) 
+local Text = '🚹| اليك النتائج الخـاصة :\n\n◀️| نسبه الكرة : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendnum..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 database:del(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_)
 end
 if text == "نسبه رجوله" or text == "نسبه الرجوله" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
@@ -11943,8 +11987,15 @@ end
 if text and text ~="نسبه رجوله" and database:get(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
 numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
 sendnuj = numj[math.random(#numj)]
-xl = '🚹| *اليك النتائج الخاصة بـ '..text..'  : *\n\n◀️| *نسبة الرجولة -* '..sendnuj..'%'
-send(msg.chat_id_, msg.id_,xl) 
+local Text = '🚹| اليك النتائج الخـاصة :\n\n◀️| نسبة الرجوله لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendnuj..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 database:del(bot_id..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
 end
 if text == "نسبه الانوثه" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
@@ -11957,8 +12008,15 @@ end
 if text and text ~="نسبه الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
 numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
 sendnuj = numj[math.random(#numj)]
-xl = '🚹| *اليك النتائج الخاصة بـ '..text..'  : *\n\n◀️| *نسبة الانوثه -* '..sendnuj..'%'
-send(msg.chat_id_, msg.id_,xl) 
+local Text = '🚹| اليك النتائج الخـاصة :\n\n◀️| نسبه الانوثة لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendnuj..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
 end
 if text == "كشف الحيوان" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
@@ -11971,8 +12029,15 @@ end
 if text and text ~="كشف الحيوان" and database:get(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_) == "sendonoe" then
 numj = {"قنفذ 🦝","صخل 🐐","جلب 🦮","بقرة 🐄","خنزير 🐖","قرد 🦧","فأر 🐁","تمساح 🐊","ذبانه 🪰","حصان 🐴",};
 sendnmj = numj[math.random(#numj)]
-xl = '🚹| *اليك النتائج الخاصة بـ '..text..' : *\n\n◀️| *نوع الحيوان -* '..sendnmj..' .'
-send(msg.chat_id_, msg.id_,xl) 
+local Text = '🚹| اليك النتائج الخـاصة :\n\n◀️| نوع الحيوان لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = ''..sendnmj..' ‹‹-',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 database:del(bot_id..":"..msg.sender_user_id_..":ono_Bots"..msg.chat_id_)
 end
 if text == "كشف الارتباط" or text == "نسبه الارتباط" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
@@ -11985,11 +12050,17 @@ end
 if text and text ~="كشف الارتباط" and database:get(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_) == "sendonoe" then
 numj = {"مرتبط 💔😐","خاين 😊😂","ممرتبط 😗","مرتبط ب 10 🙁😂","زاحف على 4 🥰😂",};
 sendnuk = numj[math.random(#numj)]
-xl = '🚹| *اليك النتائج الخاصة بـ '..text..'  : *\n\n◀️| *نوع الكشف -* '..sendnuk..' .'
-send(msg.chat_id_, msg.id_,xl) 
+local Text = '🚹| اليك النتائج الخـاصة :\n\n◀️| نوع الكشف لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = ''..sendnuk..' ‹‹-',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 database:del(bot_id..":"..msg.sender_user_id_..":goo_Bots"..msg.chat_id_)
 end
-
 if text == "نسبه الغباء" or text == "نسبة الغباء" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
 if not database:get(bot_id..'Cick:vov'..msg.chat_id_) then
 database:set(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_,"sendonoe")
@@ -11998,10 +12069,17 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبه الغباء" and database:get(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"مو غبي 🌝 8","غبي 😂😗 98","فديت غبائك 😊😂 0","الغباء موهبه ☹️😂 100","فديت 😍😂 20","مطي 😒💔 96",};
+numj = {"😘 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","😭 23","19","55","80","63","32","27","89","99 😂😔","98","79","100 😂😘","8","3 💘","6","0 👋🏻",};
 sendnnk = numj[math.random(#numj)]
-xl = '🚹| *اليك النتائج الخاصة بـ '..text..'  : *\n\n◀️| *نسبة الغباء -* '..sendnnk..'%'
-send(msg.chat_id_, msg.id_,xl) 
+local Text = '🚹| اليك النتائج الخـاصة :\n\n◀️| نسبة الغباء لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendnnk..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 database:del(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_)
 end
 
