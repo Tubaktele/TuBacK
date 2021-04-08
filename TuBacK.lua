@@ -2416,7 +2416,7 @@ send(msg.chat_id_, msg.id_,'🚻| تم تعيين عدد اعضاء المجمو
 end
 if text == 'تحديث السورس' and DevAhMd(msg) then 
 os.execute('rm -rf TuBacK.lua')
-os.execute('https://raw.githubusercontent.com/Tubaktele/TuBacK/main/TuBacK.lua')
+os.execute('https://raw.githubusercontent.com/Tubaktele/TuBacK/master/TuBacK.lua')
 send(msg.chat_id_, msg.id_,'☑️| تم تحديث السورس \n◀️| لديك اخر اصدار لسورس توباك\n🛡️| اصدار السورس -› (* v .1 *)')
 dofile('TuBacK.lua')  
 end
