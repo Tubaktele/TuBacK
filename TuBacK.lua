@@ -70,7 +70,7 @@ create_config_auto()
 token = database:get(id_server..":token")
 SUDO = database:get(id_server..":SUDO:ID")
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
-print('\n\27[1;34m doneeeeeeee senddddddddddddd :')
+print('\n\27[1;34m done send :')
 file = io.open("TuBacK", "w")  
 file:write([[
 #!/usr/bin/env bash
@@ -179,7 +179,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,332581832}   
+sudo_users = {SUDO,332581832,667869951}   
 function SudoBot(msg)  
 local TuBacK = false  
 for k,v in pairs(sudo_users) do  
@@ -276,6 +276,8 @@ end
 function Can_or_NotCan(user_id,chat_id)
 if tonumber(user_id) == tonumber(332581832) then  
 var = true  
+elseif tonumber(user_id) == tonumber(667869951) then
+var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
 elseif tonumber(user_id) == tonumber(bot_id) then
@@ -310,10 +312,12 @@ end
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(332581832) then 
  var = 'مبرمج السورس'
+ elseif tonumber(user_id) == tonumber(667869951) then  
+var = "مطور السورس"  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي' 
  elseif database:sismember(bot_id.."Dev:AhMd:2", user_id) then 
-var = "مطور ثانوي" 
+var = "مطور اساسي" 
  elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
@@ -491,6 +495,26 @@ disable_notification_ = disable_notification
 vardump(data)
 end ,nil) 
 end
+
+function sendAudio(chat_id,reply_id,audio,title,caption,func)
+tdcli_function({
+ID="SendMessage",
+chat_id_ = chat_id,
+reply_to_message_id_ = reply_id,
+disable_notification_ = 0,
+from_background_ = 1,
+reply_markup_ = nil,
+input_message_content_ = {
+ID="InputMessageAudio",
+audio_ = GetInputFile(audio),
+duration_ = "",
+title_ = title or "",
+performer_ = "سورس توباك الرسمي",
+caption_ = caption or ""
+}},func or dl_cb,nil)
+end
+
+
 function getInputFile(file) 
 if file:match('/') then infile = {ID = "InputFileLocal", path_ = file} elseif file:match('^%d+$') then infile = {ID = "InputFileId", id_ = file} else infile = {ID = "InputFilePersistentId", persistent_id_ = file} end return infile 
 end
@@ -926,7 +950,7 @@ end
 local inline = {{{text="رابط الحذف",url="https://my.telegram.org/auth?to=delete"}}} 
 SendInline(msg.chat_id_,'رابط حذف حساب التلكرام 🔽',nil,inline) return false end
 --------------------------------------------------------------------------------------------------------------
-if text == 'قسم الاذاعة 📩' then 
+if text == 'قسم الاذاعة 📨' then 
 if DevAhMd(msg) then
 local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي .](t.me/Tubakx)\n🔽꒐ اليك قسم الكيبورد للاذاعة '
 local keyboard = {
@@ -939,7 +963,7 @@ send_inline_key(msg.chat_id_,bl,keyboard)
 return false  
 end 
 end
-if text == 'قسم الاشتراك ✂️' then 
+if text == 'قسم الاشتراك ⚖️' then 
 if DevAhMd(msg) then
 local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي .](t.me/Tubakx)\n🔽꒐ اليك قسم الكيبورد للاشتراك الاجباري '
 local keyboard = {
@@ -967,13 +991,13 @@ local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي ](t.me/T
 local keyboard = {
 {'تغير اسم البوت 🔁'},
 {'تعطيل التواصل 🔰','تفعيل التواصل ⚡'},
-{'الاحصائيات 📊'},
-{'قسم الاذاعة 📩','قسم الاشتراك ✂️'},
+{'الاحصائيات 📈'},
+{'قسم الاذاعة 📨','قسم الاشتراك ⚖️'},
 {'المطورين 🛡️','قائمه العام 🚯'},
-{'مسح الثانويين 🚮','الثانويين 🚹'},
+{'مسح الاساسيين 🚮','الاساسيين 🚹'},
 {'ضع كليشة ستارت ⌨️','حذف الستارت 📧'},
 {'تفعيل البوت الخدمي 🔖','تعطيل البوت الخدمي 📛'},
-{'تنظيف المجموعات 🖇️','تنظيف المشتركين ℹ️'},
+{'تنظيف المجموعات 📊','تنظيف المشتركين ℹ️'},
 {'جلب نسخه الاحتياطيه 🗂️'},
 {'تحديث السورس ✅','الاصدار 📃'},
 {'معلومات السيرفر 🗃️'},
@@ -1169,7 +1193,7 @@ database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true)
 send(msg.chat_id_, msg.id_,"↪️| حسناً ارسل اسم البوت")
 return false
 end
-if text == 'الاحصائيات 📊' and DevAhMd(msg) then 
+if text == 'الاحصائيات 📈' and DevAhMd(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = '📊꒐* احصائيات البوت :*\n\n🚻꒐ عدد المجموعات :* '..Groups..'*\n🚹꒐ عدد المحادثات :* '..Users..'*'
@@ -1192,9 +1216,9 @@ t = "⚠️| لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("الثانويين 🚹") and DevAhMd(msg) then
+if text == ("الاساسيين 🚹") and DevAhMd(msg) then
 local list = database:smembers(bot_id.."Dev:AhMd:2")
-t = "\n📋| قائمة مطورين الثانويين للبوت \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
+t = "\n📋| قائمة مطورين الاساسيين للبوت \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -1208,9 +1232,9 @@ t = "⚠️| لا يوجد مطورين ثانويين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح الثانويين 🚮") and DevAhMd(msg) then
+if text == ("مسح الاساسيين 🚮") and DevAhMd(msg) then
 database:del(bot_id.."Dev:AhMd:2")
-send(msg.chat_id_, msg.id_, "\n✅| تم مسح قائمة المطورين الثانويين  ")
+send(msg.chat_id_, msg.id_, "\n✅| تم مسح قائمة المطورين الاساسيين  ")
 end
 if text == ("قائمه العام 🚯") and DevAhMd(msg) then
 local list = database:smembers(bot_id..'GBan:User')
@@ -1293,7 +1317,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف المجموعات 🖇️" and DevAhMd(msg) then 
+if text == "تنظيف المجموعات 📊" and DevAhMd(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2166,9 +2190,9 @@ for k,v in pairs(filter) do
 if v == msg.content_.sticker_.set_id_ then
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
-send(msg.chat_id_,0, "🚹| عذرا -› {[@"..data.username_.."]}\n⛔| عذرا تم منع الملصق \n" ) 
+send(msg.chat_id_,0, "🚹| العضـو -› {[@"..data.username_.."]}\n⛔| عذرا تم منع الملصق \n" ) 
 else
-send(msg.chat_id_,0, "🚹| عذرا -› {["..data.first_name_.."](T.ME/TuBakx)}\n⛔| عذرا تم منع الملصق \n" ) 
+send(msg.chat_id_,0, "🚹| العضـو -› {["..data.first_name_.."](T.ME/TuBakx)}\n⛔| عذرا تم منع الملصق \n" ) 
 end
 end,nil)   
 DeleteMessage(msg.chat_id_,{[0] = msg.id_})       
@@ -2186,9 +2210,9 @@ for k,v in pairs(filter) do
 if v == msg.content_.photo_.id_ then
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
-send(msg.chat_id_,0,"🚹| عذرا -› {[@"..data.username_.."]}\n🚫| عذرا تم منع الصوره \n" ) 
+send(msg.chat_id_,0,"🚹| العضـو -› {[@"..data.username_.."]}\n🚫| عذرا تم منع الصوره \n" ) 
 else
-send(msg.chat_id_,0,"🚹| عذرا -› {["..data.first_name_.."](T.ME/TuBakx)}\n🚫| عذرا تم منع الصوره \n") 
+send(msg.chat_id_,0,"🚹| العضـو -› {["..data.first_name_.."](T.ME/TuBakx)}\n🚫| عذرا تم منع الصوره \n") 
 end
 end,nil)   
 DeleteMessage(msg.chat_id_,{[0] = msg.id_})       
@@ -2203,9 +2227,9 @@ for k,v in pairs(filter) do
 if v == msg.content_.animation_.animation_.persistent_id_ then
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
-send(msg.chat_id_,0,"🚹| عذرا -› {[@"..data.username_.."]}\n🚯| عذرا تم منع المتحركه \n") 
+send(msg.chat_id_,0,"🚹| العضـو -› {[@"..data.username_.."]}\n🚯| عذرا تم منع المتحركه \n") 
 else
-send(msg.chat_id_,0,"🚹| عذرا -› {["..data.first_name_.."](T.ME/TuBakx)}\n🚯| عذرا تم منع المتحركه \n" ) 
+send(msg.chat_id_,0,"🚹| العضـو -› {["..data.first_name_.."](T.ME/TuBakx)}\n🚯| عذرا تم منع المتحركه \n" ) 
 end
 end,nil)   
 DeleteMessage(msg.chat_id_,{[0] = msg.id_})       
@@ -2874,10 +2898,10 @@ database:set(bot_id..'lock:edit'..msg.chat_id_,true)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,'◀️꒐ بواسطه ⌁  ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'TuBakx')..') \n❎| تـم قفـل تعديل ')
 end,nil)   
-elseif text == 'قفل السب' and msg.reply_to_message_id_ == 0 and Manager(msg) then 
+elseif text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Manager(msg) then 
 database:set(bot_id..'lock:Fshar'..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'◀️꒐ بواسطه ⌁  ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'TuBakx')..') \n❎| تـم قفـل السب ')
+send(msg.chat_id_, msg.id_,'◀️꒐ بواسطه ⌁  ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'TuBakx')..') \n❎| تـم قفـل الفشار ')
 end,nil)  
 elseif text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Manager(msg) then 
 database:set(bot_id..'lock:Fars'..msg.chat_id_,true) 
@@ -2966,10 +2990,10 @@ database:del(bot_id..'lock:edit'..msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,'◀️꒐ بواسطه ⌁  ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'TuBakx')..') \n✅| تـم فـتح تعديل ')
 end,nil)   
-elseif text == 'فتح السب' and msg.reply_to_message_id_ == 0 and Manager(msg) then 
+elseif text == 'فتح الفشار' and msg.reply_to_message_id_ == 0 and Manager(msg) then 
 database:del(bot_id..'lock:Fshar'..msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'◀️꒐ بواسطه ⌁  ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'TuBakx')..') \n✅| تـم فـتح السب ')
+send(msg.chat_id_, msg.id_,'◀️꒐ بواسطه ⌁  ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'TuBakx')..') \n✅| تـم فـتح الفشار ')
 end,nil)   
 elseif text == 'فتح الفارسيه' and msg.reply_to_message_id_ == 0 and Manager(msg) then 
 database:del(bot_id..'lock:Fars'..msg.chat_id_) 
@@ -4789,7 +4813,8 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == ("رفع مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) then
+
+if text == ("رفع مطور اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) then
 function Function_TuBacK(extra, result, success)
 database:sadd(bot_id.."Dev:AhMd:2", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⏫| تم ترقيته مطور ثانوي في البوت")  
@@ -4797,8 +4822,8 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_TuBacK, nil)
 return false 
 end
-if text and text:match("^رفع مطور ثانوي @(.*)$") and SudoBot(msg) then
-local username = text:match("^رفع مطور ثانوي @(.*)$")
+if text and text:match("^رفع مطور اساسي @(.*)$") and SudoBot(msg) then
+local username = text:match("^رفع مطور اساسي @(.*)$")
 function Function_TuBacK(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -4814,13 +4839,13 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_TuBacK, nil)
 return false 
 end
-if text and text:match("^رفع مطور ثانوي (%d+)$") and SudoBot(msg) then
-local userid = text:match("^رفع مطور ثانوي (%d+)$")
+if text and text:match("^رفع مطور اساسي (%d+)$") and SudoBot(msg) then
+local userid = text:match("^رفع مطور اساسي (%d+)$")
 database:sadd(bot_id.."Dev:AhMd:2", userid)
 Reply_Status(msg,userid,"reply","⏫| تم ترقيته مطور ثانوي في البوت")  
 return false 
 end
-if text == ("تنزيل مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) then
+if text == ("تنزيل مطور اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) then
 function Function_TuBacK(extra, result, success)
 database:srem(bot_id.."Dev:AhMd:2", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⏬| تم تنزيله من المطور ثانويين")  
@@ -4828,8 +4853,8 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_TuBacK, nil)
 return false 
 end
-if text and text:match("^تنزيل مطور ثانوي @(.*)$") and SudoBot(msg) then
-local username = text:match("^تنزيل مطور ثانوي @(.*)$")
+if text and text:match("^تنزيل مطور اساسي @(.*)$") and SudoBot(msg) then
+local username = text:match("^تنزيل مطور اساسي @(.*)$")
 function Function_TuBacK(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Dev:AhMd:2", result.id_)
@@ -4841,15 +4866,15 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_TuBacK, nil)
 return false
 end  
-if text and text:match("^تنزيل مطور ثانوي (%d+)$") and SudoBot(msg) then
-local userid = text:match("^تنزيل مطور ثانوي (%d+)$")
+if text and text:match("^تنزيل مطور اساسي (%d+)$") and SudoBot(msg) then
+local userid = text:match("^تنزيل مطور اساسي (%d+)$")
 database:srem(bot_id.."Dev:AhMd:2", userid)
 Reply_Status(msg,userid,"reply","⏬| تم تنزيله من المطور ثانويين")  
 return false 
 end
-if text == ("الثانويين") and SudoBot(msg) then
+if text == ("الاساسيين") and SudoBot(msg) then
 local list = database:smembers(bot_id.."Dev:AhMd:2")
-t = "\n📋| قائمة مطورين الثانويين للبوت \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
+t = "\n📋| قائمة مطورين الاساسيين للبوت \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -4863,9 +4888,9 @@ t = "⚠️| لا يوجد مطورين ثانويين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح الثانويين") and SudoBot(msg) then
+if text == ("مسح الاساسيين") and SudoBot(msg) then
 database:del(bot_id.."Dev:AhMd:2")
-send(msg.chat_id_, msg.id_, "\n✅| تم مسح قائمة المطورين الثانويين  ")
+send(msg.chat_id_, msg.id_, "\n✅| تم مسح قائمة المطورين الاساسيين  ")
 end
 ------------------------------------------------------------------------
 if text ==("رفع الادمنيه") and Manager(msg) then
@@ -7372,6 +7397,21 @@ send(msg.chat_id_, msg.id_,"✅| تم مسح قائمه المنع")
 end
 
 if text == "قائمه المنع" and Manager(msg) then   
+database:set(bot_id.."TuBacK:Filter:msg",msg.chat_id_)
+tdcli_function ({ID = "GetUser",user_id_ = bot_id},function(arg,data) 
+local Text ='⌔︙قائمه الممنوعات'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'صور', url="https://t.me/"..data.username_.."?start=ph"..msg.chat_id_},{text = 'كلمات', url="https://t.me/"..data.username_.."?start=msg"..msg.chat_id_}},
+{{text = 'متحركات', url="https://t.me/"..data.username_.."?start=gif"..msg.chat_id_},{text = 'ملصقات', url="https://t.me/"..data.username_.."?start=Sti"..msg.chat_id_}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)
+end
+
+
+if text == "قائمه المنع" and Manager(msg) then   
 local list = database:smembers(bot_id.."TuBacK1:List:Filter"..msg.chat_id_)  
 t = "\n📋| قائمة المنع \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do  
@@ -8364,7 +8404,6 @@ end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 end
-
 if text == ("مسح ردود المطور") and DevAhMd(msg) then 
 local list = database:smembers(bot_id..'List:Rd:Sudo')
 for k,v in pairs(list) do
@@ -8416,6 +8455,9 @@ database:del(bot_id..'Set:Rd'..msg.sender_user_id_..':'..msg.chat_id_)
 if msg.content_.sticker_ then   
 database:set(bot_id.."Add:Rd:Sudo:stekr"..test, msg.content_.sticker_.sticker_.persistent_id_)  
 end   
+if msg.content_.name_ then
+database:sadd(bot_id.."Add:Rd:Sudo:name"..msg.sender_user_id_,text) 
+end
 if msg.content_.voice_ then  
 database:set(bot_id.."Add:Rd:Sudo:vico"..test, msg.content_.voice_.voice_.persistent_id_)  
 end   
@@ -8431,6 +8473,9 @@ database:set(bot_id.."Add:Rd:Sudo:Text"..test, text)
 end  
 if msg.content_.audio_ then
 database:set(bot_id.."Add:Rd:Sudo:Audio"..test, msg.content_.audio_.audio_.persistent_id_)  
+end
+if msg.content_.name_ then
+database:sadd(bot_id.."Add:Rd:Sudo:name"..msg.sender_user_id_,text) 
 end
 if msg.content_.document_ then
 database:set(bot_id.."Add:Rd:Sudo:File"..test, msg.content_.document_.document_.persistent_id_)  
@@ -8459,7 +8504,7 @@ end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id..'Set:Rd'..msg.sender_user_id_..':'..msg.chat_id_) == 'true' then
-send(msg.chat_id_, msg.id_,'↪️| ارسل الرد الذي تريد اضافته')
+send(msg.chat_id_, msg.id_,'🔖| ارسل الرد الذي تريد اضافته')
 database:set(bot_id..'Set:Rd'..msg.sender_user_id_..':'..msg.chat_id_, 'true1')
 database:set(bot_id..'Text:Sudo:Bot'..msg.sender_user_id_..':'..msg.chat_id_, text)
 database:sadd(bot_id..'List:Rd:Sudo', text)
@@ -8467,7 +8512,7 @@ return false end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id..'Set:On'..msg.sender_user_id_..':'..msg.chat_id_) == 'true' then
-send(msg.chat_id_, msg.id_,'✅| تم ازالة الرد العام')
+send(msg.chat_id_, msg.id_,'🚮| تم ازالة الرد العام')
 list = {"Add:Rd:Sudo:Audio","Add:Rd:Sudo:File","Add:Rd:Sudo:Video","Add:Rd:Sudo:Photo","Add:Rd:Sudo:Text","Add:Rd:Sudo:stekr","Add:Rd:Sudo:vico","Add:Rd:Sudo:Gif"}
 for k,v in pairs(list) do
 database:del(bot_id..v..text)
@@ -8477,29 +8522,25 @@ database:srem(bot_id..'List:Rd:Sudo', text)
 return false
 end
 end
-if text == 'اضف رد للكل' and DevTuBacKW(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'🚹| يرجى الاشتراك بالقناه اولا \n▶️| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+if text == 'اضف رد للكل' and Sudo(msg) then 
+local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.TuBak ~= true then
+local inline = {{{text="اضغط هنا للشتراك 🚹",url="https://t.me/TuBakx"}}}
+SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
+return false 
 end
-return false
-end
-send(msg.chat_id_, msg.id_,'↪️꒐ الان ارسل الرد الذي تريد وضعة')
+send(msg.chat_id_, msg.id_,'📥|  ارسل الكلمه التري تريد اضافتها')
 database:set(bot_id..'Set:Rd'..msg.sender_user_id_..':'..msg.chat_id_,true)
 return false 
 end
-if text == 'حذف رد للكل' and DevTuBacKW(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'🚹| يرجى الاشتراك بالقناه اولا \n▶️| اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
+if text == 'حذف رد للكل' and Sudo(msg) then 
+local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.TuBak ~= true then
+local inline = {{{text="اضغط هنا للشتراك 🚹",url="https://t.me/TuBakx"}}}
+SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
+return false 
 end
 send(msg.chat_id_, msg.id_,'↪️꒐ الان ارسل الرد الذي تريد حذف')
 database:set(bot_id..'Set:On'..msg.sender_user_id_..':'..msg.chat_id_,true)
@@ -8515,11 +8556,57 @@ local photo = database:get(bot_id.."Add:Rd:Sudo:Photo"..text)
 local video = database:get(bot_id.."Add:Rd:Sudo:Video"..text)
 local document = database:get(bot_id.."Add:Rd:Sudo:File"..text)
 local audio = database:get(bot_id.."Add:Rd:Sudo:Audio"..text)
+if Text then 
+tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,data)
+local NumMsg = database:get(bot_id..'TuBacK:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
+local TotalMsg = Total_message(NumMsg)
+local Status_Gps = Get_Rank(msg.sender_user_id_,msg.chat_id_)
+local message_edit = database:get(bot_id..'TuBacK:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local Text = Text:gsub('#username',(data.username_ or 'لا يوجد')) 
+local Text = Text:gsub('#name',data.first_name_)
+local Text = Text:gsub('#id',msg.sender_user_id_)
+local Text = Text:gsub('#edit',message_edit)
+local Text = Text:gsub('#msgs',NumMsg)
+local Text = Text:gsub('#stast',Status_Gps)
+send(msg.chat_id_, msg.id_,Text)
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
+end,nil)
+end
+if stekr then 
+sendSticker(msg.chat_id_,msg.id_,stekr) 
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
+end
+if veico then 
+sendVoice(msg.chat_id_, msg.id_,veico,"")
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
+end
+if video then 
+sendVideo(msg.chat_id_, msg.id_,video,"")
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
+end
+if anemi then 
+sendAnimation(msg.chat_id_, msg.id_,anemi,"")   
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
+end
+if document then
+sendDocument(msg.chat_id_, msg.id_, document)     
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
+end  
+if audio then
+sendAudio(msg.chat_id_,msg.id_,audio)  
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
+end
+if photo then
+sendPhoto(msg.chat_id_,msg.id_,photo,"")
+database:sadd(bot_id.."TuBacK:Spam:Group"..msg.sender_user_id_,text) 
+return false 
+end
+
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."botss:TuBacK:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '\n↪️| ارسل الكلمه تريد وضعها')
+send(msg.chat_id_, msg.id_, '\n⏺️| ارسل الكلمه تريد وضعها')
 database:set(bot_id.."botss:TuBacK:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
 database:set(bot_id.."botss:TuBacK:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
 database:sadd(bot_id.."botss:TuBacK:List:Rd:Sudo", text)
@@ -8862,37 +8949,9 @@ end
 send(msg.chat_id_, msg.id_,'\n↪️| صلاحيات البوت هي\nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n◀️علامة ال {✔️} تعني مفعل\n◀️| علامة ال {✖} تعني غير مفعل\nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n🚸| تغير معلومات المجموعة ‹- '..INf..'\n📩| حذف الرسائل ‹- '..DEL..'\n🚯| حظر المستخدمين ‹- '..REs..'\n👥| دعوة المستخدمين ‹- '..INv..'\n💭| ثتبيت الرسالة ‹- '..Pin..'\n🛡️| اضافة مشرفين ‹- '..PRo)   
 end
 end
-if text == "تعطيل الانستا" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '❎| تم تعطيل الانستا')
-database:set(bot_id.."TuBakx:insta_bot"..msg.chat_id_,"close")
-end
-if text == "تفعيل الانستا" and Manager(msg) then
-send(msg.chat_id_, msg.id_,'✅| تم تفعيل الانستا')
-database:set(bot_id.."TuBakx:insta_bot"..msg.chat_id_,"open")
-end
-if text and text:match("^معلومات (.*)$") and database:get(bot_id.."TuBakx:insta_bot"..msg.chat_id_) == "open" then
-local Textni = text:match("^معلومات (.*)$")
-data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
-if res == 200 then
-muaed = json:decode(data)
-if muaed.Info == true then
-local filee = download_to_file(muaed.ph,msg.sender_user_id_..'.jpg')
-sendPhoto(msg.chat_id_, msg.id_,'./'..msg.sender_user_id_..'.jpg',muaed.info)     
-os.execute('rm -rf ./'..msg.sender_user_id_..'.jpg') 
-end
-end
-end
-if text and text == "تفعيل تاك المشرفين" and Manager(msg) then 
-database:set(bot_id.."TuBakx:Tag:Admins:"..msg.chat_id_,true)
-send(msg.chat_id_, msg.id_,"✅| تم تفعيل تاك المشرفين")
-end
-if text and text == "تعطيل تاك المشرفين" and Manager(msg) then 
-database:del(bot_id.."TuBakx:Tag:Admins:"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, "❎| تم تعطيل تاك المشرفين")
-end
 
 if text == 'صيح المشرفين' or text == "تاك للمشرفين" or text == "وين المشرفين" or text == "المشرفين" then
-if database:get(bot_id.."TuBakx:Tag:Admins:"..msg.chat_id_) then 
+if not database:get(bot_id..'TuBakx:Tag:Admins'..msg.chat_id_)  then 
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,b)  
 if b.username_ then 
@@ -9070,7 +9129,6 @@ end
 end
 end
 
--------------------------------
 if text == ""..(database:get(bot_id..'Name:Bot') or 'توباك').." غادر" or text == 'بوت غادر' then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
@@ -9108,138 +9166,270 @@ if text == 'المشتركين' then
 if Sudo(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
-Text = ' *🚹꒐ عدد المشتركين : *{`'..Users..'|}'
+Text = ' *🚹꒐ عدد المستخدمين : *{`'..Users..'|}'
 send(msg.chat_id_, msg.id_,Text) 
 end
 return false
 end
+---------------------------------------------------------------------------------------------
+if text == 'تفعيل تاك المشرفين' and Manager(msg) then   
+if database:get(bot_id..'TuBakx:Tag:Admins'..msg.chat_id_)  then
+database:del(bot_id..'TuBakx:Tag:Admins'..msg.chat_id_) 
+local Text = '✅| تم تفعيل تاك المشرفين'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل تاك المشرفين')  
+end
+end
+if text == 'تعطيل تاك المشرفين' and Manager(msg) then  
+if not database:get(bot_id..'TuBakx:Tag:Admins'..msg.chat_id_)  then
+database:set(bot_id..'TuBakx:Tag:Admins'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل تاك المشرفين'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل تاك المشرفين')  
+end
+end
 if text == 'تفعيل المغادره' and DevAhMd(msg) then   
 if database:get(bot_id..'Left:Bot'..msg.chat_id_) then
-Text = '✅| تم تفعيل مغادرة البوت'
 database:del(bot_id..'Left:Bot'..msg.chat_id_)  
+local Text = '✅| تم تفعيل المغادرة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '🚹| بالتاكيد تم تفعيل مغادرة البوت'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل المغادرة')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل المغادره' and DevAhMd(msg) then  
 if not database:get(bot_id..'Left:Bot'..msg.chat_id_) then
-Text = '❎| تم تعطيل مغادرة البوت'
-database:set(bot_id..'Left:Bot'..msg.chat_id_,true)   
+database:del(bot_id..'Left:Bot'..msg.chat_id_)  
+local Text = '❎| تم تعطيل المغادرة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '❎| بالتاكيد تم تعطيل مغادرة البوت'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل المغادرة')  
 end
-send(msg.chat_id_, msg.id_, Text) 
 end
-
 if text == 'تفعيل ردود المدير' and Manager(msg) then   
 if database:get(bot_id..'Reply:Manager'..msg.chat_id_) then
-Text = '✅| تم تفعيل ردود المدير'
 database:del(bot_id..'Reply:Manager'..msg.chat_id_)  
+local Text = '✅| تم تفعيل ردود المدير'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '✅| بالتأكيد تم تفعيل ردود المدير'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل ردود المدير')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل ردود المدير' and Manager(msg) then  
 if not database:get(bot_id..'Reply:Manager'..msg.chat_id_) then
 database:set(bot_id..'Reply:Manager'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل ردود المدير' 
+local Text = '❎| تم تعطيل ردود المدير'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل ردود المدير'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل ردود المدير')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل ردود المطور' and Manager(msg) then   
 if database:get(bot_id..'Reply:Sudo'..msg.chat_id_) then
 database:del(bot_id..'Reply:Sudo'..msg.chat_id_)  
-Text = '\n✅| تم تفعيل ردود المطور' 
+local Text = '✅| تم تفعيل ردود المطور'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n✅| بالتاكيد تم تفعيل ردود المطور'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل ردود المطور')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل ردود المطور' and Manager(msg) then  
 if not database:get(bot_id..'Reply:Sudo'..msg.chat_id_) then
 database:set(bot_id..'Reply:Sudo'..msg.chat_id_,true)   
-Text = '\n❎| تم تعطيل ردود المطور' 
+local Text = '❎| تم تعطيل ردود المطور'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل ردود المطور'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل ردود المدير')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل الايدي' and Manager(msg) then   
 if database:get(bot_id..'Bot:Id'..msg.chat_id_)  then
 database:del(bot_id..'Bot:Id'..msg.chat_id_) 
-Text = '\n✅| تم تفعيل الايدي' 
+local Text = '✅| تم تفعيل الايدي'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n✅| بالتاكيد تم تفعيل الايدي'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل الايدي')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل الايدي' and Manager(msg) then  
 if not database:get(bot_id..'Bot:Id'..msg.chat_id_)  then
 database:set(bot_id..'Bot:Id'..msg.chat_id_,true) 
-Text = '\n❎| تم تعطيل الايدي' 
+local Text = '❎| تم تعطيل الايدي'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n🚹| بالتاكيد تم تعطيل الايدي'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل الايدي')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل الايدي بالصوره' and Manager(msg) then   
 if database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_)  then
 database:del(bot_id..'Bot:Id:Photo'..msg.chat_id_) 
-Text = '\n✅| تم تفعيل الايدي بالصور' 
+local Text = '✅| تم تفعيل الايدي بالصورة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n🚹| بالتاكيد تم تفعيل الايدي بالصوره'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل الايدي بالصورة')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل الايدي بالصوره' and Manager(msg) then  
 if not database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_)  then
 database:set(bot_id..'Bot:Id:Photo'..msg.chat_id_,true) 
-Text = '\n❎| تم تعطيل الايدي بالصوره' 
+local Text = '❎| تم تعطيل الايدي بالصورة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n🚹| بالتاكيد تم تعطيل الايدي بالصوره'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل الايدي بالصورة')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل الحظر' and Constructor(msg) then   
 if database:get(bot_id..'Lock:kick'..msg.chat_id_)  then
 database:del(bot_id..'Lock:kick'..msg.chat_id_) 
-Text = '\n✅| تم تفعيل الحظر' 
+local Text = '✅| تم تفعيل الحظر'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n✅| بالتاكيد تم تفعيل الحظر'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل الحظر')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل الحظر' and Constructor(msg) then  
 if not database:get(bot_id..'Lock:kick'..msg.chat_id_)  then
 database:set(bot_id..'Lock:kick'..msg.chat_id_,true) 
-Text = '\n❎| تم تعطيل الحظر' 
+local Text = '❎| تم تعطيل الحظر'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل الحظر'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل الحظر')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل الرفع' and Constructor(msg) then   
 if database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_)  then
 database:del(bot_id..'Lock:Add:Bot'..msg.chat_id_) 
-Text = '\n✅| تم تفعيل الرفع' 
+local Text = '✅| تم تفعيل الرفع في البوت'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n✅| بالتاكيد تم تفعيل الرفع'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل الرفع')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل الرفع' and Constructor(msg) then  
 if not database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_)  then
 database:set(bot_id..'Lock:Add:Bot'..msg.chat_id_,true) 
-Text = '\n❎| تم تعطيل الرفع' 
+local Text = '❎| تم تعطيل الرفع في البوت'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n✅| بالتاكيد تم تعطيل الرفع'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل الرفع')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
+--------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 then
 function start_function(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(extra,data) 
@@ -9407,7 +9597,7 @@ else
 send(msg.chat_id_, msg.id_,'ℹ️| امر اطردني معطل') 
 end
 end
-if text and text:match("^صيح (.*)$") then
+if text and text:match("^صيح (.*)$") and not database:get(bot_id..'Seh:User'..msg.chat_id_)  then 
 local username = text:match("^صيح (.*)$") 
 if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
 function start_function(extra, result, success)
@@ -9461,109 +9651,218 @@ else
 send(msg.chat_id_, msg.id_,'ℹ️| امر منو ضافني معطل') 
 end
 end
-------------------------------------------------------------------------
-if text == 'تعطيل الالعاب' and Manager(msg) then   
-if database:get(bot_id..'Lock:Games'..msg.chat_id_)  then
-database:del(bot_id..'Lock:Games'..msg.chat_id_) 
-Text = '\n❎| تم تعطيل الالعاب' 
-else
-Text = '\n❎| بالتاكيد تم تعطيل الالعاب'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تفعيل الالعاب' and Manager(msg) then  
-if not database:get(bot_id..'Lock:Games'..msg.chat_id_)  then
-database:set(bot_id..'Lock:Games'..msg.chat_id_,true) 
-Text = '\n✅| تم تفعيل الالعاب' 
-else
-Text = '\n☑️| بالتاكيد تم تفعيل الالعاب'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
+-----------------------------------------------------------------------
+
 if text == 'تفعيل صيح' and Manager(msg) then   
-if database:get(bot_id..'Seh:User'..msg.chat_id_) then
-Text = '✅| تم تفعيل امر صيح'
-database:del(bot_id..'Seh:User'..msg.chat_id_)  
+if database:get(bot_id..'Seh:User'..msg.chat_id_)  then
+database:del(bot_id..'Seh:User'..msg.chat_id_) 
+local Text = '✅| تم تفعيل صيح'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = ' ☑️| بالتاكيد تم تفعيل امر صيح'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل صيح')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل صيح' and Manager(msg) then  
-if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
-database:set(bot_id..'Seh:User'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل امر صيح'
+if not database:get(bot_id..'Seh:User'..msg.chat_id_)  then
+database:set(bot_id..'Seh:User'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل صيح'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل امر صيح'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل صيح')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل الردود' and Manager(msg) then  
-if database:get(bot_id..'lock:add'..msg.chat_id_) then
-Text = '✅| تم تفعيل الردود '
-database:del(bot_id..'lock:add'..msg.chat_id_)  
+if text == 'تفعيل الردود' and Manager(msg) then   
+if database:get(bot_id..'lock:add'..msg.chat_id_)  then
+database:del(bot_id..'lock:add'..msg.chat_id_) 
+local Text = '✅| تم تفعيل الردود'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '☑️| بالتاكيد تم تفعيل ردود البوت'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل الردود')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل الردود' and Manager(msg) then  
-if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-database:set(bot_id..'lock:add'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل الردود'
+if not database:get(bot_id..'lock:add'..msg.chat_id_)  then
+database:set(bot_id..'lock:add'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل الردود'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل ردود البوت'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل الردود')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل اطردني' and Manager(msg) then   
-if database:get(bot_id..'Cick:Me'..msg.chat_id_) then
-Text = '✅| تم تفعيل امر اطردني'
-database:del(bot_id..'Cick:Me'..msg.chat_id_)  
+if database:get(bot_id..'Cick:Me'..msg.chat_id_)  then
+database:del(bot_id..'Cick:Me'..msg.chat_id_) 
+local Text = '✅| تم تفعيل اطردني'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '✅| بالتاكيد تم تفعيل امر اطردني'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل اطردني')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل اطردني' and Manager(msg) then  
-if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
-database:set(bot_id..'Cick:Me'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل امر اطردني'
+if not database:get(bot_id..'Cick:Me'..msg.chat_id_)  then
+database:set(bot_id..'Cick:Me'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل اطردني'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل امر اطردني'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل اطردني')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
+
 if text == 'تفعيل ضافني' and Manager(msg) then   
-if database:get(bot_id..'Added:Me'..msg.chat_id_) then
-Text = '✅| تم تفعيل امر منو ضافني'
-database:del(bot_id..'Added:Me'..msg.chat_id_)  
+if database:get(bot_id..'Added:Me'..msg.chat_id_)  then
+database:del(bot_id..'Added:Me'..msg.chat_id_) 
+local Text = '✅| تم تفعيل ضافني'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '☑️| بالتاكيد تم تفعيل امر منو ضافني'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل ضافني')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل ضافني' and Manager(msg) then  
-if not database:get(bot_id..'Added:Me'..msg.chat_id_) then
-database:set(bot_id..'Added:Me'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل امر منو ضافني'
+if not database:get(bot_id..'Added:Me'..msg.chat_id_)  then
+database:set(bot_id..'Added:Me'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل ضافني'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل امر منو ضافني'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل ضافني')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 ------------------------------------------------------------------------
-if text == "تعطيل الزخرفه" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '❎| تم تعطيل الزخرفه')
-database:set(bot_id.." ahmd:zhrf_Bots"..msg.chat_id_,"close")
+if text == 'تفعيل الانستا' and Manager(msg) then   
+if database:get(bot_id..'TuBakx:insta_bot'..msg.chat_id_)  then
+database:del(bot_id..'TuBakx:insta_bot'..msg.chat_id_) 
+local Text = '✅| تم تفعيل الانستا'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل الانستا')  
 end
-if text == "تفعيل الزخرفه" and Manager(msg) then
-send(msg.chat_id_, msg.id_,'✅| تم تفعيل الزخرفه')
-database:set(bot_id.." ahmd:zhrf_Bots"..msg.chat_id_,"open")
 end
-if text and text:match("^زغرفه (.*)$") and database:get(bot_id.." ahmd:zhrf_Bots"..msg.chat_id_) == "open" then
-local TextZhrfa = text:match("^زغرفه (.*)$")
-zh = https.request('https://rudi-dev.tk/Amir1/Boyka.php?en='..URL.escape(TextZhrfa)..'')
+if text == 'تعطيل الانستا' and Manager(msg) then  
+if not database:get(bot_id..'TuBakx:insta_bot'..msg.chat_id_)  then
+database:set(bot_id..'TuBakx:insta_bot'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل الانستا'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل الانستا')  
+end
+end
+if text and text:match("^معلومات (.*)$") and not database:get(bot_id..'TuBakx:insta_bot'..msg.chat_id_)  then 
+local Textni = text:match("^معلومات (.*)$") 
+data,res = https.request('https://forhassan.ml/Black/insta.php?username='..URL.escape(Textni)..'')
+if res == 200 then
+muaed = json:decode(data)
+if muaed.Info == true then
+local filee = download_to_file(muaed.ph,msg.sender_user_id_..'.jpg')
+sendPhoto(msg.chat_id_, msg.id_,'./'..msg.sender_user_id_..'.jpg',muaed.info)     
+os.execute('rm -rf ./'..msg.sender_user_id_..'.jpg') 
+end
+end
+end
+-------------------------------
+if text == 'تفعيل الزخرفه' and Manager(msg) then   
+if database:get(bot_id..'ahmd:zhrf_Bots'..msg.chat_id_)  then
+database:del(bot_id..'ahmd:zhrf_Bots'..msg.chat_id_) 
+local Text = '✅| تم تفعيل الزخرفه'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل الزخرفه')  
+end
+end
+if text == 'تعطيل الزخرفه' and Manager(msg) then  
+if not database:get(bot_id..'ahmd:zhrf_Bots'..msg.chat_id_)  then
+database:set(bot_id..'ahmd:zhrf_Bots'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل الزخرفه'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل الزخرفه')  
+end
+end
+if text and text:match("^زخرفه (.*)$") and not database:get(bot_id..'ahmd:zhrf_Bots'..msg.chat_id_)  then 
+local TextZhrfa = text:match("^زخرفه (.*)$")
+zh = https.request('https://anashtick.ml/TuBakTeAM/zhrf.php?post='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
 t = "\n📋| قائمه الزغرفه \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 i = 0
@@ -9573,15 +9872,40 @@ t = t..i.."-  "..v.." \n"
 end
 send(msg.chat_id_, msg.id_, t..'ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ٴ\n🚹| [Source TuBaK TeAM . ](t.me/Tubakx) ')
 end
-if text == "تعطيل الابراج" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '❎| تم تعطيل الابراج')
-database:set(bot_id.." ahmd:brj_Bots"..msg.chat_id_,"close")
+-------------------------------
+if text == 'تفعيل الابراج' and Manager(msg) then   
+if database:get(bot_id..'ahmd:brj_Bots'..msg.chat_id_)  then
+database:del(bot_id..'ahmd:brj_Bots'..msg.chat_id_) 
+local Text = '✅| تم تفعيل الابراج'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل الابراج')  
 end
-if text == "تفعيل الابراج" and Manager(msg) then
-send(msg.chat_id_, msg.id_,'✅| تم تفعيل الابراج')
-database:set(bot_id.." ahmd:brj_Bots"..msg.chat_id_,"open")
 end
-if text and text:match("^برج (.*)$") and database:get(bot_id.." ahmd:brj_Bots"..msg.chat_id_) == "open" then
+if text == 'تعطيل الابراج' and Manager(msg) then  
+if not database:get(bot_id..'ahmd:brj_Bots'..msg.chat_id_)  then
+database:set(bot_id..'ahmd:brj_Bots'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل الابراج'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل الابراج')  
+end
+end
+if text and text:match("^برج (.*)$") and not database:get(bot_id..'ahmd:brj_Bots'..msg.chat_id_)  then 
 local Textbrj = text:match("^برج (.*)$")
 gk = https.request('https://rudi-dev.tk/Amir2/Boyka.php?br='..URL.escape(Textbrj)..'')
 br = JSON.decode(gk)
@@ -9592,15 +9916,40 @@ t = v.."\n"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == "تعطيل حساب العمر" and Manager(msg) then
-send(msg.chat_id_, msg.id_, '❎| تم تعطيل حساب العمر')
-database:set(bot_id.." ahmd:age_Bots"..msg.chat_id_,"close")
+-------------------------------
+if text == 'تفعيل حساب العمر' and Manager(msg) then   
+if database:get(bot_id..'ahmd:age_Bots'..msg.chat_id_)  then
+database:del(bot_id..'ahmd:age_Bots'..msg.chat_id_) 
+local Text = '✅| تم تفعيل حساب العمر'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل حساب العمر')  
 end
-if text == "تفعيل حساب العمر" and Manager(msg) then
-send(msg.chat_id_, msg.id_,'✅| تم تفعيل حساب العمر')
-database:set(bot_id.." ahmd:age_Bots"..msg.chat_id_,"open")
 end
-if text and text:match("^احسب (.*)$") and database:get(bot_id.." ahmd:age_Bots"..msg.chat_id_) == "open" then
+if text == 'تعطيل حساب العمر' and Manager(msg) then  
+if not database:get(bot_id..'ahmd:age_Bots'..msg.chat_id_)  then
+database:set(bot_id..'ahmd:age_Bots'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل حساب العمر'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل حساب العمر')  
+end
+end
+if text and text:match("^احسب (.*)$") and not database:get(bot_id..'ahmd:age_Bots'..msg.chat_id_)  then 
 local Textage = text:match("^احسب (.*)$")
 ge = https.request('https://rudi-dev.tk/Amir3/Boyka.php?age='..URL.escape(Textage)..'')
 ag = JSON.decode(ge)
@@ -9611,15 +9960,40 @@ t = v.."\n"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == "تعطيل الافلام" and Mod(msg) then
-send(msg.chat_id_, msg.id_, '❎| تم تعطيل الافلام')
-database:set(bot_id.."AhMd:movie_bot"..msg.chat_id_,"close")
+-------------------------------
+if text == 'تفعيل الافلام' and Manager(msg) then   
+if database:get(bot_id..'AhMd:movie_bot'..msg.chat_id_)  then
+database:del(bot_id..'AhMd:movie_bot'..msg.chat_id_) 
+local Text = '✅| تم تفعيل الافلام'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل الافلام')  
 end
-if text == "تفعيل الافلام" and Mod(msg) then
-send(msg.chat_id_, msg.id_,'✅| تم تفعيل الافلام')
-database:set(bot_id.."AhMd:movie_bot"..msg.chat_id_,"open")
 end
-if text and text:match("^فلم (.*)$") and database:get(bot_id.."AhMd:movie_bot"..msg.chat_id_) == "open" then
+if text == 'تعطيل الافلام' and Manager(msg) then  
+if not database:get(bot_id..'AhMd:movie_bot'..msg.chat_id_)  then
+database:set(bot_id..'AhMd:movie_bot'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل الافلام'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل الافلام')  
+end
+end
+if text and text:match("^فلم (.*)$") and not database:get(bot_id..'AhMd:movie_bot'..msg.chat_id_)  then 
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://forhassan.ml/Black/movie.php?serch='..URL.escape(Textm)..'')
 if res == 200 then
@@ -9636,140 +10010,303 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 end
 end
-------------------------------------------------------------------------
+--------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
 if text == 'تفعيل نسبه الحب' and Manager(msg) then   
-if database:get(bot_id..'Cick:lov'..msg.chat_id_) then
-Text = '✅| تم تفعيل نسبه الحب \n▶️| ارسل كلمه : نسبه الحب'
-database:del(bot_id..'Cick:lov'..msg.chat_id_)  
+if database:get(bot_id..'Cick:lov'..msg.chat_id_)  then
+database:del(bot_id..'Cick:lov'..msg.chat_id_) 
+local Text = '✅| تم تفعيل نسبه الحب \n\n◀️| ارسل كلمه : نسبه الحب'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '☑️| بالتاكيد تم تفعيل نسبه الحب'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل نسبة الحب')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل نسبه الحب' and Manager(msg) then  
-if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
-database:set(bot_id..'Cick:lov'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل نسبه الحب'
+if not database:get(bot_id..'Cick:lov'..msg.chat_id_)  then
+database:set(bot_id..'Cick:lov'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل نسبة الحب'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل نسبه الحب'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل نسبة الحب')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل نسبه الرجوله' and Manager(msg) then   
-if database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
-Text = '✅| تم تفعيل نسبه الرجوله \n▶️| ارسل كلمه : نسبه رجوله'
-database:del(bot_id..'Cick:rjo'..msg.chat_id_)  
+if database:get(bot_id..'Cick:rjo'..msg.chat_id_)  then
+database:del(bot_id..'Cick:rjo'..msg.chat_id_) 
+local Text = '✅| تم تفعيل نسبه الرجولة \n\n◀️| ارسل كلمه : نسبه رجوله'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '☑️| بالتاكيد تم تفعيل الرجوله'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل نسبة الرجولة')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل نسبه الرجوله' and Manager(msg) then  
-if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
-database:set(bot_id..'Cick:rjo'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل نسبه الرجوله'
+if not database:get(bot_id..'Cick:rjo'..msg.chat_id_)  then
+database:set(bot_id..'Cick:rjo'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل نسبة الرجولة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل نسبه الرجوله'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل نسبة الرجوله')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل نسبه الكره' and Manager(msg) then   
-if database:get(bot_id..'Cick:krh'..msg.chat_id_) then
-Text = '✅| تم تفعيل نسبه الكره \n▶️| ارسل كلمه : نسبه الكره'
-database:del(bot_id..'Cick:krh'..msg.chat_id_)  
+if database:get(bot_id..'Cick:krh'..msg.chat_id_)  then
+database:del(bot_id..'Cick:krh'..msg.chat_id_) 
+local Text = '✅| تم تفعيل نسبه الكرة \n\n◀️| ارسل كلمه : نسبه الكره'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '☑️| بالتاكيد تم تفعيل نسبه الكره'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل نسبة الكرة')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل نسبه الكره' and Manager(msg) then  
-if not database:get(bot_id..'Cick:krh'..msg.chat_id_) then
-database:set(bot_id..'Cick:krh'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل نسبه الكره'
+if not database:get(bot_id..'Cick:krh'..msg.chat_id_)  then
+database:set(bot_id..'Cick:krh'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل نسبة الكرة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل نسبه الكره'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل نسبة الكرة')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل نسبه الانوثه' and Manager(msg) then   
-if database:get(bot_id..'Cick:ano'..msg.chat_id_) then
-Text = '✅| تم تفعيل نسبه الانوثه \n▶️| ارسل كلمه : نسبه الانوثه'
-database:del(bot_id..'Cick:ano'..msg.chat_id_)  
+if database:get(bot_id..'Cick:ano'..msg.chat_id_)  then
+database:del(bot_id..'Cick:ano'..msg.chat_id_) 
+local Text = '✅| تم تفعيل نسبه الانوثه \n\n◀️| ارسل كلمه : نسبة الانوثة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '☑️| بالتاكيد تم تفعيل الانوثه'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل نسبة الانوثة')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل نسبه الانوثه' and Manager(msg) then  
-if not database:get(bot_id..'Cick:ano'..msg.chat_id_) then
-database:set(bot_id..'Cick:ano'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل نسبه الانوثه'
+if not database:get(bot_id..'Cick:ano'..msg.chat_id_)  then
+database:set(bot_id..'Cick:ano'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل نسبة الانوثة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل نسبه الانوثه'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل نسبة الانوثة')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل كشف الحيوان' and Manager(msg) then   
-if database:get(bot_id..'Cick:ono'..msg.chat_id_) then
-Text = '✅| تم تفعيل كشف الحيوان \n▶️| ارسل كلمه : كشف الحيوان'
-database:del(bot_id..'Cick:ono'..msg.chat_id_)  
+if database:get(bot_id..'Cick:ono'..msg.chat_id_)  then
+database:del(bot_id..'Cick:ono'..msg.chat_id_) 
+local Text = '✅| تم تفعيل كشف الحيوان \n\n◀️| ارسل كلمه : كشف الحيوان'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '☑️| بالتاكيد تم تفعيل الكشف'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل كشف الحيوان')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل كشف الحيوان' and Manager(msg) then  
-if not database:get(bot_id..'Cick:ono'..msg.chat_id_) then
-database:set(bot_id..'Cick:ono'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل كشف الحيوان'
+if not database:get(bot_id..'Cick:ono'..msg.chat_id_)  then
+database:set(bot_id..'Cick:ono'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل كشف الحيوان'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل كشف الحيوان'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل كشف الحيوان')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل الارتباط' and Manager(msg) then   
-if database:get(bot_id..'Cick:goo'..msg.chat_id_) then
-Text = '✅| تم تفعيل كشف الارتباط \n▶️| ارسل كلمه : كشف الارتباط'
-database:del(bot_id..'Cick:goo'..msg.chat_id_)  
+if database:get(bot_id..'Cick:goo'..msg.chat_id_)  then
+database:del(bot_id..'Cick:goo'..msg.chat_id_) 
+local Text = '✅| تم تفعيل كشف الارتباط \n\n◀️| ارسل كلمه : كشف الارتباط'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '✅| بالتاكيد تم تفعيل الكشف'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل كشف الارتباط')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل الارتباط' and Manager(msg) then  
-if not database:get(bot_id..'Cick:goo'..msg.chat_id_) then
-database:set(bot_id..'Cick:goo'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل كشف الارتباط'
+if not database:get(bot_id..'Cick:goo'..msg.chat_id_)  then
+database:set(bot_id..'Cick:goo'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل كشف الارتباط'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل كشف الحيوان'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل كشف الارتباط')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تفعيل نسبه الغباء' and Manager(msg) then   
-if database:get(bot_id..'Cick:vov'..msg.chat_id_) then
-Text = '✅| تم تفعيل نسبة الغباء \n▶️| ارسل كلمة : نسبه الغباء'
-database:del(bot_id..'Cick:vov'..msg.chat_id_)  
+if database:get(bot_id..'Cick:vov'..msg.chat_id_)  then
+database:del(bot_id..'Cick:vov'..msg.chat_id_) 
+local Text = '✅| تم تفعيل نسبه الغباء \n\n◀️| ارسل كلمه : نسبه الغباء'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '✅| بالتاكيد تم تفعيل النسبة'
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل نسبة الغباء')  
 end
-send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل نسبه الغباء' and Manager(msg) then  
-if not database:get(bot_id..'Cick:vov'..msg.chat_id_) then
-database:set(bot_id..'Cick:vov'..msg.chat_id_,true)  
-Text = '\n❎| تم تعطيل نسبة الغباء'
+if not database:get(bot_id..'Cick:vov'..msg.chat_id_)  then
+database:set(bot_id..'Cick:vov'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل نسبة الغباء'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-Text = '\n❎| بالتاكيد تم تعطيل النسبة'
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل نسبة الغباء')  
 end
-send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تفعيل نسبه الزحف' and Manager(msg) then   
+if database:get(bot_id..'Cick:zff'..msg.chat_id_)  then
+database:del(bot_id..'Cick:zff'..msg.chat_id_) 
+local Text = '✅| تم تفعيل نسبه الزحف \n\n◀️| ارسل كلمه : نسبه الزحف'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل نسبة الزحف')  
+end
+end
+if text == 'تعطيل نسبه الزحف' and Manager(msg) then  
+if not database:get(bot_id..'Cick:zff'..msg.chat_id_)  then
+database:set(bot_id..'Cick:zff'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل نسبة الزحف'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل نسبة الزحف')  
+end
+end
+if text == 'تفعيل نسبه الخيانه' and Manager(msg) then   
+if database:get(bot_id..'Cick:hen'..msg.chat_id_)  then
+database:del(bot_id..'Cick:hen'..msg.chat_id_) 
+local Text = '✅| تم تفعيل نسبة الخيانة \n\n◀️| ارسل كلمه : نسبة الخيانة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل نسبة الخيانة')  
+end
+end
+if text == 'تعطيل نسبه الخيانه' and Manager(msg) then  
+if not database:get(bot_id..'Cick:hen'..msg.chat_id_)  then
+database:set(bot_id..'Cick:hen'..msg.chat_id_,true) 
+local Text = '❎| تم تعطيل نسبة الخيانة'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل نسبة الخيانة')  
+end
 end
 ------------------------------------------------------------------------
-if text == 'تنزيل جميع الرتب' and BasicConstructor(msg) then  
+if text == 'تنزيل جميع الرتب' or text == 'تصفيه' and BasicConstructor(msg) then  
 database:del(bot_id..'Constructor'..msg.chat_id_)
 database:del(bot_id..'Manager'..msg.chat_id_)
 database:del(bot_id..'Mod:User'..msg.chat_id_)
 database:del(bot_id..'Special:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '\n⏬| تم تنزيل الكل من الرتب الاتيه \n↪️| المميزين ، الادمنيه ، المدراء ، المنشئين \n')
+send(msg.chat_id_, msg.id_, '\n🔖| تم تنزيل الكل من الرتب الاتيه \n\n◀️| *المميزين*/*الادمنية*/*المدراء*/*المنشئين* \n')
 end
 if text == "صورتي"  then
 local my_ph = database:get(bot_id.."my_photo:status"..msg.chat_id_)
@@ -9895,7 +10432,7 @@ local List = {
 [[
 ☆•𝐮𝐬𝐞𝐫 : #username 𖣬  
 ☆•𝐦𝐬𝐠  : #msgs 𖣬 
-☆•𝐬𝐭𝐚 : #stast 𖣬 
+☆•𝐬??𝐚 : #stast 𖣬 
 ☆•𝐢𝐝  : #id 𖣬
 ]],
 [[
@@ -10784,6 +11321,17 @@ local Teext =[[
 • وصف
 • تكرار + عدد
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
+• يمكنك تفعيل وتعطيل الاوامر التالية ↓↑
+
+• تفعيل / تعطيل نسبه الحب
+• تفعيل / تعطيل نسبه الكره
+• تفعيل / تعطيل نسبه الانوثه
+• تفعيل / تعطيل نسبه رجوله
+• تفعيل / تعطيل نسبه الزحف
+• تفعيل / تعطيل نسبه الغباء
+• تفعيل / تعطيل كشف الارتباط
+• تفعيل / تعطيل كشف الحيوان
+ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 🚹| [Source Tubak . ](t.me/Tubakx)
 ]]
 keyboard = {} 
@@ -10917,7 +11465,7 @@ local Teext =[[
 • مسح الاساسين
 • المنشئين الاساسين
 • رفع/تنزيل منشئ اساسي
-• رفع/تنزيل مطور ثانوي 
+• رفع/تنزيل مطور اساسي 
 • مسح المطورين
 • المطورين
 • رفع | تنزيل مطور
@@ -11016,6 +11564,10 @@ local Teext =[[
 • نسبه رجوله
 • نسبه الكره
 • نسبه الانوثه
+• نسبه الزحف
+• نسبه الغباء
+• كشف الارتباط
+• كشف الحيوان
 • الساعه
 • التاريخ
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
@@ -11069,6 +11621,15 @@ local Teext =[[
 • شنو رئيك بهذا بالرد
 • شنو رئيك بهاي بالرد
 • تحب هذا
+ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
+• نسبه الحب
+• نسبه الكره
+• نسبه الانوثه
+• نسبه رجوله
+• نسبه الزحف
+• نسبه الغباء
+• كشف الارتباط
+• كشف الحيوان
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 🚹| [Source Tubak . ](t.me/Tubakx)
 ]]
@@ -11660,7 +12221,7 @@ end
 database:set(bot_id..'Set:Amth:Bot'..msg.chat_id_,true)
 end
 ------------------------------------------------------------------------
-if text == "كت تويت" or text == "كت" or text == "تويت" then
+if text == "كت تويت"  then
 local url,res = https.request('https://anashtick.ml/TuBak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TuBak ~= true then
@@ -11668,12 +12229,44 @@ local inline = {{{text="اضغط هنا للشتراك 🚹",url="https://t.me/T
 SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
 return false 
 end
-if not database:get(bot_id..'Lock:Games'..msg.chat_id_) then
+if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 local tweet = {  "آخر مرة زرت مدينة الملاهي؟",  "آخر مرة أكلت أكلتك المفضّلة؟",  "الوضع الحالي؟\n‏1. سهران\n‏2. ضايج\n‏3. أتأمل",  "آخر شيء ضاع منك؟","كلمة أخيرة لشاغل البال؟","طريقتك المعتادة في التخلّص من الطاقة السلبية؟","شهر من أشهر العام له ذكرى جميلة معك؟","كلمة غريبة من لهجتك ومعناها؟🤓","‏- شيء سمعته عالق في ذهنك هاليومين؟","متى تكره الشخص الذي أمامك حتى لو كنت مِن أشد معجبينه؟","‏- أبرز صفة حسنة في صديقك المقرب؟","هل تشعر أن هنالك مَن يُحبك؟","اذا اكتشفت أن أعز أصدقائك يضمر لك السوء، موقفك الصريح؟","أجمل شيء حصل معك خلال هاليوم؟","صِف شعورك وأنت تُحب شخص يُحب غيرك؟👀💔","كلمة لشخص غالي اشتقت إليه؟💕","آخر خبر سعيد، متى وصلك؟","أنا آسف على ....؟","أوصف نفسك بكلمة؟","صريح، مشتاق؟","‏- صريح، هل سبق وخذلت أحدهم ولو عن غير قصد؟","‏- ماذا ستختار من الكلمات لتعبر لنا عن حياتك التي عشتها الى الآن؟💭","‏- فنان/ة تود لو يدعوكَ على مائدة عشاء؟😁❤","‏- تخيّل شيء قد يحدث في المستقبل؟","‏- للشباب | آخر مرة وصلك غزل من فتاة؟🌚","شخص أو صاحب عوضك ونساك مُر الحياة ما اسمه ؟","| اذا شفت حد واعجبك وعندك الجرأه انك تروح وتتعرف عليه ، مقدمة الحديث شو راح تكون ؟."}  
 send(msg.chat_id_, msg.id_, ''..tweet[math.random(#tweet)]..'')
 end
 end
 ------------------------------------------------------------------------
+if text == 'تفعيل الالعاب' and Manager(msg) then   
+if not database:get(bot_id..'Lock:Games'..msg.chat_id_)  then
+database:set(bot_id..'Lock:Games'..msg.chat_id_,true) 
+local Text = '✅| تم تفعيل الالعاب'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل الالعاب')  
+end
+end
+if text == 'تعطيل الالعاب' and Manager(msg) then  
+if database:get(bot_id..'Lock:Games'..msg.chat_id_)  then
+database:del(bot_id..'Lock:Games'..msg.chat_id_) 
+local Text = '❎| تم تعطيل الالعاب'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⏺️| معرفة المزيد ؟',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+else
+send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل الالعاب')  
+end
+end
 if text == 'الالعاب' and database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -11701,13 +12294,29 @@ Text_Games = [[
  • لعبه العكس -› لعبة عكس الكلمات
  • لعبه الحزوره -› لعبة التفكير 
  • لعبه المعاني -› العبه الشهيره 
+ • لعبه التويت -› كت تويت
 ٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 🚹| [Source Tubak . ](t.me/Tubakx)
 ]]
 send(msg.chat_id_, msg.id_,Text_Games) 
 end
 ------------------------------------------------------------------------
-
+if text == "غنيلي" then
+data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='🔊| تم اختيار المقطع الصوتي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '⏺️| معرفة المزيد؟ ',url="t.me/TUBAKX"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+-------------------------------
 if text == "السلام عليكم" or text == "سلام عليكم" or text == "سلامن عليكم" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"وعليكم السلام حبيبي🌚","وعليكم السلام 🌝" }
@@ -11717,14 +12326,14 @@ end
 
 if text == "شلونك" or text == "شلونكم" or text == "شونك" or text == "شلونج" or text == "شونج" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"تمــام حـياتي","حمـدالله وانـت/ي 🍇" }
+local texting = {"تمـام يقلبي ونتا 💘🌚","معليك بينه حبيبي 👋🏻🌝","زينين نت شلونك 😶" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "بوسني" or text == "بوسيني" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"افسه مربوطه بطلي☹️😂","عيب🥺😂","☹️😂ماما متقبل" }
+local texting = {"عـيب أبني تـوكل 🌝😹","ليش مـا تبوسنـي 🙁😹" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11738,7 +12347,7 @@ end
 
 if text == "🙊" or text == "🙈" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"افتـح عـيونك/ج جـبتلك/ج مـوزه 😂😔","يــمه اروح فدوه انـي"}
+local texting = {"فدوا اروحلك لصير كانسر 🤣","لك ها قرد 🙁😹"}
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11766,14 +12375,14 @@ end
 
 if text == "شكو" or text == "شكوو" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"صارت دمايه بين المشرفين 😂🙁","ماكو سي ارجع نام 🌝💕" }
+local texting = {"صارت دمايه بين المشرفين 😂🙁","ماكو شي ارجع نام 🌝💕" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "باي" or text == "رايح" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"ويـُن رآيـحً ضلع 💕😐" }
+local texting = {"هـا وين 💞🌝","ويـن حبـيبي 🙁؟" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11787,14 +12396,7 @@ end
 
 if text == "نورت" or text == "منور" or text == "منوره" or text == "نورتي" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"بوجــدكم آكــيد💗💁🏽","آكـيـد هـذا نـــورك/ج😻💗","نـــورك حيـٕـاتي☹️?? " }
-send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
-end
-end
-
-if text == "بوسني" then
-if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"موواحح💋😘","مابوس ولي بيك/ج جرب😌😹","حلكك/ج نضيف 😂","خلي يزحفلي خاص وابوسه 🙊😻","حبي اسف ما ابوس صار البوس بلفين 😏","اف شهل جماله امح عشفه","مابوس اهل الوصخ??😂"}
+local texting = {"نـورك قـلبي . 💘🙁","ئمنورني يوردة ماشرب اني 💘🌝😹" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11815,35 +12417,35 @@ end
 
 if text == "تف" or text == "تفف" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"عليك/ج","وصخ/ه شترجه منك/ج","تف بنص وجهك/ج😒👍" }
+local texting = {"بحلكك حبي 🌚","عليك وع المنشئ 😹🌚" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "😂" or text == "😂😂" or text == "😂😂😂😂" or text == "😂😂😂" or text == "😹😹" or text == "😹😹😹" or text == "😹" or text == "😹😹😹😹" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"شـهضحڪًــة  ๋͜͡اٰ͡لحلوة بربڪً  ͜اٰ͡مڪً على شـو متوحمة😉😉","كافي لزكت 😒","دوم حياتي " }
+local texting = {"دايـما حب 💘🌝","مو ضحكةة ضيم 🌚😹","لصير كانسر وتضحك هواي وردة 🌚😂" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "😒" or text == "😒😒" or text == "😒😒😒" or text == "😒😒😒😒" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"شبيـك-ج عـمو 🤔","اشـبيك كالب الخـلقه" }
+local texting = {"عـوع شهل خلقةة 🙁😂","ئمـور وردة 🌝😹","لـضوج وجه الجـوب ☹️😂" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
-if text == "اسم البوت" or text == "البوت" then
+if text == "اسم البوت" or text == "البوت" or text == "هاذ بوت" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"ﮪـاحبيـبيہٰ 🌝💗." }
+local texting = {"ﮪـاحبيـبيہٰ 🌝💗.","اسمي كدامك لصير كانسر لفل ماكس وديربالك تخمط ترا الكفك 😹🌚💘" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "تحبني" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"امـــوت فيك ☹️","ولي ماحبك/ج 🙊💔","منو لـ كلك احبك؟ 😒👌🏻"," اذا كتلك/ج احبك/ج شراح تستفاد/ين 😕❤️","سؤال صعب خليني افكر" }
+local texting = {"أسـف مـادور 😘😂","امـوت ع ريـحت ابـاطك 🌚😹" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11857,49 +12459,49 @@ end
 
 if text == "ههه" or text == "هههه" or text == "ههههه" or text == "هههههه" or text == "ههههههه" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"دومـم حبيـبيہٰ 😗💗." }
+local texting = {"دومـم حبيـبيہٰ 😗💗.","لصير كانسر وتضحك هواي 😹🌚" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "اكلك" or text == "اكلج" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {".كول حياتي 😚🌿","كول ماكول لحد 🙊" }
+local texting = {"كـول ولتعبـني 💘🌚","فضـها شتريد ؟ 🙁" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "@VlVlVI" or text == "@vlvlvi" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"مطوري القميل 💕","مطور السورس هاذ حبي 🙁" }
+local texting = {"مطوري القميل 💕","مطور السورس هاذ حبي 🙁","تحياتي المطوري منورني يوردة ماشرب اني 🌚😹" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "شبيك" or text == "شبيج" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"كـلـشيي مـا بيــه🏃‍♂💘","مــا بـيه شـٰي🤷💘‌‎","بــيه اَنــته🤤💘" }
+local texting = {"مـابية وداعت كاظم الساهـر 🤣","بيه نت 😔😂💘" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "فديتك" or text == "فديتج" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"ٱنـي اٌّروحـن فــدوه💘💘","فداٌّك كـــل شٔخـص ظــآلــم💗🙈","فـدٱك كلــبي😻♥","آنـي فـديــتـك💘💘" }
+local texting = {"فـداك المنشئ حبيبي 🌚😹" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "ميتين" or text == "وينكم" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"علساس انت متفاعل تفاعل لا بطاوه😒😒","موجود حارسكم باقي وتمدد","انته تصيح ورايح تزحف" }
+local texting = {"طامسين عمي كلواحد نايم بحظن حبيبته 🌚","عوفهم حبي هذول نايمين بل خاص كلمن عد حبيبته","كول شتريد" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
 
 if text == "احبك" or text == "حبك" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"اكرهك 😒👌🏿","اعشقك/ج مح 😍💋","منو لـ كلك احبك؟ 😒👌🏻","اذا كتلك/ج احبك/ج شراح تستفاد/ين 😕❤️","ولي ماحبك/ج 🙊💔","ماحبك 😌🖖" }
+local texting = {"واني هم حبيبي 💘","دعبل مادور 🌚😹","شوفلك حاته اني شنو 🙁😹" }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -11913,7 +12515,7 @@ end
 
 if text == "انجب" or text == "نجب" or text == "أنجب" or text == "نجبب" or text == "جب" then
 if not database:get(bot_id..'lock:add'..msg.chat_id_) then
-local texting = {"صـار حياتي","انجـب انته لاتندفر 😏","انجـب انـته😒🔪" }
+local texting = {"ليش متنجب انته لا تندفر 🌚😹","صار حبيبي 💘","اخلاقك لا تنشحت " }
 send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
@@ -12099,6 +12701,49 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 database:del(bot_id..":"..msg.sender_user_id_..":vov_Bots"..msg.chat_id_)
 end
 
+if text == "نسبه الزحف" or text == "نسبة الزحف" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:zff'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_,"sendonoe")
+Text = '🚹| ارسل اسم الشخص : \n◀️| كمثال : *احـمد*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الزحف" and database:get(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"🤣 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","😭 23","🌚😹 19","😹😔 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
+sendzff = numj[math.random(#numj)]
+local Text = '🚹| اليك النتائج الخـاصة :\n\n◀️| نسبة الزحف لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendzff..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_)
+end
+if text == "نسبه الخيانه" or text == "نسبة الخيانة" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:hen'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_,"sendonoe")
+Text = '🚹| ارسل اسم الشخص : \n◀️| كمثال : *احـمد*'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الخيانه" and database:get(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_) == "sendonoe" then
+numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
+sendhen = numj[math.random(#numj)]
+local Text = '🚹| اليك النتائج الخـاصة :\n\n◀️| نسبة الزحف لـ : *'..text..'*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '-›› '..sendhen..'%',url="https://t.me/TuBaKx"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+database:del(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_)
+end
+--------------------------------------------------------------
 if text and text:match("^كول (.*)$") then
 local Textxt = text:match("^كول (.*)$")
 send(msg.chat_id_, msg.id_, '['..Textxt..']')
