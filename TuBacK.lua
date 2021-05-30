@@ -189,7 +189,7 @@ end
 end  
 return TuBacK  
 end 
-function DevAhMd(msg) 
+function DevTuBacK(msg) 
 local hash = database:sismember(bot_id.."Dev:AhMd:2", msg.sender_user_id_) 
 if hash or SudoBot(msg) then  
 return true  
@@ -206,7 +206,7 @@ return idbot
 end
 function Sudo(msg) 
 local hash = database:sismember(bot_id..'Sudo:User', msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevAhMd(msg) or Bot(msg)  then  
+if hash or SudoBot(msg) or DevTuBacK(msg) or Bot(msg)  then  
 return true  
 else  
 return false  
@@ -214,7 +214,7 @@ end
 end
 function CoSu(msg)
 local hash = database:sismember(bot_id..'CoSu'..msg.chat_id_, msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevAhMd(msg) or Sudo(msg) or Bot(msg)  then   
+if hash or SudoBot(msg) or DevTuBacK(msg) or Sudo(msg) or Bot(msg)  then   
 return true 
 else 
 return false 
@@ -222,7 +222,7 @@ end
 end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id..'Basic:Constructor'..msg.chat_id_, msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevAhMd(msg) or Sudo(msg) or CoSu(msg) or Bot(msg)  then   
+if hash or SudoBot(msg) or DevTuBacK(msg) or Sudo(msg) or CoSu(msg) or Bot(msg)  then   
 return true 
 else 
 return false 
@@ -230,7 +230,7 @@ end
 end
 function Constructor(msg)
 local hash = database:sismember(bot_id..'Constructor'..msg.chat_id_, msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevAhMd(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevTuBacK(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -238,7 +238,7 @@ end
 end
 function Manager(msg)
 local hash = database:sismember(bot_id..'Manager'..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevAhMd(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevTuBacK(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -246,7 +246,7 @@ end
 end
 function cleaner(msg)
 local hash = database:sismember(bot_id.."VlVlVI:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevAhMd(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevTuBacK(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -254,7 +254,7 @@ end
 end
 function Mod(msg)
 local hash = database:sismember(bot_id..'Mod:User'..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevAhMd(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevTuBacK(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -262,7 +262,7 @@ end
 end
 function Special(msg)
 local hash = database:sismember(bot_id..'Special:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevAhMd(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevTuBacK(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
 return true 
 else 
 return false 
@@ -951,7 +951,7 @@ local inline = {{{text="رابط الحذف",url="https://my.telegram.org/auth?t
 SendInline(msg.chat_id_,'رابط حذف حساب التلكرام 🔽',nil,inline) return false end
 --------------------------------------------------------------------------------------------------------------
 if text == 'قسم الاذاعة 📨' then 
-if DevAhMd(msg) then
+if DevTuBacK(msg) then
 local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي .](t.me/Tubakx)\n🔽꒐ اليك قسم الكيبورد للاذاعة '
 local keyboard = {
 {'اذاعه بالتثبيت 📥'},
@@ -964,7 +964,7 @@ return false
 end 
 end
 if text == 'قسم الاشتراك ⚖️' then 
-if DevAhMd(msg) then
+if DevTuBacK(msg) then
 local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي .](t.me/Tubakx)\n🔽꒐ اليك قسم الكيبورد للاشتراك الاجباري '
 local keyboard = {
 {'تفعيل الاشتراك 🔔','تفعيل الاشتراك 🚫'},
@@ -986,7 +986,7 @@ local inline = {{{text="اضغط هنا للشتراك 🚹",url="https://t.me/T
 SendInline(msg.chat_id_,'عذراً عليك الاشتراك في [. Team TuBak](t.me/TuBaKx) \nليمكنك استخدام البوت بشكل كامل',nil,inline)
 return false 
 end
-if DevAhMd(msg) then
+if DevTuBacK(msg) then
 local bl = '👋🏻꒐ أهلاً بك ، [المطور الاساسي ](t.me/Tubakx)\n🔽꒐ يمكنك استخدام الاوامر التي ظهرت لك'
 local keyboard = {
 {'تغير اسم البوت 🔁'},
@@ -1025,7 +1025,7 @@ end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
 return false
 end
-if not DevAhMd(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
+if not DevTuBacK(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
 send(msg.sender_user_id_, msg.id_,'✅| تم ارسال رسالتك الي *المطور*\n⏰| سيتم رد في اقرب وقت')
 tdcli_function ({ID = "ForwardMessages", chat_id_ = SUDO,    from_chat_id_ = msg.sender_user_id_,    message_ids_ = {[0] = msg.id_},    disable_notification_ = 1,    from_background_ = 1 },function(arg,data) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,ta) 
@@ -1038,7 +1038,7 @@ end
 end,nil) 
 end,nil)
 end
-if DevAhMd(msg) and msg.reply_to_message_id_ ~= 0  then    
+if DevTuBacK(msg) and msg.reply_to_message_id_ ~= 0  then    
 tdcli_function({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)},function(extra, result, success) 
 if result.forward_info_.sender_user_id_ then     
 id_user = result.forward_info_.sender_user_id_    
@@ -1106,7 +1106,7 @@ end,nil)
 end,nil)
 end,nil)
 end 
-if text == 'تفعيل التواصل ⚡' and DevAhMd(msg) then  
+if text == 'تفعيل التواصل ⚡' and DevTuBacK(msg) then  
 if database:get(bot_id..'Tuasl:Bots') then
 database:del(bot_id..'Tuasl:Bots') 
 Text = '\n✅| تم تفعيل التواصل ' 
@@ -1115,7 +1115,7 @@ Text = '\n☑️| بالتاكيد تم تفعيل التواصل '
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التواصل 🔰' and DevAhMd(msg) then  
+if text == 'تعطيل التواصل 🔰' and DevTuBacK(msg) then  
 if not database:get(bot_id..'Tuasl:Bots') then
 database:set(bot_id..'Tuasl:Bots',true) 
 Text = '\n❎| تم تعطيل التواصل' 
@@ -1124,7 +1124,7 @@ Text = '\n❎| بالتاكيد تم تعطيل التواصل'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل البوت الخدمي 🔖' and DevAhMd(msg) then  
+if text == 'تفعيل البوت الخدمي 🔖' and DevTuBacK(msg) then  
 if database:get(bot_id..'Free:Bots') then
 database:del(bot_id..'Free:Bots') 
 Text = '\n✅| تم تفعيل البوت الخدمي ' 
@@ -1133,7 +1133,7 @@ Text = '\n☑️| بالتاكيد تم تفعيل البوت الخدمي '
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل البوت الخدمي 📛' and DevAhMd(msg) then  
+if text == 'تعطيل البوت الخدمي 📛' and DevTuBacK(msg) then  
 if not database:get(bot_id..'Free:Bots') then
 database:set(bot_id..'Free:Bots',true) 
 Text = '\n❎| تم تعطيل البوت الخدمي' 
@@ -1153,16 +1153,16 @@ send(msg.chat_id_, msg.id_,'☑️| تم حفظ كليشه ستارت')
 database:del(bot_id..'Start:Bots') 
 return false
 end
-if text == 'ضع كليشة ستارت ⌨️' and DevAhMd(msg) then 
+if text == 'ضع كليشة ستارت ⌨️' and DevTuBacK(msg) then 
 database:set(bot_id..'Start:Bots',true) 
 send(msg.chat_id_, msg.id_,'↪️| ارسل لي الكليشه الان')
 return false
 end
-if text == 'حذف الستارت 📧' and DevAhMd(msg) then 
+if text == 'حذف الستارت 📧' and DevTuBacK(msg) then 
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'🚮| تم حذف كليشه ستارت')
 end
-if text == 'معلومات السيرفر 🗃️' and DevAhMd(msg) then 
+if text == 'معلومات السيرفر 🗃️' and DevTuBacK(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
@@ -1178,29 +1178,29 @@ echo '*———————————~*\n{ مـده تـشغيـل الـسـ
 ]]):read('*all'))  
 end
 
-if text == 'تحديث السورس ✅' and DevAhMd(msg) then 
+if text == 'تحديث السورس ✅' and DevTuBacK(msg) then 
 os.execute('rm -rf TuBacK.lua')
 os.execute('https://raw.githubusercontent.com/Tubaktele/TuBacK/main/TuBacK.lua')
 send(msg.chat_id_, msg.id_,'☑️| تم تحديث السورس \n◀️| لديك اخر اصدار لسورس توباك\n🛡️| اصدار السورس -› (* v1.0*)')
 dofile('TuBacK.lua')  
 end
-if text == 'الاصدار 📃' and DevAhMd(msg) then 
+if text == 'الاصدار 📃' and DevTuBacK(msg) then 
 database:del(bot_id..'Srt:Bot') 
 send(msg.chat_id_, msg.id_,'◀️| اصدار سورس توباك لديك (*v1.0*) 🛡️')
 end
-if text == "تغير اسم البوت 🔁" and DevAhMd(msg) then  
+if text == "تغير اسم البوت 🔁" and DevTuBacK(msg) then  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
 send(msg.chat_id_, msg.id_,"↪️| حسناً ارسل اسم البوت")
 return false
 end
-if text == 'الاحصائيات 📈' and DevAhMd(msg) then 
+if text == 'الاحصائيات 📈' and DevTuBacK(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = '📊꒐* احصائيات البوت :*\n\n🚻꒐ عدد المجموعات :* '..Groups..'*\n🚹꒐ عدد المحادثات :* '..Users..'*'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
-if text == ("المطورين 🛡️") and DevAhMd(msg) then
+if text == ("المطورين 🛡️") and DevTuBacK(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n📋| قائمة المطورين \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do
@@ -1216,7 +1216,7 @@ t = "⚠️| لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("الاساسيين 🚹") and DevAhMd(msg) then
+if text == ("الاساسيين 🚹") and DevTuBacK(msg) then
 local list = database:smembers(bot_id.."Dev:AhMd:2")
 t = "\n📋| قائمة مطورين الاساسيين للبوت \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do
@@ -1232,11 +1232,11 @@ t = "⚠️| لا يوجد مطورين ثانويين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح الاساسيين 🚮") and DevAhMd(msg) then
+if text == ("مسح الاساسيين 🚮") and DevTuBacK(msg) then
 database:del(bot_id.."Dev:AhMd:2")
 send(msg.chat_id_, msg.id_, "\n✅| تم مسح قائمة المطورين الاساسيين  ")
 end
-if text == ("قائمه العام 🚯") and DevAhMd(msg) then
+if text == ("قائمه العام 🚯") and DevTuBacK(msg) then
 local list = database:smembers(bot_id..'GBan:User')
 t = "\n📋| قائمه المحظورين عام \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do
@@ -1253,35 +1253,35 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text=="اذاعه خاص 📨" and msg.reply_to_message_id_ == 0 and DevAhMd(msg) then 
+if text=="اذاعه خاص 📨" and msg.reply_to_message_id_ == 0 and DevTuBacK(msg) then 
 database:setex(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ↪️| ارسل الان اذاعتك؟ \n📌| للخروج ارسل الغاء ")
 return false
 end 
-if text=="اذاعه عام 🚻" and msg.reply_to_message_id_ == 0 and DevAhMd(msg) then 
+if text=="اذاعه عام 🚻" and msg.reply_to_message_id_ == 0 and DevTuBacK(msg) then 
 database:setex(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ↪️| ارسل الان اذاعتك؟ \n📌| للخروج ارسل الغاء ")
 return false
 end  
-if text=="اذاعه بالتثبيت 📥" and msg.reply_to_message_id_ == 0 and DevAhMd(msg) then 
+if text=="اذاعه بالتثبيت 📥" and msg.reply_to_message_id_ == 0 and DevTuBacK(msg) then 
 database:setex(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ↪️| ارسل الان اذاعتك؟ \n📌| للخروج ارسل الغاء ")
 return false
 end 
-if text=="اذاعه بالتوجيه 📩" and msg.reply_to_message_id_ == 0  and DevAhMd(msg) then 
+if text=="اذاعه بالتوجيه 📩" and msg.reply_to_message_id_ == 0  and DevTuBacK(msg) then 
 database:setex(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"↪️| ارسل لي التوجيه الان")
 return false
 end 
-if text=="توجيه خاص 🗳️" and msg.reply_to_message_id_ == 0  and DevAhMd(msg) then 
+if text=="توجيه خاص 🗳️" and msg.reply_to_message_id_ == 0  and DevTuBacK(msg) then 
 database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"↪️| ارسل لي التوجيه الان")
 return false
 end 
-if text == 'جلب نسخه الاحتياطيه 🗂️' and DevAhMd(msg) then 
+if text == 'جلب نسخه الاحتياطيه 🗂️' and DevTuBacK(msg) then 
 GetFile_Bot(msg)
 end
-if text == "تنظيف المشتركين ℹ️" and DevAhMd(msg) then 
+if text == "تنظيف المشتركين ℹ️" and DevTuBacK(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -1317,7 +1317,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف المجموعات 📊" and DevAhMd(msg) then 
+if text == "تنظيف المجموعات 📊" and DevTuBacK(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -1375,7 +1375,7 @@ return false
 end
 
 
-if text and text:match("^رفع مطور @(.*)$") and DevAhMd(msg) then
+if text and text:match("^رفع مطور @(.*)$") and DevTuBacK(msg) then
 local username = text:match("^رفع مطور @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -1404,7 +1404,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع مطور (%d+)$") and DevAhMd(msg) then
+if text and text:match("^رفع مطور (%d+)$") and DevTuBacK(msg) then
 local userid = text:match("^رفع مطور (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -1428,7 +1428,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text and text:match("^تنزيل مطور @(.*)$") and DevAhMd(msg) then
+if text and text:match("^تنزيل مطور @(.*)$") and DevTuBacK(msg) then
 local username = text:match("^تنزيل مطور @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -1453,7 +1453,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end  
-if text and text:match("^تنزيل مطور (%d+)$") and DevAhMd(msg) then
+if text and text:match("^تنزيل مطور (%d+)$") and DevTuBacK(msg) then
 local userid = text:match("^تنزيل مطور (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -2253,7 +2253,7 @@ send(msg.chat_id_, msg.id_,'⚠️| عذرا يرجى ترقيه البوت مش
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevAhMd(msg) then
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevTuBacK(msg) then
 send(msg.chat_id_, msg.id_,'🚻| عذراً عدد اعضاء المجموعة قليله العدد المطلوب لتفعيل البوت هـو -› {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو 🗣️')
 return false
 end
@@ -2291,7 +2291,7 @@ Text = '☑️| تم تفعيل مجموعة جديدة\n\n'..
 '\n🚻| عدد اعضاء المجموعة -› *{'..NumMember..'}*'..
 '\n💭| اسم المجموعة -› {['..NameChat..']}'..
 '\n🖇️| رابط المجموعة : {['..LinkGp..']}'
-if not DevAhMd(msg) then
+if not DevTuBacK(msg) then
 sendText(SUDO,Text,0,'md')
 end
 end
@@ -2343,7 +2343,7 @@ Text = '☑️| تم تعطيل المجموعة \n\n'..
 '\n🚻| عدد اعضاء المجموعة -› *{'..NumMember..'}*'..
 '\n💭| اسم المجموعة -› {['..NameChat..']}'..
 '\n🖇️| رابط المجموعة : {['..LinkGp..']}'
-if not DevAhMd(msg) then
+if not DevTuBacK(msg) then
 sendText(SUDO,Text,0,'md')
 end
 end
@@ -2365,7 +2365,7 @@ send(msg.chat_id_, msg.id_,'⚠️| عذرا يرجى ترقيه البوت مش
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevAhMd(msg) then
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevTuBacK(msg) then
 send(msg.chat_id_, msg.id_,'🚻| عذراً عدد اعضاء المجموعة قليله العدد المطلوب لتفعيل البوت هـو -› {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو 🗣️')
 return false
 end
@@ -2413,7 +2413,7 @@ Text = '☑️| تم تفعيل مجموعة جديدة\n\n'..
 '\n🚻| عدد اعضاء المجموعة -› *{'..NumMember..'}*'..
 '\n💭| اسم المجموعة -› {['..NameChat..']}'..
 '\n🖇️| رابط المجموعة : {['..LinkGp..']}'
-if not DevAhMd(msg) then
+if not DevTuBacK(msg) then
 sendText(SUDO,Text,0,'md')
 end
 end
@@ -2424,7 +2424,7 @@ end,nil)
 end,nil) 
 end,nil)
 end
-if text and text:match("^ضع عدد الاعضاء (%d+)$") and DevAhMd(msg) then
+if text and text:match("^ضع عدد الاعضاء (%d+)$") and DevTuBacK(msg) then
 local Num = text:match("ضع عدد الاعضاء (%d+)$") 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -2438,34 +2438,34 @@ end
 database:set(bot_id..'Num:Add:Bot',Num) 
 send(msg.chat_id_, msg.id_,'🚻| تم تعيين عدد اعضاء المجموعات \n\nسيتم تفعيل البوت في المجموعة التي اعضائها اكثر من -› {'..Num..'} عضو')
 end
-if text == 'تحديث السورس' and DevAhMd(msg) then 
+if text == 'تحديث السورس' and DevTuBacK(msg) then 
 os.execute('rm -rf TuBacK.lua')
 os.execute('https://raw.githubusercontent.com/Tubaktele/TuBacK/main/TuBacK.lua')
 send(msg.chat_id_, msg.id_,'☑️| تم تحديث السورس \n◀️| لديك اخر اصدار لسورس توباك\n🛡️| اصدار السورس -› (* v1.0*)')
 dofile('TuBacK.lua')  
 end
 
-if text and text:match("^تغير الاشتراك 🏷️$") and DevAhMd(msg) then  
+if text and text:match("^تغير الاشتراك 🏷️$") and DevTuBacK(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '↪️| حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text and text:match("^تغير رساله الاشتراك 🗞️$") and DevAhMd(msg) then  
+if text and text:match("^تغير رساله الاشتراك 🗞️$") and DevTuBacK(msg) then  
 database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '↪️| حسنآ ارسل لي النص الذي تريده')
 return false  
 end
-if text == "حذف رساله الاشتراك 🚸" and DevAhMd(msg) then  
+if text == "حذف رساله الاشتراك 🚸" and DevTuBacK(msg) then  
 database:del(bot_id..'text:ch:user')
 send(msg.chat_id_, msg.id_, "🚮| تم مسح رساله الاشتراك ")
 return false  
 end
-if text and text:match("^وضع قناة الاشتراك ➗$") and DevAhMd(msg) then  
+if text and text:match("^وضع قناة الاشتراك ➗$") and DevTuBacK(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '↪️| حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text == "تفعيل الاشتراك 🔔" and DevAhMd(msg) then  
+if text == "تفعيل الاشتراك 🔔" and DevTuBacK(msg) then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_,"🚹| الاشتراك الاجباري مفعل \n◀️| على القناة -› ["..addchusername.."]")
@@ -2475,13 +2475,13 @@ send(msg.chat_id_, msg.id_," 👋🏻| اهلا عزيزي المطور \n↩️
 end
 return false  
 end
-if text == "تفعيل الاشتراك 🚫" and DevAhMd(msg) then  
+if text == "تفعيل الاشتراك 🚫" and DevTuBacK(msg) then  
 database:del(bot_id..'add:ch:id')
 database:del(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "❎| تم تعطيل الاشتراك الاجباري ")
 return false  
 end
-if text == "الاشتراك الاجباري 💈" and DevAhMd(msg) then  
+if text == "الاشتراك الاجباري 💈" and DevTuBacK(msg) then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "☑️| تم تفعيل الاشتراك الاجباري \n◀️| على القناة -› ["..addchusername.."]")
@@ -2750,7 +2750,7 @@ return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
-if text == 'رفع نسخه الاحتياطيه' and DevAhMd(msg) then   
+if text == 'رفع نسخه الاحتياطيه' and DevTuBacK(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2771,7 +2771,7 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == 'جلب نسخه الاحتياطيه' and DevAhMd(msg) then 
+if text == 'جلب نسخه الاحتياطيه' and DevTuBacK(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3524,16 +3524,16 @@ database:hdel(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood")
 send(msg.chat_id_, msg.id_,'✅| تم فتح التكرار')
 end
 --------------------------------------------------------------------------------------------------------------
-if text == 'تحديث' and DevAhMd(msg) then    
+if text == 'تحديث' and DevTuBacK(msg) then    
 dofile('TuBacK.lua')  
 send(msg.chat_id_, msg.id_, '☑️| تم تحديث جميع الملفات') 
 end 
-if text == ("مسح قائمه العام") and DevAhMd(msg) then
+if text == ("مسح قائمه العام") and DevTuBacK(msg) then
 database:del(bot_id..'GBan:User')
 send(msg.chat_id_, msg.id_, '\n✅| تم مسح قائمه العام')
 return false
 end
-if text == ("قائمه العام") and DevAhMd(msg) then
+if text == ("قائمه العام") and DevTuBacK(msg) then
 local list = database:smembers(bot_id..'GBan:User')
 t = "\n📋| قائمة المحظورين عام \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do
@@ -3550,7 +3550,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("حظر عام") and msg.reply_to_message_id_ and DevAhMd(msg) then
+if text == ("حظر عام") and msg.reply_to_message_id_ and DevTuBacK(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3581,7 +3581,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
 end
-if text and text:match("^حظر عام @(.*)$")  and DevAhMd(msg) then
+if text and text:match("^حظر عام @(.*)$")  and DevTuBacK(msg) then
 local username = text:match("^حظر عام @(.*)$") 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3618,7 +3618,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
-if text and text:match("^حظر عام (%d+)$") and DevAhMd(msg) then
+if text and text:match("^حظر عام (%d+)$") and DevTuBacK(msg) then
 local userid = text:match("^حظر عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3650,7 +3650,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == ("كتم عام") and msg.reply_to_message_id_ and DevAhMd(msg) then
+if text == ("كتم عام") and msg.reply_to_message_id_ and DevTuBacK(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3680,7 +3680,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
 end
-if text and text:match("^كتم عام @(.*)$")  and DevAhMd(msg) then
+if text and text:match("^كتم عام @(.*)$")  and DevTuBacK(msg) then
 local username = text:match("^كتم عام @(.*)$") 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3717,7 +3717,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
-if text and text:match("^كتم عام (%d+)$") and DevAhMd(msg) then
+if text and text:match("^كتم عام (%d+)$") and DevTuBacK(msg) then
 local userid = text:match("^كتم عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3750,7 +3750,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == ("الغاء العام") and msg.reply_to_message_id_ and DevAhMd(msg) then
+if text == ("الغاء العام") and msg.reply_to_message_id_ and DevTuBacK(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3772,7 +3772,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
 end
-if text and text:match("^الغاء العام @(.*)$") and DevAhMd(msg) then
+if text and text:match("^الغاء العام @(.*)$") and DevTuBacK(msg) then
 local username = text:match("^الغاء العام @(.*)$") 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3798,7 +3798,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
-if text and text:match("^الغاء العام (%d+)$") and DevAhMd(msg) then
+if text and text:match("^الغاء العام (%d+)$") and DevTuBacK(msg) then
 local userid = text:match("^الغاء العام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3824,11 +3824,11 @@ end;end,nil)
 return false
 end
 ------------------------------------------------------------------------
-if text == ("مسح المطورين") and DevAhMd(msg) then
+if text == ("مسح المطورين") and DevTuBacK(msg) then
 database:del(bot_id..'Sudo:User')
 send(msg.chat_id_, msg.id_, "\n🚮| تم مسح قائمة المطورين  ")
 end
-if text == ("المطورين") and DevAhMd(msg) then
+if text == ("المطورين") and DevTuBacK(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n📋| قائمة مطورين البوت \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do
@@ -3877,7 +3877,7 @@ end,nil)
 end,nil)
 end
 end
-if text == ("رفع مطور") and msg.reply_to_message_id_ and DevAhMd(msg) then
+if text == ("رفع مطور") and msg.reply_to_message_id_ and DevTuBacK(msg) then
 function start_function(extra, result, success)
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3898,7 +3898,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع مطور @(.*)$") and DevAhMd(msg) then
+if text and text:match("^رفع مطور @(.*)$") and DevTuBacK(msg) then
 local username = text:match("^رفع مطور @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3927,7 +3927,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع مطور (%d+)$") and DevAhMd(msg) then
+if text and text:match("^رفع مطور (%d+)$") and DevTuBacK(msg) then
 local userid = text:match("^رفع مطور (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3951,7 +3951,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("تنزيل مطور") and msg.reply_to_message_id_ and DevAhMd(msg) then
+if text == ("تنزيل مطور") and msg.reply_to_message_id_ and DevTuBacK(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3972,7 +3972,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false 
 end
-if text and text:match("^تنزيل مطور @(.*)$") and DevAhMd(msg) then
+if text and text:match("^تنزيل مطور @(.*)$") and DevTuBacK(msg) then
 local username = text:match("^تنزيل مطور @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3997,7 +3997,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end  
-if text and text:match("^تنزيل مطور (%d+)$") and DevAhMd(msg) then
+if text and text:match("^تنزيل مطور (%d+)$") and DevTuBacK(msg) then
 local userid = text:match("^تنزيل مطور (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6367,7 +6367,7 @@ return false
 end
 function start_function(extra, result, success)
 if result.id_ then
-if DevAhMd(msg) then
+if DevTuBacK(msg) then
 database:srem(bot_id..'GBan:User',result.id_)
 database:srem(bot_id..'Ban:User'..msg.chat_id_,result.id_)
 database:srem(bot_id..'Muted:User'..msg.chat_id_,result.id_)
@@ -6402,7 +6402,7 @@ end
 return false
 end
 function start_function(extra, result, success)
-if DevAhMd(msg) then
+if DevTuBacK(msg) then
 database:srem(bot_id..'GBan:User',result.sender_user_id_)
 database:srem(bot_id..'Ban:User'..msg.chat_id_,result.sender_user_id_)
 database:srem(bot_id..'Muted:User'..msg.chat_id_,result.sender_user_id_)
@@ -7438,11 +7438,11 @@ send(msg.chat_id_, msg.id_,'✅| تم مسح قائمه منع الملصقات'
 end
 ------------------
 
-if text == 'مسح كليشه المطور' and DevAhMd(msg) then
+if text == 'مسح كليشه المطور' and DevTuBacK(msg) then
 database:del(bot_id..'TEXT_SUDO')
 send(msg.chat_id_, msg.id_,'✅| تم مسح كليشه المطور')
 end
-if text == 'ضع كليشه المطور' and DevAhMd(msg) then
+if text == 'ضع كليشه المطور' and DevTuBacK(msg) then
 database:set(bot_id..'Set:TEXT_SUDO'..msg.chat_id_..':'..msg.sender_user_id_,true)
 send(msg.chat_id_,msg.id_,'↪️| حسناً ارسل الكليشه الان')
 return false
@@ -7910,7 +7910,7 @@ return false
 end
 send(msg.chat_id_, msg.id_,'📩| عدد رسائلك -› { '..database:get(bot_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_)..'}' ) 
 end 
-if text == 'تفعيل الاذاعه' and DevAhMd(msg) then  
+if text == 'تفعيل الاذاعه' and DevTuBacK(msg) then  
 if database:get(bot_id..'Bc:Bots') then
 database:del(bot_id..'Bc:Bots') 
 Text = '\n✅| تم تفعيل الاذاعه' 
@@ -7919,7 +7919,7 @@ Text = '\n⏏️| بالتاكيد تم تفعيل الاذاعه'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الاذاعه' and DevAhMd(msg) then  
+if text == 'تعطيل الاذاعه' and DevTuBacK(msg) then  
 if not database:get(bot_id..'Bc:Bots') then
 database:set(bot_id..'Bc:Bots',true) 
 Text = '\n❎| تم تعطيل الاذاعه' 
@@ -7928,7 +7928,7 @@ Text = '\n⏺️| بالتاكيد تم تعطيل الاذاعه'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل التواصل' and DevAhMd(msg) then  
+if text == 'تفعيل التواصل' and DevTuBacK(msg) then  
 if database:get(bot_id..'Tuasl:Bots') then
 database:del(bot_id..'Tuasl:Bots') 
 Text = '\n✅| تم تفعيل التواصل' 
@@ -7937,7 +7937,7 @@ Text = '\n🚹| بالتاكيد تم تفعيل التواصل'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التواصل' and DevAhMd(msg) then  
+if text == 'تعطيل التواصل' and DevTuBacK(msg) then  
 if not database:get(bot_id..'Tuasl:Bots') then
 database:set(bot_id..'Tuasl:Bots',true) 
 Text = '\n❎| تم تعطيل التواصل' 
@@ -7946,7 +7946,7 @@ Text = '\n⏏️| بالتاكيد تم تعطيل التواصل'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل البوت الخدمي' and DevAhMd(msg) then  
+if text == 'تفعيل البوت الخدمي' and DevTuBacK(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7964,7 +7964,7 @@ Text = '\n↩️| بالتاكيد تم تفعيل البوت الخدمي'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل البوت الخدمي' and DevAhMd(msg) then  
+if text == 'تعطيل البوت الخدمي' and DevTuBacK(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8079,7 +8079,7 @@ end,nil)
 send(msg.chat_id_, msg.id_,'🚮| تم تنظيف جميع الرسائل المعدله')
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" then 
-if DevAhMd(msg) then
+if DevTuBacK(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8114,7 +8114,7 @@ send(msg.chat_id_, msg.id_,'['..TuBacK_Msg[math.random(#TuBacK_Msg)]..']')
 return false
 end
 if text=="اذاعه خاص" and msg.reply_to_message_id_ == 0 and Sudo(msg) then 
-if database:get(bot_id..'Bc:Bots') and not DevAhMd(msg) then 
+if database:get(bot_id..'Bc:Bots') and not DevTuBacK(msg) then 
 send(msg.chat_id_, msg.id_,'⚠️| الاذاعه معطله من قبل المطور الاساسي')
 return false
 end
@@ -8132,7 +8132,7 @@ send(msg.chat_id_, msg.id_,"↪️| ارسل الان اذاعتك \n⏫| للخ
 return false
 end 
 if text=="اذاعه" and msg.reply_to_message_id_ == 0 and Sudo(msg) then 
-if database:get(bot_id..'Bc:Bots') and not DevAhMd(msg) then 
+if database:get(bot_id..'Bc:Bots') and not DevTuBacK(msg) then 
 send(msg.chat_id_, msg.id_,'⚠️| الاذاعه معطله من قبل المطور الاساسي')
 return false
 end
@@ -8150,7 +8150,7 @@ send(msg.chat_id_, msg.id_,"↪️| ارسل الان اذاعتك \n⏫| للخ
 return false
 end  
 if text=="اذاعه بالتوجيه" and msg.reply_to_message_id_ == 0  and Sudo(msg) then 
-if database:get(bot_id..'Bc:Bots') and not DevAhMd(msg) then 
+if database:get(bot_id..'Bc:Bots') and not DevTuBacK(msg) then 
 send(msg.chat_id_, msg.id_,'⚠️| الاذاعه معطله من قبل المطور الاساسي')
 return false
 end
@@ -8168,7 +8168,7 @@ send(msg.chat_id_, msg.id_,"↪️| ارسل لي التوجيه الان")
 return false
 end 
 if text=="اذاعه بالتوجيه خاص" and msg.reply_to_message_id_ == 0  and Sudo(msg) then 
-if database:get(bot_id..'Bc:Bots') and not DevAhMd(msg) then 
+if database:get(bot_id..'Bc:Bots') and not DevTuBacK(msg) then 
 send(msg.chat_id_, msg.id_,'⚠️| الاذاعه معطله من قبل المطور الاساسي')
 return false
 end
@@ -8404,7 +8404,7 @@ end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 end
-if text == ("مسح ردود المطور") and DevAhMd(msg) then 
+if text == ("مسح ردود المطور") and DevTuBacK(msg) then 
 local list = database:smembers(bot_id..'List:Rd:Sudo')
 for k,v in pairs(list) do
 database:del(bot_id.."Add:Rd:Sudo:Gif"..v)   
@@ -8420,7 +8420,7 @@ end
 send(msg.chat_id_, msg.id_,"✅| تم مسح ردود المطور")
 end
 
-if text == ("ردود المطور") and DevAhMd(msg) then 
+if text == ("ردود المطور") and DevTuBacK(msg) then 
 local list = database:smembers(bot_id..'List:Rd:Sudo')
 text = "\n📋| قائمة ردود المطور \nٴ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯\n"
 for k,v in pairs(list) do
@@ -9204,7 +9204,7 @@ else
 send(msg.chat_id_, msg.id_,'❎| بالتأكيد تم تعطيل تاك المشرفين')  
 end
 end
-if text == 'تفعيل المغادره' and DevAhMd(msg) then   
+if text == 'تفعيل المغادره' and DevTuBacK(msg) then   
 if database:get(bot_id..'Left:Bot'..msg.chat_id_) then
 database:del(bot_id..'Left:Bot'..msg.chat_id_)  
 local Text = '✅| تم تفعيل المغادرة'
@@ -9220,7 +9220,7 @@ else
 send(msg.chat_id_, msg.id_,'✅| بالتأكيد تم تفعيل المغادرة')  
 end
 end
-if text == 'تعطيل المغادره' and DevAhMd(msg) then  
+if text == 'تعطيل المغادره' and DevTuBacK(msg) then  
 if not database:get(bot_id..'Left:Bot'..msg.chat_id_) then
 database:del(bot_id..'Left:Bot'..msg.chat_id_)  
 local Text = '❎| تم تعطيل المغادرة'
@@ -10600,7 +10600,7 @@ Text = '🚻| عدد جهاتك *-› { '..Num..' } *'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == "تنظيف المشتركين" and DevAhMd(msg) then 
+if text == "تنظيف المشتركين" and DevTuBacK(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10636,7 +10636,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات" and DevAhMd(msg) then 
+if text == "تنظيف الكروبات" and DevTuBacK(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10971,7 +10971,7 @@ return false
 end
 end
 
-if text == 'استعاده الاوامر' and DevAhMd(msg) then
+if text == 'استعاده الاوامر' and DevTuBacK(msg) then
 database:del(bot_id..'help_text')
 database:del(bot_id..'help1_text')
 database:del(bot_id..'help2_text')
@@ -10985,48 +10985,48 @@ database:del(bot_id..'help5_text')
 database:del(bot_id..'help7_text')
 send(msg.chat_id_, msg.id_, '↪️| تم استعادة الاوامر القديمه')
 end
-if text == 'تغير امر الاوامر' and DevAhMd(msg) then
+if text == 'تغير امر الاوامر' and DevTuBacK(msg) then
 send(msg.chat_id_, msg.id_, '↪️| الان يمكنك ارسال الكليشه الاوامر')
 database:set(bot_id..'help'..msg.sender_user_id_,'true')
 return false 
 end
-if text == 'تغير امر م1' and DevAhMd(msg) then
+if text == 'تغير امر م1' and DevTuBacK(msg) then
 send(msg.chat_id_, msg.id_, '↪️| الان يمكنك ارسال الكليشه م1')
 database:set(bot_id..'help1'..msg.sender_user_id_,'true')
 return false 
 end
 
-if text == 'تغير امر م2' and DevAhMd(msg) then
+if text == 'تغير امر م2' and DevTuBacK(msg) then
 send(msg.chat_id_, msg.id_, '↪️| الان يمكنك ارسال الكليشه م2')
 database:set(bot_id..'help2'..msg.sender_user_id_,'true')
 return false 
 end
 
-if text == 'تغير امر م3' and DevAhMd(msg) then
+if text == 'تغير امر م3' and DevTuBacK(msg) then
 send(msg.chat_id_, msg.id_, '↪️| الان يمكنك ارسال الكليشه م3')
 database:set(bot_id..'help3'..msg.sender_user_id_,'true')
 return false 
 end
 
-if text == 'تغير امر م4' and DevAhMd(msg) then
+if text == 'تغير امر م4' and DevTuBacK(msg) then
 send(msg.chat_id_, msg.id_, '↪️| الان يمكنك ارسال الكليشه م4')
 database:set(bot_id..'help4'..msg.sender_user_id_,'true')
 return false 
 end
 
-if text == 'تغير امر م5' and DevAhMd(msg) then
+if text == 'تغير امر م5' and DevTuBacK(msg) then
 send(msg.chat_id_, msg.id_, '↪️| الان يمكنك ارسال الكليشه م5')
 database:set(bot_id..'help5'..msg.sender_user_id_,'true')
 return false 
 end
 
-if text == 'تغير امر م6' and DevAhMd(msg) then
+if text == 'تغير امر م6' and DevTuBacK(msg) then
 send(msg.chat_id_, msg.id_, '↪️| الان يمكنك ارسال الكليشه م6')
 database:set(bot_id..'help6'..msg.sender_user_id_,'true')
 return false 
 end
 
-if text == 'تغير امر م7' and DevAhMd(msg) then
+if text == 'تغير امر م7' and DevTuBacK(msg) then
 send(msg.chat_id_, msg.id_, '↪️| الان يمكنك ارسال الكليشه م7')
 database:set(bot_id..'help7'..msg.sender_user_id_,'true')
 return false 
